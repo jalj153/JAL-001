@@ -22,6 +22,8 @@ public class AppiumTest {
 		caps.setCapability("appActivity", "com.google.android.finsky.activities.MainActivity");
 		caps.setCapability("noReset", "true");
 		
+		//Set Capabilities to work with you.i Labs driver
+		
 		//Instantiate Appium Driver
 		try {
 				AppiumDriver<MobileElement> driver = new AndroidDriver<MobileElement>(new URL("http://0.0.0.0:4723/wd/hub"), caps);
