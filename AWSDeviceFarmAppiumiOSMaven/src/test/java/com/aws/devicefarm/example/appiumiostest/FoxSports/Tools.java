@@ -187,11 +187,11 @@ public class Tools {
 		int counter=0;
 		int counter2 =0;		
 		while(counter<2) {
-			scroll("abajo");
+			scroll("down");
 			counter++;
 		}
 		while(counter2<2) {
-			scroll("arriba");
+			scroll("up");
 			counter2++;	
 		}		
 	}

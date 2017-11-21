@@ -45,14 +45,29 @@ public class FoxSports {
 	  tools.searchId("Allow");
 	  tools.searchId("OMITIR");
 	  tools.searchId("OK");
-	  login.login_020();
-	 // results.results_080();
-	  //live.inLive_080();
-	  //results.Resultados_010();
-	 // radio.radio_030();
-	 // news.news_020();
-	  //competitions.competitions_160();
-	  live.inLive_070();
+	  /*login.login_020();
+	  results.results_080();
+	  live.inLive_080();
+	  results.Resultados_010();
+	  radio.radio_030();
+	  news.news_020();*/
+	  competitions.competitions_010();
+	  competitions.competitions_020();
+	  competitions.competitions_030();
+	  competitions.competitions_040();
+	  competitions.competitions_050();
+	  competitions.competitions_060();
+	  competitions.competitions_070();
+	  competitions.competitions_080();
+	  competitions.competitions_090();
+	  competitions.competitions_100();
+	  competitions.competitions_110();
+	  competitions.competitions_120();
+	  competitions.competitions_130();
+	  competitions.competitions_140();
+	  competitions.competitions_150();
+	  competitions.competitions_160();
+	  //live.inLive_070();
   }
   
   @AfterMethod

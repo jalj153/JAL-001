@@ -13,4 +13,3 @@ public class NewsTestCases {
 		step.searchNews();
 	}
 }
-g

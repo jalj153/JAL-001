@@ -6,7 +6,7 @@ public class CompetitionsSteps {
 	static FoxSports foxSports = new FoxSports();
 	
 	//Método para verificar las competencias que están disponibles
-	public void verifyCompetitions() {
+	public void verifyCompetitions1() {
 		String source=null;
 		String source2=null;
 		System.out.println("Estas son las competencias disponibles");
@@ -18,13 +18,36 @@ public class CompetitionsSteps {
 				break;
 			}
 		}while(source!=source2);
+		
+	}
+	
+	//Método para regresar luego de verificar las competencias disponibles
+	public void verifyCompetitions2() {
+		String source=null;
+		String source2=null;
+		System.out.println("Estas son las competencias disponibles");
+		do {
+			source=foxSports.driver.getPageSource();
+			Tools.scroll("up");
+			source2=foxSports.driver.getPageSource();
+			if(source.equals(source2)) {
+				break;
+			}
+		}while(source!=source2);
+		
 	}
 	
 	//Método que presiona el textBox de competencias para así buscar la competencias deseada
 	public void searchCompetition(String team) {
 		Tools.waitTime(2000);
 		//foxSports.driver.findElement(By.id("Buscar Competencia")).sendKeys(team);
+	//	Tools.searchId("Clear text");
+		try {
+			//foxSports.driver.findElement(By.xpath("//XCUIElementTypeSearchField[@name=\\\"Buscar Competencia\\\"]")).click();
+			foxSports.driver.findElement(By.id("Clear text")).click();
+		}catch(Exception e) {System.out.println("");}
 		Tools.sendText("//XCUIElementTypeSearchField[@name=\"Buscar Competencia\"]", team);
+		foxSports.driver.hideKeyboard();
 		Tools.searchId(team);
 		Tools.waitTime(4000);
 	}
@@ -32,21 +55,36 @@ public class CompetitionsSteps {
 	//Método que verifica cada una de las tabs de una competencia.
 	public void verifyTabsCompetition() {
 		Boolean isPresent=foxSports.driver.findElements(By.id("No hay contenido disponible en este momento.")).size()>0;
+		String source;
 		try {
 			//Tools.searchId("RESULTADOS");
 			foxSports.driver.findElement(By.id("RESULTADOS")).click();
+			source=foxSports.driver.getPageSource();
 			isPresent=foxSports.driver.findElements(By.id("No hay contenido disponible en este momento.")).size()>0;
 			if(isPresent) {
-				System.out.println("No hay contenido disponible en este momento.");
+				Boolean isVisible=foxSports.driver.findElement(By.id("No hay contenido disponible en este momento.")).isDisplayed();
+				if(isVisible) {
+					System.out.println("No hay contenido disponible en este momento.");
+				}	
 			}
 		}catch(Exception e) {
 			System.out.println("No hay resultados");
 		}
 		try {
-			foxSports.driver.findElement(By.id("NOTICIAS")).click();
+			foxSports.driver.findElement(By.id("EN VIVO")).click();
 			isPresent=foxSports.driver.findElements(By.id("No hay contenido disponible en este momento.")).size()>0;
 			if(isPresent) {
 				System.out.println("No hay contenido disponible en este momento.");
+			}
+		}catch(Exception e) {
+			System.out.println("No hay transmisiones en vivo de esta liga");
+		}
+		try {
+			foxSports.driver.findElement(By.id("NOTICIAS")).click();
+			isPresent=foxSports.driver.findElements(By.id("No hay noticias disponibles en este momento.")).size()>0;
+			if(isPresent) {
+					System.out.println("No hay contenido disponible en este momento.");
+
 			}
 		}catch(Exception e) {
 			System.out.println("No hay noticias");
@@ -57,11 +95,13 @@ public class CompetitionsSteps {
 			isPresent=foxSports.driver.findElements(By.id("No hay contenido disponible en este momento.")).size()>0;
 			if(isPresent) {
 				System.out.println("No hay contenido disponible en este momento.");
+
 			}
 		}catch(Exception e) {
 			System.out.println("No hay posiciones");
 		}
 		try {
+			Tools.searchId("RESULTADOS");
 			Tools.searchId("EQUIPOS");
 			isPresent=foxSports.driver.findElements(By.id("No hay contenido disponible en este momento.")).size()>0;
 			if(isPresent) {
@@ -73,12 +113,13 @@ public class CompetitionsSteps {
 		try {
 			Tools.searchId("ESTADÍSTICAS");
 			isPresent=foxSports.driver.findElements(By.id("No hay contenido disponible en este momento.")).size()>0;
-			if(isPresent) {
+			if(isPresent) {		
 				System.out.println("No hay contenido disponible en este momento.");
 			}
 		}catch(Exception e) {
 			System.out.println("No hay estadísticas");
 		}
+		Tools.searchId("Competencias");
 	}
 	
 	//Método que verifica cada una de las tabs de un resultado.
@@ -89,7 +130,10 @@ public class CompetitionsSteps {
 			foxSports.driver.findElement(By.id("RESUMEN")).click();
 			isPresent=foxSports.driver.findElements(By.id("No hay contenido disponible en este momento.")).size()>0;
 			if(isPresent) {
-				System.out.println("No hay contenido disponible en este momento.");
+				Boolean isVisible=foxSports.driver.findElement(By.id("No hay contenido disponible en este momento.")).isDisplayed();
+				if(isVisible) {
+					System.out.println("No hay contenido disponible en este momento.");
+				}	
 			}
 		}catch(Exception e) {
 			System.out.println("No hay resumen");
@@ -98,7 +142,10 @@ public class CompetitionsSteps {
 			foxSports.driver.findElement(By.id("NOTICIAS")).click();
 			isPresent=foxSports.driver.findElements(By.id("No hay contenido disponible en este momento.")).size()>0;
 			if(isPresent) {
-				System.out.println("No hay contenido disponible en este momento.");
+				Boolean isVisible=foxSports.driver.findElement(By.id("No hay contenido disponible en este momento.")).isDisplayed();
+				if(isVisible) {
+					System.out.println("No hay contenido disponible en este momento.");
+				}	
 			}
 		}catch(Exception e) {
 			System.out.println("No hay noticias");
@@ -108,7 +155,10 @@ public class CompetitionsSteps {
 			foxSports.driver.findElement(By.id("LÍNEA DE TIEMPO")).click();
 			isPresent=foxSports.driver.findElements(By.id("No hay contenido disponible en este momento.")).size()>0;
 			if(isPresent) {
-				System.out.println("No hay contenido disponible en este momento.");
+				Boolean isVisible=foxSports.driver.findElement(By.id("No hay contenido disponible en este momento.")).isDisplayed();
+				if(isVisible) {
+					System.out.println("No hay contenido disponible en este momento.");
+				}	
 			}
 		}catch(Exception e) {
 			System.out.println("No hay línea de tiempo");
@@ -117,7 +167,10 @@ public class CompetitionsSteps {
 			Tools.searchId("ESTADÍSTICAS");
 			isPresent=foxSports.driver.findElements(By.id("No hay contenido disponible en este momento.")).size()>0;
 			if(isPresent) {
-				System.out.println("No hay contenido disponible en este momento.");
+				Boolean isVisible=foxSports.driver.findElement(By.id("No hay contenido disponible en este momento.")).isDisplayed();
+				if(isVisible) {
+					System.out.println("No hay contenido disponible en este momento.");
+				}	
 			}
 		}catch(Exception e) {
 			System.out.println("No hay estadísticas");
@@ -126,7 +179,10 @@ public class CompetitionsSteps {
 			Tools.searchId("ALINEACIONES");
 			isPresent=foxSports.driver.findElements(By.id("No hay contenido disponible en este momento.")).size()>0;
 			if(isPresent) {
-				System.out.println("No hay contenido disponible en este momento.");
+				Boolean isVisible=foxSports.driver.findElement(By.id("No hay contenido disponible en este momento.")).isDisplayed();
+				if(isVisible) {
+					System.out.println("No hay contenido disponible en este momento.");
+				}	
 			}
 		}catch(Exception e) {
 			System.out.println("No hay alineaciones");
@@ -135,7 +191,10 @@ public class CompetitionsSteps {
 			Tools.searchId("HISTORIAL");
 			isPresent=foxSports.driver.findElements(By.id("No hay contenido disponible en este momento.")).size()>0;
 			if(isPresent) {
-				System.out.println("No hay contenido disponible en este momento.");
+				Boolean isVisible=foxSports.driver.findElement(By.id("No hay contenido disponible en este momento.")).isDisplayed();
+				if(isVisible) {
+					System.out.println("No hay contenido disponible en este momento.");
+				}	
 			}
 		}catch(Exception e) {
 			System.out.println("No hay historial");
@@ -144,7 +203,10 @@ public class CompetitionsSteps {
 			Tools.searchId("CLASIFICACIÓN");
 			isPresent=foxSports.driver.findElements(By.id("No hay contenido disponible en este momento.")).size()>0;
 			if(isPresent) {
-				System.out.println("No hay contenido disponible en este momento.");
+				Boolean isVisible=foxSports.driver.findElement(By.id("No hay contenido disponible en este momento.")).isDisplayed();
+				if(isVisible) {
+					System.out.println("No hay contenido disponible en este momento.");
+				}	
 			}
 		}catch(Exception e) {
 			System.out.println("No hay clasificaciones");
@@ -204,7 +266,7 @@ public class CompetitionsSteps {
 	
 	//Método que hace tap en posisiones
 	public void tapPosition() {
-		Tools.searchId("POSISIONES");
+		Tools.searchId("POSICIONES");
 	}
 	
 	//Método que hace tap en equipos
