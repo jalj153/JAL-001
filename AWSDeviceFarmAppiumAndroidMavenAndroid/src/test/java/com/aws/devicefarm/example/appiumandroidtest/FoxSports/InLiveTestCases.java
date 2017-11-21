@@ -79,7 +79,7 @@ public class InLiveTestCases {
 		inLiveSteps.tapVideo();//tap  en el video
 		inLiveSteps.tapMoreEventsInLive();//Tap en mas eventos en vivo
 		inLiveSteps.searchAllEventsInLive();//Buscar todos los eventos en vivo
-		Tools.backToMenu(2);
+		Tools.backToMenu(1);
 		
 	}
 	public void enVivo_080(){//Reproducir un evento programado que no va por un canal

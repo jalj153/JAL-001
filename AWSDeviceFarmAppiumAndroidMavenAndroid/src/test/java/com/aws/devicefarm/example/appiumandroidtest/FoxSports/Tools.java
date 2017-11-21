@@ -1,11 +1,19 @@
 package com.aws.devicefarm.example.appiumandroidtest.FoxSports;
 
+import java.io.IOException;
+
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Timer;
-
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.testng.internal.Invoker;
+
+//import com.gargoylesoftware.htmlunit.javascript.host.file.File;
+//import com.sun.jna.platform.FileUtils;
 
 import io.appium.java_client.android.AndroidKeyCode;
 
@@ -19,6 +27,7 @@ public class Tools {
 	static FoxSports principal = new FoxSports();
 	LoginSteps loginSteps = new LoginSteps();
 	public static String palabra;
+	
 		
 	// METODO PARA TIEMPO DE ESPERA
 	public static  void waitTime(int time) {
@@ -174,9 +183,18 @@ public class Tools {
 	
 	public void searchElementsOfLogin(String xpath){
 		try{
-			findAndReport(xpath, "");
+			principal.driver.findElementByXPath(xpath);
 			}catch(Exception e){
 				System.out.println("No has iniciado sesion");				
 			}
 	}
+	
+	/*public void takeScreenshot(String nombre) throws IOException{
+	    File srcFile= principal.driver.getScreenshotAs(OutputType.FILE);
+	    String filename=UUID.randomUUID().toString(); 
+	    File targetFile=new File(nombre + filename +".jpg");
+	    FileUtils.copyFile(srcFile,targetFile);
+	}*/
+	
+	
 }

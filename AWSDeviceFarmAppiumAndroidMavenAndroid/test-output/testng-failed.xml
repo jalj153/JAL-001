@@ -5,9 +5,17 @@
     <classes>
       <class name="com.aws.devicefarm.example.appiumandroidtest.FoxSports.FoxSports">
         <methods>
+          <include name="competencias"/>
+          <include name="Home"/>
           <include name="tearDown"/>
+          <include name="Radio"/>
           <include name="Iniciar"/>
           <include name="setUp"/>
+          <include name="scroll"/>
+          <include name="Noticias"/>
+          <include name="resultados"/>
+          <include name="enVivo"/>
+          <include name="takeScreenshot"/>
         </methods>
       </class> <!-- com.aws.devicefarm.example.appiumandroidtest.FoxSports.FoxSports -->
     </classes>

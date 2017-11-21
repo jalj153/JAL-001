@@ -2,6 +2,7 @@ package com.aws.devicefarm.example.appiumandroidtest.FoxSports;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
 //import java.net.MalformedURLException;
 import java.net.URL;
 import java.text.DateFormat;
@@ -14,11 +15,13 @@ import java.util.concurrent.TimeUnit;
 
 
 
-
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
+import org.openqa.selenium.OutputType;
 //import org.openqa.selenium.OutputType;
 import org.openqa.selenium.Point;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -34,10 +37,12 @@ import io.appium.java_client.remote.MobilePlatform;
  * @authores Fredy García and Elio Raymundo
  *
  */
- public class FoxSports {
+ @Test public class FoxSports {
 	public static AndroidDriver<AndroidElement> driver;	
 	private static FoxSports principal = new FoxSports();
 	int foxTimeOut=7;
+	static String destDir;
+	static DateFormat dateFormat;
  	
 	/**
 	 * @throws Exception
@@ -59,26 +64,21 @@ import io.appium.java_client.remote.MobilePlatform;
 		driver.manage().timeouts().implicitlyWait(foxTimeOut, TimeUnit.SECONDS);
 	}
 
-	@Test
 	public static void Iniciar() {
 		
 		//waitTime(5000);
 		try {
-			// REALIZAR SCREENSHOT
-			//takeScreenshot("Botón Omitir");
+			//REALIZAR SCREENSHOT
+			takeScreenshot();//("Botón Omitir");
 			// TAP EN BOTON OMITIR
 			driver.findElementByAndroidUIAutomator("new UiSelector().text(\"Omitir\")").click();
 		} catch (Exception e) {
 			System.out.println("NO SE ENCUENTRA EL BOTON OMITIR");
 		}
-		
-		
-		
-		
-		
+				
 		try {
-			// REALIZAR SCREENSHOT
-		//	takeScreenshot("Permiso de Acceso a Llamadas Telefonicas");
+			//REALIZAR SCREENSHOT
+			takeScreenshot();//("Permiso de Acceso a Llamadas Telefonicas");
 			// TAP EN ALERTA DE PERMISO DE LLAMADAS TELEFONICAS
 			driver.findElementByAndroidUIAutomator(
 					"new UiSelector().resourceId(\"com.android.packageinstaller:id/permission_allow_button\")").click();
@@ -460,5 +460,19 @@ import io.appium.java_client.remote.MobilePlatform;
 			e.printStackTrace();
 		}
 		return value;
+	}
+	
+	public static void takeScreenshot(){
+		destDir = "screenshots";
+		File scrFile = ((TakesScreenshot)principal.driver).getScreenshotAs(OutputType.FILE);
+		dateFormat = new SimpleDateFormat("dd-MMM-yyyy__hh_mm_ssaa");
+		new File(destDir).mkdirs();
+		String destFile = dateFormat.format(new Date()) + ".png";
+		try {
+			   FileUtils.copyFile(scrFile, new File(destDir + "/" + destFile));
+			  } catch (IOException e) {
+			   e.printStackTrace();
+			  }
+		
 	}
 }

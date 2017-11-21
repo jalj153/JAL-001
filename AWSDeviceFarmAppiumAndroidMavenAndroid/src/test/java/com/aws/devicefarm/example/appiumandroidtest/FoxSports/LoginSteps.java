@@ -15,7 +15,14 @@ public class LoginSteps {
 	
 	public  void tapGuests(){
 		principal.scroll("abajo");
-		tools.searchPath("//android.view.View[@content-desc=\"INVITADOS\"]");	//Ingresar en invitados
+		try{
+			principal.driver.findElementByXPath("//android.view.View[@content-desc=\"INVITADOS\"]").click();
+		}catch(Exception e){
+			tools.searchPath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View[5]/android.view.View[1]");	//Ingresar en invitados
+		}
+		
+		
+		
 
 	}
 	public void tapUserName(){

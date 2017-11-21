@@ -90,8 +90,14 @@ public class InLiveSteps {
 		tools.searchId("com.fic.foxsports:id/livecamera_grid_title");
 	}
 	public void searchAllEventsInLive(){
-		tools.findAndReport("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.RelativeLayout[1]/android.widget.FrameLayout/android.widget.RelativeLayout[2]/android.widget.RelativeLayout", "No se muestra la lista de canales en vivo");
-		tools.waitTime(3000);
+		try{
+			principal.driver.findElementByXPath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.RelativeLayout[1]/android.widget.FrameLayout/android.widget.RelativeLayout[2]/android.widget.RelativeLayout");
+			tools.waitTime(3000);
+			Tools.backToMenu(1);
+		}catch(Exception e){
+			System.out.println("Al parecer no se pudo reproducir en fullscreen");
+		}
+	
 	}
 	
 	public void scroll(){
