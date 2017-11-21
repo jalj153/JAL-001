@@ -7,73 +7,65 @@ import io.appium.java_client.TouchAction;
 public class Tools {
 	FoxApp foxapp = new FoxApp();
 	
-	 public void space() {
+//Method for let space in the console while writing 
+	 	public void space() {
 		 for(int i=0; i<3; i++) {
-			System.out.println("");				
+			print("");				
 		 }				  		
 	 }
 	 
 //Wait with sleepThread
-	 public static void waitTime(int time) {			
+	 	public static void waitTime(int time) {			
 			try {
 				Thread.sleep(time);
 			} catch (InterruptedException e) {
-				System.out.println("Tiempo de espera terminado");
+				print("Tiempo de espera terminado");
 			}
 		}
 		
 		
 //Search content			
 		public void searchContent(){
+
 			boolean visible2 = false;
 			boolean visible=false;
 			boolean content=false;
-			try {
-				 
+			try {				 
 				 waitTime(2000);
-			     visible2 = foxapp.driver.findElementByName("Select-Btn").isDisplayed();
-			     
+			     visible2 = foxapp.driver.findElementByName("Select-Btn").isDisplayed();			     
 			     content = true;
-			}catch(Exception e) {
-				
+			}catch(Exception e) {				
 				content= false;
 			}
 			if((visible2!=false)) {
-				System.out.println("ES UNA SERIE");
-				 space();
-			     
+				print("ES UNA SERIE");
+				 space();			     
 				 findName("Select-Btn","Episodio ");
 				  //driver.findElementByName("Placeholder-TryButton").click();
-				  try {
-					  
+				  try {					  
 					  waitTime(2000);
-				     visible = foxapp.driver.findElementByName("Placeholder-TryButton").isDisplayed();
-				    
-				     foxapp.encontrado = true;
-				     
-				  }catch(Exception e) {
-					 
+				      visible = foxapp.driver.findElementByName("Placeholder-TryButton").isDisplayed();				    
+				      foxapp.encontrado = true;				     
+				  }catch(Exception e) {					 
 					  foxapp.encontrado = false;
-				  }
-				
+				  }				
 				  if ((visible !=false)||(foxapp.encontrado !=false)) {
-					  System.out.println("Este contenido no se puede reproducir");
+					  print("Este contenido no se puede reproducir debido a la suscripcion premium");
 					  waitTime(3000);
 					  space();
 					  waitTime(2000);
-					  foxapp.driver.findElementByName("Btn-Back-Hero-Container").click();
-					  System.out.println("Encontre boton atras");  
+					  /*foxapp.driver.findElementByName("Btn-Back-Hero-Container").click();
+					  print("Encontre boton atras"); */
+					  findName("Btn-Back-Hero-Container","Boton atras");
 					  
 				  }else {
 					  space();
-					  System.out.println("Esperando por anuncio");
-					 
-					  //touchAction.press(250, 70).perform().release();
+					  System.out.println("Esperando por anuncio");		
 					  foxapp.driver.findElementByName("Activity-Indicator-Container").click();
 					  foxapp.driver.findElementByName("Activity-Indicator-Container").click();
 					  foxapp.driver.findElementByName("Activity-Indicator-Container").click();				
 					  waitTime(50000);					  
-					  System.out.println("Encontre el video");  
+					  print("Terminó anuncio");  
 					  
 					  space();
 					  foxapp.driver.findElementByName("Activity-Indicator-Container").click();
@@ -81,43 +73,69 @@ public class Tools {
 					  foxapp.driver.findElementByName("Activity-Indicator-Container").click();
 					  waitTime(2000);
 					  foxapp.driver.findElementByName("Activity-Indicator-Container").click();
-					  waitTime(2000);	 
-					  foxapp.driver.findElementByName("Btn-Back-Hero-Container").click();
+					  waitTime(2000);
+					  findName("Btn-Back-Hero-Container","Boton atras");
+					  waitTime(2000);
+					  findName("Btn-Back-Hero-Container","Boton atras");
+					/*  foxapp.driver.findElementByName("Btn-Back-Hero-Container").click();
 					  waitTime(2000);
 					  foxapp.driver.findElementByName("Btn-Back-Hero-Container").click();
-					  System.out.println("Encontre boton atras");					  
+					  print("Encontre boton atras");	*/				  
 				  }
 				
 			}else {
-				System.out.println("ES UNA PELICULA");
+				print("ES UNA PELICULA");
 				space();
-				foxapp.driver.findElementByName("Btn-Back-Hero-Container").click();
-				System.out.println("Encontre boton atras");	
+				findName("Btn-Back-Hero-Container","Boton atras");
+				
 			}			 
 		}
-//Finders
+
+//******************FINDERS**********************//
+//Find by Name
 		public void findName(String name, String nameSpanish) {
-			System.out.println("Buscando"+" "+nameSpanish);
+			print("Buscando"+" "+nameSpanish);
+			
 			try {				
 				
 				foxapp.driver.findElementByName(name).click();
-				System.out.println("Se encontro"+" "+nameSpanish);
+				print("Se encontro"+" "+nameSpanish);
+				if(name=="Button0") {
+					print("-----------SECCION PERFIL----------");
+				}else if(name=="Button1") {
+					print("------------SECCION ON DEMAND----------");
+				}else if(name=="Button2") {
+					print("------------SECCION TV EN VIVO----------");
+				}else if(name=="Button3") {
+					print("------------SECCION DE BUSQUEDA----------");
+				}else {
+					
+				}
 			}catch(Exception e) {
-				System.out.println("No se encontro"+" "+nameSpanish);
+				print("No se encontro"+" "+nameSpanish);
 			}
 			
 			
 		}
 		
+//Find by ID
 		public void findId(String name, String nameSpanish) {
+			print("Buscando"+" "+nameSpanish);
 			try {				
 				foxapp.driver.findElementById(name).click();
-				System.out.println("Se encontro"+" "+nameSpanish);
+				print("Se encontro"+" "+nameSpanish);
 			}catch(Exception e) {
-				System.out.println("Se encontro"+" "+nameSpanish);
+				print("Se encontro"+" "+nameSpanish);
 			}
 			
 			
+		}
+		
+
+		
+//Method for write in Console
+		public static void print(String print) {
+			System.out.println(print);
 		}
 		
 	
