@@ -78,14 +78,14 @@ public class FoxApp {
 	  start();
 	  
 //Execute method for do review in the section On Demand
-	  //onDemand(); 
+	  onDemand(); 
 	  
 //Execute method for do review in the section Profile and their elements
 //*******THIS SECTION Have many problems, required some information for continue their automation**************************************//
 	 //profile();
 	  
 //Execute method for do review in section TV Live
-	  tvLive();
+	  //tvLive();
 	  
 //Final Message
 	  tool.space();
