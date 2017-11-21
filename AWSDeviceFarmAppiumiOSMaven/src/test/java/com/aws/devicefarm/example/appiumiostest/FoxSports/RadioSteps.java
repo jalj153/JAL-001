@@ -8,6 +8,7 @@ import io.appium.java_client.ios.IOSElement;
 
 public class RadioSteps {
 	static FoxSports foxSports = new FoxSports();
+	
 	//Método para seleccionar una radio en vivo
 	public void playRadio() {
 		int contador = 0;
@@ -26,4 +27,20 @@ public class RadioSteps {
 			}
 		}
 	}
+	
+	
+	public void radioLive() {
+		Boolean isPresent = foxSports.driver.findElements(By.id("EN VIVO")).size()>0;
+		
+		if(isPresent) {
+			Boolean isVisible = foxSports.driver.findElement(By.id("EN VIVO")).isDisplayed();
+			if(isVisible) {
+				System.out.println("Sí hay transmisiones en vivo");
+			}else {
+				System.out.println("No hay transmisiones en vivo");
+			}
+		}
+		
+	}
+	
 }

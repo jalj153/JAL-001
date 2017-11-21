@@ -45,6 +45,7 @@ public class ProfileSteps {
 	//Método que busca el "Centro de Ayuda"
 	public void helpCenter() {
 		Tools.searchId("Centro de Ayuda");
+		Tools.waitTime(3000);
 	}
 	
 	//Método que busca "¿Qué hay de nuevo?"

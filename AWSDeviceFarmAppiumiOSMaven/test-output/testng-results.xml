@@ -2,20 +2,20 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="91978" started-at="2017-11-21T16:17:03Z" finished-at="2017-11-21T16:18:35Z">
+  <suite name="Default suite" duration-ms="41104" started-at="2017-11-21T21:54:07Z" finished-at="2017-11-21T21:54:48Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="91978" started-at="2017-11-21T16:17:03Z" finished-at="2017-11-21T16:18:35Z">
+    <test name="Default test" duration-ms="41104" started-at="2017-11-21T21:54:07Z" finished-at="2017-11-21T21:54:48Z">
       <class name="com.aws.devicefarm.example.appiumiostest.FoxSports.FoxSports">
-        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:com.aws.devicefarm.example.appiumiostest.FoxSports.FoxSports@29ca901e]" name="beforeMethod" is-config="true" duration-ms="22835" started-at="2017-11-21T10:17:03Z" finished-at="2017-11-21T10:17:26Z">
+        <test-method status="PASS" signature="beforeMethod()[pri:0, instance:com.aws.devicefarm.example.appiumiostest.FoxSports.FoxSports@29ca901e]" name="beforeMethod" is-config="true" duration-ms="27390" started-at="2017-11-21T15:54:07Z" finished-at="2017-11-21T15:54:34Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method status="PASS" signature="f()[pri:0, instance:com.aws.devicefarm.example.appiumiostest.FoxSports.FoxSports@29ca901e]" name="f" duration-ms="68678" started-at="2017-11-21T10:17:26Z" finished-at="2017-11-21T10:18:34Z">
+        <test-method status="PASS" signature="f()[pri:0, instance:com.aws.devicefarm.example.appiumiostest.FoxSports.FoxSports@29ca901e]" name="f" duration-ms="13264" started-at="2017-11-21T15:54:34Z" finished-at="2017-11-21T15:54:48Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- f -->
-        <test-method status="PASS" signature="afterMethod()[pri:0, instance:com.aws.devicefarm.example.appiumiostest.FoxSports.FoxSports@29ca901e]" name="afterMethod" is-config="true" duration-ms="441" started-at="2017-11-21T10:18:34Z" finished-at="2017-11-21T10:18:35Z">
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:com.aws.devicefarm.example.appiumiostest.FoxSports.FoxSports@29ca901e]" name="afterMethod" is-config="true" duration-ms="424" started-at="2017-11-21T15:54:48Z" finished-at="2017-11-21T15:54:48Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->

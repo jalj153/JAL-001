@@ -6,6 +6,7 @@ public class LoginTestCases {
 	static FoxSports foxSports = new FoxSports();
 	static LoginSteps step= new LoginSteps();
 
+	//Método para hacer "login" con un usuario invitado
     public void login_020(){
     		step.tapIconProfile();
     		step.tapEnter();

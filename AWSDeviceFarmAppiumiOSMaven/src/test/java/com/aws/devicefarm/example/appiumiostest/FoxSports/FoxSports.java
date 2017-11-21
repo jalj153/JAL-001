@@ -14,6 +14,7 @@ import java.net.URL;
 
 public class FoxSports {
 	static LoginTestCases login = new LoginTestCases();
+	static ProfileTestCases profile = new ProfileTestCases();
 	static ResultsTestCases results= new ResultsTestCases();
 	static InLiveTestCases live= new InLiveTestCases();
 	static RadioTestCases radio = new RadioTestCases();
@@ -45,13 +46,26 @@ public class FoxSports {
 	  tools.searchId("Allow");
 	  tools.searchId("OMITIR");
 	  tools.searchId("OK");
-	  /*login.login_020();
-	  results.results_080();
-	  live.inLive_080();
-	  results.Resultados_010();
-	  radio.radio_030();
-	  news.news_020();*/
-	  competitions.competitions_010();
+	  
+	  ///////////Login
+	  
+	  //login.login_020();
+	 
+	  ///////////Profile
+	  
+	  //profile.profile_010();
+	  //profile.profile_020();
+	  //profile.profile_030();
+	  //profile.profile_040();
+	  //profile.profile_050();
+	  //profile.profile_060();
+	  //profile.profile_070();
+	  /*profile.profile_080();*/
+	  
+	  
+	  //////////Competitions
+	  
+	  /*competitions.competitions_010();
 	  competitions.competitions_020();
 	  competitions.competitions_030();
 	  competitions.competitions_040();
@@ -66,8 +80,20 @@ public class FoxSports {
 	  competitions.competitions_130();
 	  competitions.competitions_140();
 	  competitions.competitions_150();
-	  competitions.competitions_160();
+	  competitions.competitions_160();*/
 	  //live.inLive_070();
+	  
+	  ///////////////News
+	  
+	  /*news.news_010();
+	  news.news_020();*/
+	  
+	  ///////////////Radio
+	  
+	  radio.radio_010();
+	  //radio.radio_020();
+	  //radio.radio_030();
+	  //radio.radio_040();
   }
   
   @AfterMethod

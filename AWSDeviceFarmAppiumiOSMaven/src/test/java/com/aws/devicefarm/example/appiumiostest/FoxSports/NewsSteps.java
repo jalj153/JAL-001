@@ -62,8 +62,7 @@ public class NewsSteps {
 					+ "/XCUIElementTypeScrollView/XCUIElementTypeOther/XCUIElementTypeCollectionView"
 					+ "/XCUIElementTypeCell[1]")).click();
 			Tools.waitTime(10000);
-			Tools.specificSearch("select", "\uF106 Volver al top", 1);
-			Tools.backToMenu();
+			
 		}
 	}
 }
