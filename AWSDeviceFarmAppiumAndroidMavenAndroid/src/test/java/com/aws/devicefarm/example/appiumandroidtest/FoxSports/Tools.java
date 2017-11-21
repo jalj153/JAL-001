@@ -27,12 +27,14 @@ public class Tools {
 	static FoxSports principal = new FoxSports();
 	LoginSteps loginSteps = new LoginSteps();
 	public static String palabra;
+	static boolean found = false;
+	static int cont = 0;
 	
 		
 	// METODO PARA TIEMPO DE ESPERA
 	public static  void waitTime(int time) {
 		try {
-			Thread.sleep(time);
+			Thread.sleep(time);	
 		} catch (InterruptedException e) {
 			System.out.print("Tiempo de Espera Terminado");
 		}

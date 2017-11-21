@@ -110,12 +110,12 @@ import io.appium.java_client.remote.MobilePlatform;
 		ResultsTestCases resultsTestCases = new ResultsTestCases();
 		RadioTestCases radioTestCases = new RadioTestCases();
 		CompetitionsTestCases competitionTestCases = new CompetitionsTestCases();
-		login.miPerfil();
-		enVivo.enVivo();
+		//login.miPerfil();
+		//enVivo.enVivo();
 		miPerfil.miPerfil();
-		noticias.noticias();
-		resultsTestCases.Resultados();
-		radioTestCases.radio();
+		//noticias.noticias();
+		//resultsTestCases.Resultados();
+		//radioTestCases.radio();
 		competitionTestCases.competitions();
 		System.out.println("Test finalizado con exito");
 	}
