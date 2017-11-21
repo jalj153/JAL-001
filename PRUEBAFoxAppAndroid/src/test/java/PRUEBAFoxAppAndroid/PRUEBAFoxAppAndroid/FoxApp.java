@@ -85,11 +85,14 @@ public class FoxApp {
 	 //profile();
 	  
 //Execute method for do review in section TV Live
+// **********THIS SECTION also have many problems for automation, because, the names of their elements are all the same**************
 	  //tvLive();
 	  
 //Final Message
 	  tool.space();
-	  tool.print("====================TEST TERMINADO===================");
+	  tool.print("================================================");
+	  tool.print("==================TEST TERMINADO================");
+	  tool.print("================================================");
   }
   
   
@@ -140,6 +143,7 @@ public class FoxApp {
 			
 //Scroll with direction
   public static void scrollDireccion(String direccion) {
+
 	  TouchAction touchAction = new TouchAction(foxapp.driver);
 	  Dimension dimensions = foxapp.driver.manage().window().getSize();
 	  int pointX = (dimensions.getWidth() / 2);
@@ -149,9 +153,11 @@ public class FoxApp {
 		if (direccion.equals("abajo")) {
 			endPointY = (int) (dimensions.getHeight() * -0.5);
 			touchAction.press(pointX, startPointY).moveTo(0, -400).release().perform();
+			tool.waitTime(700);
 		} else if (direccion.equals("arriba")) {
 			endPointY = (int) (dimensions.getHeight() * 0.5);
 			touchAction.press(pointX, startPointY).moveTo(0, 400).release().perform();
+			tool.waitTime(700);
 		}
   }
 				  
@@ -159,12 +165,19 @@ public class FoxApp {
   public void scrollConocidoAbajo() {
 	  Tools tool = new Tools();
 	  for (int i=0;i<8;i++) {
-		  scrollDireccion("abajo");
-		  tool.waitTime(2000);
+		  scrollDireccion("abajo");		  
 	  }
 	  
   }
   
+  public void scrollBuscando() {
+	  boolean visto = false;
+	do {
+		   visto = driver.findElementByName("View More").isDisplayed();
+		  scrollDireccion("abajo");
+		  tool.print("Es"+" "+visto);
+	  }while(visto != true);
+  }
   
   
 //*****************************************PRINCIPAL METHODS************************************//
@@ -181,7 +194,9 @@ public class FoxApp {
 	  tool.space();
 	  tool.print("-----------BIENVENIDO A FOX APP-----------");		
 	  tool.waitTime(2000);	  
-	  tool.findId("8","Boton cerrar Bienvenido a Fox por ID");		
+	  tool.findId("8","Boton cerrar Bienvenido a Fox por ID");	
+	  
+	  tool.space();
 	  tool.waitTime(5000);
 	  tool.print("(Este boton se habilita al estar activo Chromecast)");
 	  tool.findName("Btn-Close","Boton cerrar Bienvenido a Fox por Name");
@@ -190,6 +205,8 @@ public class FoxApp {
   
 //Verification On Demand
   public void onDemand() {
+
+
 	  // Find series
 	  tool.space();	 	   
 	  tool.waitTime(2000);
@@ -212,7 +229,7 @@ public class FoxApp {
 	  driver.pressKeyCode(66);  
 	  tool.waitTime(2000);
 	  
-	  tool.space();
+
 	  tool.waitTime(2000);
 	  tool.findName("ImageNode","Contenido");	  
 	  tool.waitTime(10000);	  
@@ -224,7 +241,7 @@ public class FoxApp {
 	  
 	  
 	  tool.space();
-	  tool.waitTime(11000);
+	  tool.waitTime(13000);
 	  tool.findName("Button1","Boton On Demand");	   
 	  tool.waitTime(1000);	  
 	  
@@ -246,6 +263,9 @@ public class FoxApp {
 	  tool.searchContent();
 	  tool.waitTime(10000); 
 	  
+
+	  
+	  
 	  
   }
 
@@ -264,32 +284,39 @@ public class FoxApp {
   }
   
 //Review in TV EN VIVO section
+// **********THIS SECTION also have many problems for automation, because, the names of their elements are all the same**************
   public void tvLive() {
 	  boolean visible = false;
 	  tool.space();
 	  tool.waitTime(3000);
-	  tool.findName("Categories-Live-Text", "Categoria Tv En Vivo");
+	  tool.findName("Button2", "Seccion de Tv En Vivo");
 	  
 	  tool.space();
-	  tool.waitTime(3000);
-	  tool.findName("ImageNode", "Evento en Vivo");
+	  tool.waitTime(5000);
+	  tool.findName("ImageNode", "Pilar de colecciones");
 	  
-	  try {					  
-		  tool.waitTime(2000);
-	      visible = foxapp.driver.findElementByName("Placeholder-TryButton").isDisplayed();				    
-	      foxapp.encontrado = true;				     
-	  }catch(Exception e) {					 
-		  foxapp.encontrado = false;
-	  }				
-	  if ((visible !=false)||(foxapp.encontrado !=false)) {
-		  tool.print("Este contenido no se puede reproducir debido a la suscripcion premium");
-		  tool.waitTime(3000);
-		  tool.space();
-		  tool.waitTime(2000);
-		  /*foxapp.driver.findElementByName("Btn-Back-Hero-Container").click();
-		  print("Encontre boton atras"); */
-		  tool.findName("Btn-Back-Hero-Container","Boton atras");
-	  }
+	  tool.space();
+	  tool.waitTime(5000);
+	  tool.findName("ImageNode", "una Coleccion");
+	  
+	  tool.space();
+	  tool.waitTime(7000);
+	  tool.findName("ImageNode", "contenido");
+	  
+	  tool.space();
+	  tool.waitTime(6000);
+	  tool.searchContent();
+
+	  tool.space();
+	  tool.waitTime(4000);
+	  tool.findName("Btn-Back", "Boton atras");
+	  
+	  tool.space();
+	  tool.waitTime(7000);
+	  tool.findName("Btn-Back", "Boton atras");
+	  
+	  
+	 
   }
   
   
