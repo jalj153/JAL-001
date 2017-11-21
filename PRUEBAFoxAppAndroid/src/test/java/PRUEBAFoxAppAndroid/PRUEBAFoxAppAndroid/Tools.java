@@ -50,7 +50,7 @@ public class Tools {
 					  foxapp.encontrado = false;
 				  }				
 				  if ((visible !=false)||(foxapp.encontrado !=false)) {
-					  print("Este contenido no se puede reproducir debido a la suscripcion premium");
+					  print("Este contenido no se puede reproducir debido a la suscripcion");
 					  waitTime(3000);
 					  space();
 					  waitTime(2000);
@@ -94,6 +94,7 @@ public class Tools {
 //******************FINDERS**********************//
 //Find by Name
 		public void findName(String name, String nameSpanish) {
+			print("___________________________________________________________________________________________");
 			print("Buscando"+" "+nameSpanish);
 			
 			try {				
