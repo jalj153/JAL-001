@@ -5,6 +5,7 @@ public class ResultsTestCases {
 	static ProfileSteps stepProfile = new ProfileSteps();
 	//-------------------------Resultados (Favoritos)
 	
+	//Método que en la pestaña de favoritos, hace tap en una competencia y verifica los resultados
 	public void results_010() {
 		step.tapResults();
 		step.tapFavorite();
@@ -20,6 +21,7 @@ public class ResultsTestCases {
 		Tools.backToMenu();
 	}
 	
+	//Método que en la pestaña favoritos hace tap en un resultado
 	public void results_020() {
 		step.tapResults();
 		step.tapFavorite();
@@ -35,6 +37,8 @@ public class ResultsTestCases {
 		Tools.tap();
 		Tools.backToMenu();
 	}
+	
+	//Método que hace tap en un resultado y luego en el resumen
 	public void results_030() {
 		this.results_020();
 		step.tapSummary();
@@ -42,6 +46,8 @@ public class ResultsTestCases {
 		Tools.scrollChecker();	
 		Tools.backToMenu();
 	}
+	
+	//Método que hace tap en un resultado y luego en la línea de tiempo
 	public void results_040() {
 		this.results_020();
 		step.tapTimeLine();
@@ -49,6 +55,8 @@ public class ResultsTestCases {
 		Tools.scrollChecker();
 		Tools.backToMenu();
 	}
+	
+	//Método que hace tap en un resultado y luego en las estadísticas
 	public void results_050() {
 		this.results_020();
 		step.tapStats();
@@ -56,6 +64,8 @@ public class ResultsTestCases {
 		Tools.scrollChecker();
 		Tools.backToMenu();
 	}
+	
+	//Método que hace tap en un resultado y luego en las alineaciones
 	public void results_060(){
 		this.results_020();
 		step.tapAlignments();
@@ -63,6 +73,8 @@ public class ResultsTestCases {
 		Tools.scrollChecker();
 		Tools.backToMenu();
 	}
+	
+	//Método que hace tap en un resultado y luego en el historial
 	public void results_070() {
 		this.results_020();
 		step.tapAlignments();
@@ -71,6 +83,8 @@ public class ResultsTestCases {
 		Tools.scrollChecker();
 		Tools.backToMenu();
 	}
+	
+	//Método que hace tap en un  resultado y luego en la clasificación
 	public void  results_080() {
 		this.results_020();
 		step.tapAlignments();
@@ -84,8 +98,10 @@ public class ResultsTestCases {
 	
 	//----------------------Resultados (Todos)
 	
+	//Método que en la pestaña de todos hace un tap a un resultado
 	public void results_090() {
 		step.tapResults();
+		step.searchCompetition("LA LIGA");
 		Tools.scrollChecker();
 		Tools.backToMenu();
 	}
@@ -131,7 +147,7 @@ public class ResultsTestCases {
 		Tools.scrollChecker();
 		Tools.backToMenu();
 	}
-	public void results_0150() {
+	public void results_0160() {
 		this.results_100();
 		step.tapAlignments();
 		step.tapBackground();
