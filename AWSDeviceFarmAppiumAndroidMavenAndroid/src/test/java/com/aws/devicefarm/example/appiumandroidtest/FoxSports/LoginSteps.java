@@ -20,11 +20,9 @@ public class LoginSteps {
 		}catch(Exception e){
 			tools.searchPath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.webkit.WebView/android.webkit.WebView/android.view.View/android.view.View/android.view.View[5]/android.view.View[1]");	//Ingresar en invitados
 		}
-		
-		
-		
 
 	}
+	
 	public void tapUserName(){
 		try{
 			principal.driver.findElementByXPath("//android.webkit.WebView[@content-desc=\"Fox Play - Login\"]/android.view.View[2]/android.view.View/android.view.View[2]/android.widget.ListView/android.view.View[1]/android.view.View[2]/android.widget.EditText").click();

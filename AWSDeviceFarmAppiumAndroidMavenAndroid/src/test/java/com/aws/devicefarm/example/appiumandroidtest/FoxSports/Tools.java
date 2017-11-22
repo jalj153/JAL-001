@@ -1,13 +1,17 @@
 package com.aws.devicefarm.example.appiumandroidtest.FoxSports;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
-
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Properties;
 import java.util.Timer;
+
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.testng.internal.Invoker;
@@ -15,6 +19,11 @@ import org.testng.internal.Invoker;
 //import com.gargoylesoftware.htmlunit.javascript.host.file.File;
 //import com.sun.jna.platform.FileUtils;
 
+
+
+
+
+import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidKeyCode;
 
 
@@ -29,7 +38,8 @@ public class Tools {
 	public static String palabra;
 	static boolean found = false;
 	static int cont = 0;
-	
+	static String destDir;
+	static DateFormat dateFormat;
 		
 	// METODO PARA TIEMPO DE ESPERA
 	public static  void waitTime(int time) {
@@ -191,12 +201,53 @@ public class Tools {
 			}
 	}
 	
-	/*public void takeScreenshot(String nombre) throws IOException{
-	    File srcFile= principal.driver.getScreenshotAs(OutputType.FILE);
-	    String filename=UUID.randomUUID().toString(); 
-	    File targetFile=new File(nombre + filename +".jpg");
-	    FileUtils.copyFile(srcFile,targetFile);
-	}*/
+	// METODO PARA LEER EL ARCHIVO DE CONFIGURACION
+	public static String readProperty(String property) {
+		Properties prop;
+		String value = null;
+		try {
+			prop = new Properties();
+			prop.load(new FileInputStream(new File("config.properties")));
+			value = prop.getProperty(property);
+			if (value == null || value.isEmpty()) {
+				throw new Exception("Value not set or empty");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return value;
+	}
+	
+	public static void takeScreenshot(){
+		destDir = "screenshots";
+		File scrFile = ((TakesScreenshot)principal.driver).getScreenshotAs(OutputType.FILE);
+		dateFormat = new SimpleDateFormat("dd-MMM-yyyy__hh_mm_ssaa");
+		new File(destDir).mkdirs();
+		String destFile = dateFormat.format(new Date()) + ".png";
+		try {
+			   FileUtils.copyFile(scrFile, new File(destDir + "/" + destFile));
+			  } catch (IOException e) {
+			   e.printStackTrace();
+			  }
+		
+	}
+	
+	
+	public static void scroll(String direccion) {
+		
+		TouchAction touchAction = new TouchAction(principal.driver);
+		Dimension dimensions = principal.driver.manage().window().getSize();
+		int pointX = (dimensions.getWidth() / 2);
+		int startPointY = (dimensions.getHeight() / 2);
+		int endPointY;
+		if (direccion.equals("abajo")) {
+		endPointY = (int) (dimensions.getHeight() * -0.5);
+		touchAction.press(pointX, startPointY).moveTo(0, -50).release().perform();		
+		} else if (direccion.equals("arriba")) {
+		endPointY = (int) (dimensions.getHeight() * 0.5);
+		touchAction.press(pointX, startPointY).moveTo(0, 50).release().perform();
+			}	
+		}
 	
 	
 }
