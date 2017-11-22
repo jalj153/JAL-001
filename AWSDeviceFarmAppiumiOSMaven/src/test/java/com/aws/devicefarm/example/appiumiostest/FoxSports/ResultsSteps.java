@@ -1,6 +1,9 @@
 package com.aws.devicefarm.example.appiumiostest.FoxSports;
 
+import org.openqa.selenium.By;
+
 public class ResultsSteps {
+	static FoxSports foxSports = new FoxSports();
 	
 	//Método para hacer tap en Resultados
 	public void tapResults() {
@@ -45,5 +48,36 @@ public class ResultsSteps {
 	//Método para hacer tap en Favoritos
 	public void tapFavorite() {
 		Tools.searchId("FAVORITOS");
+	}
+	
+	//Método que busca una competencia
+	public void searchCompetition(String comp) {
+		Boolean isPresent = FoxSports.driver.findElements(By.id(comp)).size()>0;
+		String source;
+		
+		while(!isPresent) {
+			System.out.println("No se encuentra presente");
+			Tools.scroll("up");
+			source = foxSports.driver.getPageSource();
+			isPresent = foxSports.driver.findElements(By.id(comp)).size()>0; 
+		}
+		if(isPresent) {
+			System.out.println("Si está presente");
+			Boolean isVisible = foxSports.driver.findElement(By.id(comp)).isDisplayed();
+			System.out.println("se verificará si está visible");
+			while(!isVisible) {
+				Tools.scroll("up");
+				source = foxSports.driver.getPageSource();
+				isVisible =  foxSports.driver.findElement(By.id(comp)).isDisplayed();
+				if(isVisible) {
+					System.out.println("Sí está visible");
+					break;
+				}
+			}
+			if(isVisible) {
+				Tools.searchId(comp);
+			}	
+		}
+		
 	}
 }

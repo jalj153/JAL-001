@@ -90,10 +90,13 @@ public class FoxSports {
 	  
 	  ///////////////Radio
 	  
-	  radio.radio_010();
+	  //radio.radio_010();
 	  //radio.radio_020();
 	  //radio.radio_030();
 	  //radio.radio_040();
+	  
+	  //////////Results
+	  results.results_090();
   }
   
   @AfterMethod
