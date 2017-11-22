@@ -44,17 +44,17 @@ public class FoxApp {
   public void beforeMethod()throws MalformedURLException {	
 		DesiredCapabilities capabilities = new DesiredCapabilities();
 		
-		//***********CAPABILITIES THAT MAY CHANGE FOR DIFFERENT DEVICES****************//		
-		//capabilities.setCapability("deviceName", "BSL7N15B12001322");	
+//***********CAPABILITIES THAT MAY CHANGE FOR DIFFERENT DEVICES****************//		
+//capabilities.setCapability("deviceName", "BSL7N15B12001322");	
 		capabilities.setCapability("deviceName", "BHG7N16302031342");	
-		//capabilities.setCapability("youiEngineAppAddress", "10.157.234.113");
+//capabilities.setCapability("youiEngineAppAddress", "10.157.234.113");
 		capabilities.setCapability("youiEngineAppAddress", "10.157.234.100");
 		
-		//***********************APK'S UBICATION************************//
+//***********************APK'S UBICATION************************//
 		capabilities.setCapability("app", "C:\\Users\\Test01\\Desktop\\Archivos de Automatizacion\\APK\\fox-debug.apk");
-		//capabilities.setCapability("app", "C:\\Users\\Test01\\Desktop\\Archivos de Automatizacion\\APK\\FOX APP 6.1 PROD 20171108.apk")		
+//capabilities.setCapability("app", "C:\\Users\\Test01\\Desktop\\Archivos de Automatizacion\\APK\\FOX APP 6.1 PROD 20171108.apk")		
 		
-		//*********************GENERAL CAPABILITIES**************************//	
+//*********************GENERAL CAPABILITIES**************************//	
 		capabilities.setCapability("platformName", "Android");			
 		capabilities.setCapability("automationName", "YouiEngine");
 		capabilities.setCapability("appiumVersion", "1.7.1");
