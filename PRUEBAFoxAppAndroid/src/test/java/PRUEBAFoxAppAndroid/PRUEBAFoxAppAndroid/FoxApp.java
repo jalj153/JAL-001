@@ -27,13 +27,14 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 
 
-
+/*
+ * @programmer  Jair Quiñonez 
+ */
 
 
 public class FoxApp {
 //Instantiations
-	public static AndroidDriver<AndroidElement> driver;	
-	
+	public static AndroidDriver<AndroidElement> driver;		
 	private static FoxApp foxapp = new FoxApp();
 	public static Tools tool = new Tools();	
 //Global variables
@@ -44,22 +45,22 @@ public class FoxApp {
   public void beforeMethod()throws MalformedURLException {	
 		DesiredCapabilities capabilities = new DesiredCapabilities();
 		
-//***********CAPABILITIES THAT MAY CHANGE FOR DIFFERENT DEVICES****************//		
+//**************************CAPABILITIES THAT MAY CHANGE FOR DIFFERENT DEVICES**********************************//		
 //capabilities.setCapability("deviceName", "BSL7N15B12001322");	
 		capabilities.setCapability("deviceName", "BHG7N16302031342");	
 //capabilities.setCapability("youiEngineAppAddress", "10.157.234.113");
 		capabilities.setCapability("youiEngineAppAddress", "10.157.234.100");
 		
-//***********************APK'S UBICATION************************//
+//***********************************APK'S UBICATION********************************************//
 		capabilities.setCapability("app", "C:\\Users\\Test01\\Desktop\\Archivos de Automatizacion\\APK\\fox-debug.apk");
-//capabilities.setCapability("app", "C:\\Users\\Test01\\Desktop\\Archivos de Automatizacion\\APK\\FOX APP 6.1 PROD 20171108.apk")		
+//capabilities.setCapability("app", "C:\\Users\\Test01\\Desktop\\Archivos de Automatizacion\\APK\\FOX APP 6.1 PROD 20171108.apk")
+		
 		
 //*********************GENERAL CAPABILITIES**************************//	
 		capabilities.setCapability("platformName", "Android");			
 		capabilities.setCapability("automationName", "YouiEngine");
 		capabilities.setCapability("appiumVersion", "1.7.1");
-		capabilities.setCapability("name", "appium-youiengine-driver");
-		
+		capabilities.setCapability("name", "appium-youiengine-driver");		
 		capabilities.setCapability("noReset", "false");
 		URL appiumURL = new URL("http://127.0.0.1:4723/wd/hub");
 		driver = new AndroidDriver<AndroidElement>(appiumURL, capabilities);			
@@ -81,12 +82,12 @@ public class FoxApp {
 	  onDemand(); 
 	  
 //Execute method for do review in the section Profile and their elements
-//*******THIS SECTION Have many problems, required some information for continue their automation**************************************//
+//*******THIS SECTION Have many problems, required some information for continue their automation*******************************//
 	 //profile();
 	  
 //Execute method for do review in section TV Live
-// **********THIS SECTION also have many problems for automation, because, the names of their elements are all the same**************
-	  //tvLive();
+// **********THIS SECTION also have many problems for automation, because, the names of their elements are all the same************//
+	 //tvLive();
 	  
 //Final Message
 	  tool.space();
@@ -107,6 +108,8 @@ public class FoxApp {
   
 	 
 //********************************METHODS*****************************// 
+  
+//Method for do tap in the center of the screen  
   public static void centerTap() {
 		 TouchAction touchAction = new TouchAction(foxapp.driver);
 		 Dimension dimensions = foxapp.driver.manage().window().getSize();
@@ -141,7 +144,7 @@ public class FoxApp {
   }
   
 			
-//Scroll with direction
+//Scroll that i decide their direction (down or up)
   public static void scrollDireccion(String direccion) {
 
 	  TouchAction touchAction = new TouchAction(foxapp.driver);
@@ -170,6 +173,7 @@ public class FoxApp {
 	  
   }
   
+//Scroll who search an element by name (Doesn't function yet)  
   public void scrollBuscando() {
 	  boolean visto = false;
 	do {
@@ -180,7 +184,7 @@ public class FoxApp {
   }
   
   
-//*****************************************PRINCIPAL METHODS************************************//
+//*****************************************PRINCIPAL METHODS*******************************************//
   
 //Method for get out login
   public void start() {	  
@@ -189,8 +193,8 @@ public class FoxApp {
 	  tool.waitTime(2000);
 	  tool.findName("Btn-Close","Boton cerrar");	
 	  tool.waitTime(5000);	  
-	  
-	  //First Verification for Chromecast
+	   
+//First Verification for Chromecast
 	  tool.space();
 	  tool.print("-----------BIENVENIDO A FOX APP-----------");		
 	  tool.waitTime(2000);	  
@@ -205,7 +209,6 @@ public class FoxApp {
   
 //Verification On Demand
   public void onDemand() {
-
 
 	  // Find series
 	  tool.space();	 	   
@@ -261,13 +264,9 @@ public class FoxApp {
 	  
 	  tool.space();	  
 	  tool.searchContent();
-	  tool.waitTime(10000); 
-	  
-
-	  
-	  
-	  
+	  tool.waitTime(10000); 	  
   }
+  
 
 //Have many problems, required some information for continue their automation
   public void profile() {	
@@ -278,13 +277,12 @@ public class FoxApp {
 	  tool.space();
 
 
-	  tool.waitTime(10000);
-	 
-	  
+	  tool.waitTime(10000);	  
   }
   
+  
 //Review in TV EN VIVO section
-// **********THIS SECTION also have many problems for automation, because, the names of their elements are all the same**************
+// **********THIS SECTION also have many problems for automation, because, the names of their elements are all the same************//
   public void tvLive() {
 	  boolean visible = false;
 	  tool.space();
@@ -314,14 +312,14 @@ public class FoxApp {
 	  tool.space();
 	  tool.waitTime(7000);
 	  tool.findName("Btn-Back", "Boton atras");
-	  
-	  
-	 
   }
   
   
   
-	//Steps for get page source
+  
+//*******************************Methods that may serve in the future***********************************//
+  
+//Steps for get page source from any page on the screen
 	/* space();
 	  	System.out.println("Obteniendo XML");
 		waitTime(2000);
@@ -331,6 +329,7 @@ public class FoxApp {
 		System.out.println(xml);
 		waitTime(120000);
 	 */
+  
 //Method for search any object for Text
   //((AndroidDriver)driver).findElementByAndroidUIAutomator("new UiSelector().text(\""+Omitir+"\")").click();
 

@@ -9,10 +9,10 @@ public class Tools {
 	
 //Method for let space in the console while writing 
 	 	public void space() {
-		 for(int i=0; i<3; i++) {
-			print("");				
-		 }				  		
-	 }
+	 		for(int i=0; i<3; i++) {
+	 			print("");				
+	 		}				  		
+	 	}
 	 
 //Wait with sleepThread
 	 	public static void waitTime(int time) {			
@@ -22,7 +22,6 @@ public class Tools {
 				print("Tiempo de espera terminado");
 			}
 		}
-		
 		
 //Search content			
 		public void searchContent(){
@@ -81,8 +80,7 @@ public class Tools {
 					  waitTime(2000);
 					  foxapp.driver.findElementByName("Btn-Back-Hero-Container").click();
 					  print("Encontre boton atras");	*/				  
-				  }
-				
+				  }				
 			}else {
 				print("ES UNA PELICULA");
 				space();
@@ -95,10 +93,8 @@ public class Tools {
 //Find by Name
 		public void findName(String name, String nameSpanish) {
 			print("___________________________________________________________________________________________");
-			print("Buscando"+" "+nameSpanish);
-			
-			try {				
-				
+			print("Buscando"+" "+nameSpanish);			
+			try {								
 				foxapp.driver.findElementByName(name).click();
 				print("Se encontro"+" "+nameSpanish);
 				if(name=="Button0") {
@@ -109,14 +105,11 @@ public class Tools {
 					print("------------SECCION TV EN VIVO----------");
 				}else if(name=="Button3") {
 					print("------------SECCION DE BUSQUEDA----------");
-				}else {
-					
+				}else {					
 				}
 			}catch(Exception e) {
 				print("No se encontro"+" "+nameSpanish);
-			}
-			
-			
+			}			
 		}
 		
 //Find by ID
@@ -127,9 +120,7 @@ public class Tools {
 				print("Se encontro"+" "+nameSpanish);
 			}catch(Exception e) {
 				print("Se encontro"+" "+nameSpanish);
-			}
-			
-			
+			}			
 		}
 		
 
@@ -138,11 +129,6 @@ public class Tools {
 		public static void print(String print) {
 			System.out.println(print);
 		}
-		
-	
-
-	
-
 	
 	
 
