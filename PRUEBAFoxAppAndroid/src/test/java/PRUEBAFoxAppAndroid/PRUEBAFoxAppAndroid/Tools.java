@@ -6,6 +6,10 @@ import io.appium.java_client.TouchAction;
 
 public class Tools {
 	FoxApp foxapp = new FoxApp();
+	public  int totalResultados =0;
+	public  int sumaEncontrado = 0;
+	public  int sumaNoEncontrado = 0;
+	public  int totalBuenas=0;
 	
 //Method for let space in the console while writing 
 	 	public void space() {
@@ -83,6 +87,25 @@ public class Tools {
 				  }				
 			}else {
 				print("ES UNA PELICULA");
+				 try {					  
+					  waitTime(2000);
+				      visible = foxapp.driver.findElementByName("Placeholder-TryButton").isDisplayed();				    
+				      foxapp.encontrado = true;				     
+				  }catch(Exception e) {					 
+					  foxapp.encontrado = false;
+				  }				
+				  if ((visible !=false)||(foxapp.encontrado !=false)) {
+					  print("Este contenido no se puede reproducir debido a la suscripcion");
+					  waitTime(3000);
+					  space();
+					  waitTime(2000);
+					  /*foxapp.driver.findElementByName("Btn-Back-Hero-Container").click();
+					  print("Encontre boton atras"); */
+					  findName("Btn-Back-Hero-Container","Boton atras");
+					  
+				  }else {
+					  waitTime(5000);
+				  }	
 				space();
 				findName("Btn-Back-Hero-Container","Boton atras");
 				
@@ -99,17 +122,28 @@ public class Tools {
 				print("Se encontro"+" "+nameSpanish);
 				if(name=="Button0") {
 					print("-----------SECCION PERFIL----------");
+					sumaEncontrado += 1;
+					
 				}else if(name=="Button1") {
 					print("------------SECCION ON DEMAND----------");
+					sumaEncontrado += 1;
 				}else if(name=="Button2") {
 					print("------------SECCION TV EN VIVO----------");
+					sumaEncontrado += 1;
 				}else if(name=="Button3") {
 					print("------------SECCION DE BUSQUEDA----------");
-				}else {					
+					sumaEncontrado += 1;
+				}else {
+					sumaEncontrado += 1;
+					
 				}
 			}catch(Exception e) {
 				print("No se encontro"+" "+nameSpanish);
-			}			
+				sumaNoEncontrado += 1;
+			}	
+			totalResultados = sumaEncontrado + sumaNoEncontrado;
+			totalBuenas = ((100/totalResultados)*sumaEncontrado);
+			
 		}
 		
 //Find by ID

@@ -39,6 +39,7 @@ public class FoxApp {
 	public static Tools tool = new Tools();	
 //Global variables
 	public boolean encontrado = false ;
+	public int porcentaje = 0;
 	
 //Before method
   @BeforeMethod
@@ -94,6 +95,7 @@ public class FoxApp {
 	  tool.print("================================================");
 	  tool.print("==================TEST TERMINADO================");
 	  tool.print("================================================");
+	  tool.print("EL TEST TUVO UN EXITO DEL"+" "+tool.totalBuenas+"%");
   }
   
   
