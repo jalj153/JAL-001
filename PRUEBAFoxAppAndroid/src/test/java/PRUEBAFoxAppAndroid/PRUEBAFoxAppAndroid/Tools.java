@@ -6,10 +6,10 @@ import io.appium.java_client.TouchAction;
 
 public class Tools {
 	FoxApp foxapp = new FoxApp();
-	public  int totalResultados =0;
-	public  int sumaEncontrado = 0;
-	public  int sumaNoEncontrado = 0;
-	public  int totalBuenas=0;
+	public static int totalResultados =0;
+	public static int sumaEncontrado = 0;
+	public static int sumaNoEncontrado = 0;
+	public static int totalBuenas=0;
 	
 //Method for let space in the console while writing 
 	 	public void space() {
