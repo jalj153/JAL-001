@@ -27,7 +27,7 @@ public class FoxSports {
 
 	@BeforeMethod(alwaysRun=true)
   public void beforeMethod() throws MalformedURLException{
-		int foxTimeOut=5;
+		
 	  
 	  DesiredCapabilities capabilities = new DesiredCapabilities();
 		capabilities.setCapability("platformName", "iOS");
@@ -102,22 +102,22 @@ public class FoxSports {
 	  
 	  //////////Results
 	  
-	  results.results_010();
-	  results.results_020();
-	  results.results_030();
+	//  results.results_010();
+	  //results.results_020();
+	  /*results.results_030();
 	  results.results_040();
 	  results.results_050();
 	  results.results_060();
 	  results.results_070();
-	  results.results_080();
-	  results.results_090();
-	  results.results_100();
-	  results.results_110();
-	  results.results_120();
+	  results.results_080();*/
+	  //results.results_090();
+	  //results.results_100();
+	  //results.results_110();
+	 /* results.results_120();
 	  results.resultss_130();
 	  results.results_140();
 	  results.results_150();
-	  results.results_160();
+	  results.results_160();*/
   }
   
   @AfterMethod

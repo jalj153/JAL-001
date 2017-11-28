@@ -66,12 +66,15 @@ public class InLiveTestCases {
 		step.searchButton("navBar back");
 		Tools.waitTime(10000);	
 	}
+	
 	public void inLive_080() {
 		Tools.searchId("En Vivo");
 		step.searchLiveNoCanal();
 		Tools.backToMenu();
 		Tools.waitTime(3000);
 	}
+	
+	
 	public void inLive_090() {
 		Tools.searchId("En Vivo");
 		//step.searchLiveInCanal(1);

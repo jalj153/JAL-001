@@ -468,6 +468,7 @@ public class Tools {
 		int pointX = (dimensions.getWidth() / 2);
 		int startPointY = (dimensions.getHeight() / 2);
 		touchAction.press(pointX, startPointY).release().perform();
+		System.out.println("Se hizo tap");
 		
 	}
 	

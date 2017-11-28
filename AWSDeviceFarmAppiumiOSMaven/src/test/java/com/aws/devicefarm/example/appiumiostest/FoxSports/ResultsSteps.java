@@ -1,10 +1,14 @@
 package com.aws.devicefarm.example.appiumiostest.FoxSports;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
+
+import io.appium.java_client.TouchAction;
 
 public class ResultsSteps {
 	static FoxSports foxSports = new FoxSports();
-	
+	static ProfileSteps stepProfile = new ProfileSteps();
+	int counter=1;
 	//Método para hacer tap en Resultados
 	public void tapResults() {
 		Tools.searchId("Resultados");
@@ -79,5 +83,62 @@ public class ResultsSteps {
 			}	
 		}
 		
+	}
+	
+	//Método que agrega favoritos si es necesario.
+	public void addFavorites() {
+		int counter = 1;
+		stepProfile.addFavorite();
+		Tools.waitTime(3000);
+		allCompetences();
+		Tools.waitTime(3000);
+		stepProfile.selectCompetition("La Liga");
+		stepProfile.tapNext();
+		stepProfile.tapFinalize();
+		if(counter==1) {
+			Tools.scroll("up");
+		}
+		Tools.waitTime(1000);
+		Tools.tap();
+		Tools.backToMenu();
+		counter+=1;
+	}
+
+	//Método que hace scroll hacia arriba
+	public void scrollUp() {
+		TouchAction touchAction = new TouchAction(foxSports.driver);
+		Dimension dimensions = foxSports.driver.manage().window().getSize();
+		int pointX = (dimensions.getWidth() / 2);
+		int startPointY = (dimensions.getHeight() / 2);
+		startPointY=(startPointY/2);
+		int endPointY;
+		
+		endPointY = (int) (dimensions.getHeight() * 0.8);
+		touchAction.press(pointX, startPointY).moveTo(0, endPointY).release().perform();
+
+	}
+	
+	//Método que ingresa a favoritos. 
+	public void auxResultsFavorites() {
+		tapResults();
+		tapFavorite();
+		Boolean isPresent = FoxSports.driver.findElements(By.name("AGREGAR")).size()>0;
+		if(isPresent) {
+			addFavorites();
+		}else if(!isPresent) {
+			//Tools.scroll("up");
+			Tools.tap();
+		}
+	}
+	
+	//Método que ingresa a todos
+	public void auxResultsAll() {
+		tapResults();
+		Tools.searchId("TODOS");
+		if(counter<2) {
+			scrollUp();
+		}		
+		Tools.tap();
+		counter+=1;
 	}
 }
