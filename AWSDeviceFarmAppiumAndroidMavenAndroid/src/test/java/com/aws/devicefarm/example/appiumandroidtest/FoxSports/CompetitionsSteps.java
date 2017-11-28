@@ -17,8 +17,8 @@ public class CompetitionsSteps {
 	public void searchCountry(){
 		tools.findAndReport("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.support.v4.view.ViewPager/android.widget.RelativeLayout/android.support.v7.widget.RecyclerView/android.widget.RelativeLayout[2]/android.widget.RelativeLayout/android.widget.TextView", "No se ha encontrado el pais al que pertenece la competencia");
 	}
-	public void tapInSearch(){
-		tools.searchId("com.fic.foxsports:id/action_search");
+	public void tapInSearch(String location){
+		tools.searchId("com.fic.foxsports:id/action_search", location);
 	}
 	public void sendText(){
 		principal.driver.findElementByAndroidUIAutomator("new UiSelector().resourceId(\"com.fic.foxsports:id/comp_header_title\")").sendKeys("La Liga");
@@ -103,17 +103,24 @@ public class CompetitionsSteps {
 		
 	}
 	
-	public void searchTabsOfTeams(){
+	public void searchTabsOfTeams(String location){
 		tools.searchText("Noticias");
 		tools.searchText("Posiciones");
 		tools.searchText("Equipos");
-		tools.searchId("com.fic.foxsports:id/thumbnail");
-		tools.searchText("Resultados");
-		tools.findAndReport("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.RelativeLayout/android.widget.RelativeLayout/android.view.View/android.support.v4.view.ViewPager/android.widget.LinearLayout/android.widget.RelativeLayout/android.support.v7.widget.RecyclerView/android.widget.RelativeLayout[1]/android.widget.RelativeLayout", "Error al cargar los resultados del equipo");
-		tools.searchText("Estadísticas");
-		tools.findAndReport("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.RelativeLayout/android.widget.RelativeLayout/android.view.View/android.support.v4.view.ViewPager/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.RelativeLayout/android.widget.TextView", "Error al cargar las estadisticas del equipo");
-		tools.searchText("Noticias");
-		tools.findAndReport("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.RelativeLayout/android.widget.RelativeLayout/android.view.View/android.support.v4.view.ViewPager/android.widget.RelativeLayout/android.support.v7.widget.RecyclerView/android.widget.LinearLayout/android.widget.RelativeLayout/android.widget.RelativeLayout[1]", "Error al cargar las noticias del equipo");
+		try{
+			principal.driver.findElementById("com.fic.foxsports:id/thumbnail").click();
+			tools.totalBuenas+=1;
+			tools.searchText("Resultados");
+			tools.findAndReport("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.RelativeLayout/android.widget.RelativeLayout/android.view.View/android.support.v4.view.ViewPager/android.widget.LinearLayout/android.widget.RelativeLayout/android.support.v7.widget.RecyclerView/android.widget.RelativeLayout[1]/android.widget.RelativeLayout", "Error al cargar los resultados del equipo");
+			tools.searchText("Estadísticas");
+			tools.findAndReport("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.RelativeLayout/android.widget.RelativeLayout/android.view.View/android.support.v4.view.ViewPager/android.widget.RelativeLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.RelativeLayout/android.widget.TextView", "Error al cargar las estadisticas del equipo");
+			tools.searchText("Noticias");
+			tools.findAndReport("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.RelativeLayout/android.widget.RelativeLayout/android.view.View/android.support.v4.view.ViewPager/android.widget.RelativeLayout/android.support.v7.widget.RecyclerView/android.widget.LinearLayout/android.widget.RelativeLayout/android.widget.RelativeLayout[1]", "Error al cargar las noticias del equipo");
+			Tools.backToMenu(1);
+		}catch(Exception e){
+			tools.totalMalas +=1;
+		}
+		//tools.searchId("", location);
 		
 	}
 	

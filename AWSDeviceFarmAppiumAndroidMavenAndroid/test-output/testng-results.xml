@@ -1,65 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="1" ignored="0" total="2" passed="1">
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="134223" started-at="2017-11-22T20:59:57Z" finished-at="2017-11-22T21:02:12Z">
+  <suite name="Default suite" duration-ms="432433" started-at="2017-11-28T21:47:51Z" finished-at="2017-11-28T21:55:03Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="134223" started-at="2017-11-22T20:59:57Z" finished-at="2017-11-22T21:02:12Z">
+    <test name="Default test" duration-ms="432433" started-at="2017-11-28T21:47:51Z" finished-at="2017-11-28T21:55:03Z">
       <class name="com.aws.devicefarm.example.appiumandroidtest.FoxSports.FoxSports">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.aws.devicefarm.example.appiumandroidtest.FoxSports.FoxSports@13805618]" name="setUp" is-config="true" duration-ms="16927" started-at="2017-11-22T14:59:57Z" finished-at="2017-11-22T15:00:14Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.aws.devicefarm.example.appiumandroidtest.FoxSports.FoxSports@13805618]" name="setUp" is-config="true" duration-ms="18901" started-at="2017-11-28T15:47:51Z" finished-at="2017-11-28T15:48:10Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="Iniciar()[pri:0, instance:com.aws.devicefarm.example.appiumandroidtest.FoxSports.FoxSports@13805618]" name="Iniciar" duration-ms="114436" started-at="2017-11-22T15:00:14Z" finished-at="2017-11-22T15:02:09Z">
+        <test-method status="PASS" signature="Iniciar()[pri:0, instance:com.aws.devicefarm.example.appiumandroidtest.FoxSports.FoxSports@13805618]" name="Iniciar" duration-ms="410235" started-at="2017-11-28T15:48:10Z" finished-at="2017-11-28T15:55:00Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Iniciar -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.aws.devicefarm.example.appiumandroidtest.FoxSports.FoxSports@13805618]" name="tearDown" is-config="true" duration-ms="2792" started-at="2017-11-22T15:02:09Z" finished-at="2017-11-22T15:02:12Z">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.aws.devicefarm.example.appiumandroidtest.FoxSports.FoxSports@13805618]" name="tearDown" is-config="true" duration-ms="3279" started-at="2017-11-28T15:55:00Z" finished-at="2017-11-28T15:55:03Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method status="FAIL" signature="scroll(java.lang.String)[pri:0, instance:com.aws.devicefarm.example.appiumandroidtest.FoxSports.FoxSports@13805618]" name="scroll" duration-ms="0" started-at="2017-11-22T15:02:12Z" finished-at="2017-11-22T15:02:12Z">
-          <exception class="org.testng.TestNGException">
-            <message>
-              <![CDATA[
-Cannot inject @Test annotated Method [scroll] with [class java.lang.String].
-For more information on native dependency injection please refer to http://testng.org/doc/documentation-main.html#native-dependency-injection]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[org.testng.TestNGException: 
-Cannot inject @Test annotated Method [scroll] with [class java.lang.String].
-For more information on native dependency injection please refer to http://testng.org/doc/documentation-main.html#native-dependency-injection
-	at org.testng.internal.Parameters.checkParameterTypes(Parameters.java:334)
-	at org.testng.internal.Parameters.createParametersForMethod(Parameters.java:274)
-	at org.testng.internal.Parameters.createParameters(Parameters.java:562)
-	at org.testng.internal.Parameters.handleParameters(Parameters.java:672)
-	at org.testng.internal.Invoker.handleParameters(Invoker.java:1316)
-	at org.testng.internal.Invoker.createParameters(Invoker.java:1044)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1134)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
-	at org.testng.TestRunner.privateRun(TestRunner.java:776)
-	at org.testng.TestRunner.run(TestRunner.java:634)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:425)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:420)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:385)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:334)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1318)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1243)
-	at org.testng.TestNG.runSuites(TestNG.java:1161)
-	at org.testng.TestNG.run(TestNG.java:1129)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- org.testng.TestNGException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- scroll -->
       </class> <!-- com.aws.devicefarm.example.appiumandroidtest.FoxSports.FoxSports -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->

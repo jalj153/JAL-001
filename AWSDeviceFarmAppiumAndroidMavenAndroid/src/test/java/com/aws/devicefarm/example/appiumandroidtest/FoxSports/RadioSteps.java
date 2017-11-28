@@ -1,4 +1,4 @@
-package com.aws.devicefarm.example.appiumandroidtest.FoxSports;
+ package com.aws.devicefarm.example.appiumandroidtest.FoxSports;
 
 import io.appium.java_client.android.AndroidElement;
 
@@ -34,14 +34,14 @@ public class RadioSteps {
 		tools.waitTime(5000);
 		Tools.backToMenu(1);
 		}catch(Exception e){
-			System.out.println("Al parecer no hay radios disponibles");
+			System.out.println("          Al parecer no hay radios disponibles ");
 		}
 	}
 	public void searchRadiosInLive(){
 		int contador = 0;		
 		List<AndroidElement> listButtonPlay = principal.driver.findElementsByAndroidUIAutomator(
 				"new UiScrollable(new UiSelector().resourceId(\"com.fic.foxsports:id/HomeViewPager\")).scrollIntoView(new UiSelector().resourceId(\"com.fic.foxsports:id/iv_play\"));");
-		System.out.println("Se ha detectado -"+listButtonPlay.size()+"- radio(s) en Vivo");
+		System.out.println("          Se ha detectado -"+listButtonPlay.size()+"- radio(s) en Vivo");
 		Boolean isPresent = listButtonPlay.size()>0;
 		if(isPresent){
 			try{
@@ -57,8 +57,9 @@ public class RadioSteps {
 				
 			}
 		}else{
-			System.out.println("No hay ninguna Radio disponible");
-		}	
+			System.out.println("          No hay ninguna Radio disponible");
+		}
+		tools.totalBuenas += 1;
 	}
 	
 	public void getDate(){
@@ -81,16 +82,18 @@ public class RadioSteps {
 			principal.driver.findElementByAndroidUIAutomator(
 					"new UiScrollable(new UiSelector().resourceId(\"com.fic.foxsports:id/HomeViewPager\")).scrollIntoView(new UiSelector().text(\""+dateTime+"\"));")
 					.click();			
-			System.out.println("Si se ha encontrado la fecha: "+dateTime);
+			System.out.println("          Si se ha encontrado la fecha: "+dateTime);
+			tools.totalBuenas +=1;
 		} catch(Exception e){
-			System.out.println("No se ha encontrado la fecha: "+dateTime);
+			System.err.println("          No se ha encontrado la fecha: "+dateTime);
+			tools.totalMalas +=1;
 			}
 		}
 		
 	}
 	public void searchRadioForNextDays(){
 		getDate();
-		for( i=0; i<=5; i++){
+		for( i=0; i<=4; i++){
 			if(i>0){
 				cantidad = 1;				
 			}
@@ -109,14 +112,16 @@ public class RadioSteps {
 				if (i==1 || i == 0){
 					
 				}else{
-					System.out.println("Si se ha encontrado la fecha: "+dateTime);
+					System.out.println("          Si se ha encontrado la fecha: "+dateTime);
+					tools.totalBuenas +=1;
 				}
 				
 			} catch(Exception e){
 				if (i==1 || i == 0){
 					
 				}else{
-					System.out.println("No se ha encontrado la fecha: "+dateTime);
+					System.err.println("          No se ha encontrado la fecha: "+dateTime+" IMPORTANTE: Las fechas deben ser consecutivas");
+					tools.totalMalas +=1;
 				}		
 			}
 		}		

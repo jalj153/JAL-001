@@ -24,9 +24,9 @@ public class ResultSteps {
 	public void searchResults(){
 		tools.searchText("Resultados");
 	}
-	public void tapResult(){
+	public void tapResult(String location){
 		tools.searchText("Resultados");
-		tools.searchId("com.fic.foxsports:id/teamBadge");
+		tools.searchId("com.fic.foxsports:id/teamBadge", location);
 	}
 	public void findResults(){
 		tapResults();//Tap en resultados
@@ -36,7 +36,7 @@ public class ResultSteps {
 				competitionsSteps.searchTabs();
 			}
 		}else{
-			System.out.println("No has agregado ninguna competencia a favoritos.");
+			System.out.println("          No has agregado ninguna competencia a favoritos. ******************************");
 		}
 	}
 	public void findResult(){

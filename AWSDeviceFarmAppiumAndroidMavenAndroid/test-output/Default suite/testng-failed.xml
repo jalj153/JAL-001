@@ -6,8 +6,8 @@
       <class name="com.aws.devicefarm.example.appiumandroidtest.FoxSports.FoxSports">
         <methods>
           <include name="tearDown"/>
+          <include name="Iniciar"/>
           <include name="setUp"/>
-          <include name="scroll"/>
         </methods>
       </class> <!-- com.aws.devicefarm.example.appiumandroidtest.FoxSports.FoxSports -->
     </classes>

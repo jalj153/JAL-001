@@ -34,7 +34,7 @@ import io.appium.java_client.android.AndroidKeyCode;
 import io.appium.java_client.remote.MobilePlatform;
 
 /**
- * @authores Fredy García and Elio Raymundo
+ * @author Elio Raymundo
  *
  */
  @Test public class FoxSports {
@@ -64,41 +64,9 @@ import io.appium.java_client.remote.MobilePlatform;
 
 	public static void Iniciar() {
 		
-		//waitTime(5000);
-		try {
-			//REALIZAR SCREENSHOT
-			Tools.takeScreenshot();//("Botón Omitir");
-			// TAP EN BOTON OMITIR
-			driver.findElementByAndroidUIAutomator("new UiSelector().text(\"Omitir\")").click();
-		} catch (Exception e) {
-			System.out.println("NO SE ENCUENTRA EL BOTON OMITIR");
-		}
-				
-		try {
-			//REALIZAR SCREENSHOT
-			Tools.takeScreenshot();//("Permiso de Acceso a Llamadas Telefonicas");
-			// TAP EN ALERTA DE PERMISO DE LLAMADAS TELEFONICAS
-			driver.findElementByAndroidUIAutomator(
-					"new UiSelector().resourceId(\"com.android.packageinstaller:id/permission_allow_button\")").click();
-		} catch (Exception e) {
-			System.out.println("NO REQUIERE PERMISOS");
-		}
-
-		try {
-			// REALIZAR SCREENSHOT
-			Tools.takeScreenshot();//("Permiso de Acceso a Calendario");
-			// TAP EN ALERTA DE PERMISO DE ACCESO A CALENDARIO
-			driver.findElementByAndroidUIAutomator(
-					"new UiSelector().resourceId(\"com.android.packageinstaller:id/permission_allow_button\")").click();
-		} catch (Exception e) {
-			System.out.println("NO REQUIERE PERMISOS");
-		}
-
-		// REALIZAR SCREENSHOT
-		Tools.takeScreenshot();//("Inicio de la Aplicacion");
 		
 		
-	
+		Tools.takeScreenshot();//Screenshot
 		LoginTestCases login = new LoginTestCases();
 		InLiveTestCases enVivo = new InLiveTestCases();
 		ProfileTestCases miPerfil = new ProfileTestCases();
@@ -106,32 +74,19 @@ import io.appium.java_client.remote.MobilePlatform;
 		ResultsTestCases resultsTestCases = new ResultsTestCases();
 		RadioTestCases radioTestCases = new RadioTestCases();
 		CompetitionsTestCases competitionTestCases = new CompetitionsTestCases();
-		login.miPerfil();
+		Tools.pestañasIniciales();//Este es para las ventanas emergentes que salen al inicio de la aplicacion
+		//login.miPerfil();
 		//enVivo.enVivo();
 		//miPerfil.miPerfil();
 		//noticias.noticias();
 		//resultsTestCases.Resultados();
 		//radioTestCases.radio();
-		//competitionTestCases.competitions();
+		competitionTestCases.competitions();
+		
+		Tools.resultadoTest();
 		System.out.println("Test finalizado con exito");
 	}
 	
-	public static void scroll(String direccion) {
-		
-		TouchAction touchAction = new TouchAction(driver);
-		Dimension dimensions = driver.manage().window().getSize();
-		int pointX = (dimensions.getWidth() / 2);
-		int startPointY = (dimensions.getHeight() / 2);
-		int endPointY;
-		if (direccion.equals("abajo")) {
-		endPointY = (int) (dimensions.getHeight() * -0.5);
-		touchAction.press(pointX, startPointY).moveTo(0, -50).release().perform();		
-		} else if (direccion.equals("arriba")) {
-		endPointY = (int) (dimensions.getHeight() * 0.5);
-		touchAction.press(pointX, startPointY).moveTo(0, 50).release().perform();
-			}	
-		}
-
 
 	@AfterMethod(alwaysRun = true)
 	public void tearDown() {

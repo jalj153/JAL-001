@@ -5,16 +5,16 @@ public class LoginSteps {
 	static FoxSports principal = new FoxSports();
 	int version = 0;
 	
-	public  void tapPerfil(){
-		tools.searchId("com.fic.foxsports:id/action_profile");	 //tap en boton perfil
+	public  void tapPerfil(String location){
+		tools.searchId("com.fic.foxsports:id/action_profile", location);	 //tap en boton perfil
 	}
 	
-	public  void tapBtnLogin(){
-		tools.searchId("com.fic.foxsports:id/btn_user_login"); //Tap en boton de login
+	public  void tapBtnLogin(String location){
+		tools.searchId("com.fic.foxsports:id/btn_user_login", location); //Tap en boton de login
 	}
 	
 	public  void tapGuests(){
-		principal.scroll("abajo");
+		tools.scroll("abajo");
 		try{
 			principal.driver.findElementByXPath("//android.view.View[@content-desc=\"INVITADOS\"]").click();
 		}catch(Exception e){
@@ -28,7 +28,8 @@ public class LoginSteps {
 			principal.driver.findElementByXPath("//android.webkit.WebView[@content-desc=\"Fox Play - Login\"]/android.view.View[2]/android.view.View/android.view.View[2]/android.widget.ListView/android.view.View[1]/android.view.View[2]/android.widget.EditText").click();
 			version = 1;
 		}catch(Exception e){
-			tools.searchPath("//android.webkit.WebView[@content-desc=\"Fox Play - Login\"]/android.view.View[2]/android.view.View/android.view.View[2]/android.view.View/android.widget.ListView/android.view.View[1]/android.widget.EditText");
+			principal.driver.findElementById("username");
+			//principal.driver.findElementByXPath("//android.webkit.WebView[@content-desc=\"Fox Play - Login\"]/android.view.View[2]/android.view.View/android.view.View[2]/android.view.View/android.widget.ListView/android.view.View[1]/android.widget.EditText");
 			version = 2;
 		}
 		
@@ -48,12 +49,12 @@ public class LoginSteps {
 	public void hideKeyboard(){
 		tools.ocultarTeclado(); //ocultar teclado
 	}
-	public void tapPassword(){
+	public void tapPassword(String location){
 		
 		if (version == 1){
 			tools.searchPath("//android.webkit.WebView[@content-desc=\"Fox Play - Login\"]/android.view.View[2]/android.view.View/android.view.View[2]/android.widget.ListView/android.view.View[2]/android.view.View[2]/android.widget.EditText");
 		}else if (version ==2){
-			tools.searchId("password");//tap en campo de contrasena
+			tools.searchId("password", location);//tap en campo de contrasena
 		}
 			
 	}
@@ -64,25 +65,25 @@ public class LoginSteps {
 			tools.sendText("Password", "foxplay2017"); //ingresar contrasena
 		}
 	}
-	public void acceptTerms(){
+	public void acceptTerms(String location){
 		if (version ==1){
 			principal.driver.findElementByXPath("//android.webkit.WebView[@content-desc=\"Fox Play - Login\"]/android.view.View[2]/android.view.View/android.view.View[2]/android.widget.ListView/android.view.View[3]").click();
 		}else if(version == 2){
-			tools.searchId("terms"); //aceptar los terminos de Uso		
+			tools.searchId("terms", location); //aceptar los terminos de Uso		
 		}
 				
 	}
-	public void login(){
+	public void login(String location){
 		if (version == 1){
 			principal.driver.findElementByXPath("//android.widget.Button[@content-desc=\"Login\"]").click();
 		}else if (version == 2){
-			tools.searchId("regularsubmit");//login		
+			tools.searchId("regularsubmit", location);//login		
 		}
 		
 	}
 	public void confirm(){
 		try{
-			tools.searchText("Ahora no.");
+			principal.driver.findElementByAndroidUIAutomator("new UiSelector().text(\"Ahora no.\")").click();
 		}catch(Exception e){
 			System.out.println("");
 		}

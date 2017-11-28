@@ -72,30 +72,43 @@ public class InLiveSteps {
 	public void lookInLive(){
 		tools.scrollWithResourceId("com.fic.foxsports:id/HomeViewPager", "EN VIVO");
 	}
-	public void playInLive(){
-		tools.searchId("com.fic.foxsports:id/overthumb_IconPlay");
+	public void playInLive(String location){
+		tools.searchId("com.fic.foxsports:id/overthumb_IconPlay", location);
 	}
 	
 	public void lookShow(){
 		tools.scroll("android.support.v4.view.ViewPager", "Show");
 	}
 	
-	public void tapVideo(){
-		tools.searchId("com.fic.foxsports:id/player_view");	
+	public void tapVideo(String location){
+		tools.waitTime(5000);
+		tools.searchId("com.fic.foxsports:id/player_view", location);
 	}
 	public void tapFullScreen(){
-		tools.searchId("com.fic.foxsports:id/exo_landscape");
+		try{
+			principal.driver.findElementById("com.fic.foxsports:id/exo_landscape").click();	
+		}catch(Exception e){
+			System.out.print("");
+		}
+		
+		
 	}
 	public void tapMoreEventsInLive(){
-		tools.searchId("com.fic.foxsports:id/livecamera_grid_title");
+		try{
+			principal.driver.findElementById("com.fic.foxsports:id/livecamera_grid_title").click();	
+		}catch(Exception e){
+			System.out.print("");
+		}
 	}
 	public void searchAllEventsInLive(){
 		try{
 			principal.driver.findElementByXPath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.RelativeLayout[1]/android.widget.FrameLayout/android.widget.RelativeLayout[2]/android.widget.RelativeLayout");
+			tools.totalBuenas +=1;
 			tools.waitTime(3000);
 			Tools.backToMenu(1);
 		}catch(Exception e){
-			System.out.println("Al parecer no se pudo reproducir en fullscreen");
+			tools.totalMalas +=1;
+			System.out.print("Al parecer no se pudo reproducir en fullscreen");
 		}
 	
 	}
@@ -112,13 +125,13 @@ public class InLiveSteps {
 				tools.searchText(cadenaSinSeparar);
 				tools.waitTime(25000);
 			}else{
-				principal.scroll("abajo");
+				tools.scroll("abajo");
 				playAEventWhichIsPresentInAChannel();
 			}
 			
 		}else{
 			if (contador == 1){
-				principal.scroll("abajo");
+				tools.scroll("abajo");
 				playAEventWhichIsntPresentInAChannel();
 			}else{
 				tools.searchText(cadenaSinSeparar);
@@ -159,6 +172,16 @@ public class InLiveSteps {
 			}	
 		}
 		validar();
+	}
+	public void validarReproduccion(){
+		try{
+			principal.driver.findElementByAndroidUIAutomator("new UiSelector().text(\"Ingresar\")");
+			System.out.println("-----------------No has iniciado sesion-----------------------------------");
+			tools.totalMalas += 1;
+		}catch(Exception e){
+			tools.totalBuenas += 1;
+		}
+			
 	}
 	
 }

@@ -23,6 +23,7 @@ import org.testng.internal.Invoker;
 
 
 
+
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidKeyCode;
 
@@ -40,6 +41,10 @@ public class Tools {
 	static int cont = 0;
 	static String destDir;
 	static DateFormat dateFormat;
+	public static int totalBuenas= 0;
+	public static int totalMalas=0;
+	public static int totalTest=0;
+	public static int porcentaje=1;
 		
 	// METODO PARA TIEMPO DE ESPERA
 	public static  void waitTime(int time) {
@@ -50,11 +55,13 @@ public class Tools {
 		}
 	}
 	//metodo para Buscar los elementos por su id
-	public void searchId(String id){
+	public void searchId(String id, String location){
 		try{
 		principal.driver.findElementById(id).click();
+		totalBuenas += 1;
 		}catch(Exception e){
-			System.out.println("No se enontro el elemento"+" "+id);
+			totalMalas += 1;
+			System.err.println("          error"+" ******************************"+ location );
 		}	
 	}
 	
@@ -62,17 +69,21 @@ public class Tools {
 	public void searchText(String text){
 		try{
 			principal.driver.findElementByAndroidUIAutomator("new UiSelector().text(\""+text+"\")").click();
+			totalBuenas += 1;
 		}catch(Exception e){
-			System.out.println("No se ha encontrado el texto "+text);
+			totalMalas += 1;
+			System.err.println("          No se ha encontrado "+text+" ******************************");
 		}
 	}
 	
 	//Metodo para buscar los elementos por su xPath
 	public void searchPath(String xPath){
 		try{
-			principal.driver.findElementByXPath(xPath).click();		
+			principal.driver.findElementByXPath(xPath).click();	
+			totalBuenas += 1;
 		}catch(Exception e){
-			System.out.println("No se enontro"+" " +xPath);
+			totalMalas += 1;
+			System.err.println("          error"+" ******************************");
 		}
 	}
 	
@@ -82,7 +93,7 @@ public class Tools {
 			//principal.driver.findElementById(id).sendKeys(text);
 			principal.driver.findElementByAndroidUIAutomator("new UiSelector().text(\""+id+"\")").sendKeys(text);
 		}catch(Exception e){
-			System.out.println("No se pudo mandar el texto a"+ " "+id);
+			System.err.println("No se pudo mandar el texto a"+ " "+id);
 		}
 	}
 
@@ -127,8 +138,10 @@ public class Tools {
 	public void findAndReport(String xpath, String error){
 		try{
 			principal.driver.findElementByXPath(xpath);
+			totalBuenas += 1;
 		}catch(Exception e){
-			System.out.println(error);
+			totalMalas += 1;
+			System.err.println("          "+error+" ******************************");
 		}
 	}
 	
@@ -137,8 +150,10 @@ public class Tools {
 		try{
 		principal.driver.findElementByAndroidUIAutomator(
 				"new UiScrollable(new UiSelector().resourceId(\""+scrollable+"\")).scrollIntoView(new UiSelector().resourceId(\""+ObjetoDeBusqueda+"\"));");
+			totalBuenas +=1;
 		}catch (Exception e){
-			System.out.println("No encontrado");
+			totalMalas+=1;
+			System.err.println("          Elemento no encontrado ******************************");
 		}
 		}
 	
@@ -152,8 +167,10 @@ public class Tools {
 			try{
 				principal.driver.findElementByAndroidUIAutomator(
 						"new UiScrollable(new UiSelector().className(\""+scrollable+"\")).scrollIntoView(new UiSelector().text(\""+ObjetoDeBusqueda+"\"));").click();
+				totalBuenas +=1;
 			}catch (Exception e){
-					System.out.println("No se encontro: "+" "+ ObjetoDeBusqueda);
+				totalMalas +=1;
+					System.err.println("          No se encontro: "+" "+ ObjetoDeBusqueda+" ******************************");
 				}
 		}
 		
@@ -162,8 +179,10 @@ public class Tools {
 			try{
 				principal.driver.findElementByAndroidUIAutomator(
 						"new UiScrollable(new UiSelector().resourceId(\""+scrollable+"\")).scrollIntoView(new UiSelector().text(\""+ObjetoDeBusqueda+"\"));");
+				totalBuenas +=1;
 			}catch (Exception e){
-					System.out.println("No se encontro: "+" "+ ObjetoDeBusqueda);
+				totalMalas+=1;
+					System.err.println("          No se encontro: "+" "+ ObjetoDeBusqueda+" ******************************");
 				}
 		}
 		
@@ -173,23 +192,31 @@ public class Tools {
 	public void findHourNameType(String Hour, String Name, String Type){
 		try{
 			principal.driver.findElementById(Hour); //Verificar la hora
+			totalBuenas += 1;
 		}catch(Exception e){
-			System.out.println("No se encontro la hora");
+			System.err.println("          No se encontro la hora ******************************");
+			totalMalas += 1;
 		}
 		try{
 			principal.driver.findElementById(Name);//Verificar el nombre del evento
+			totalBuenas += 1;
 		}catch(Exception e){
-			System.out.println("El evento no tiene nombre");
+			totalMalas += 1;
+			System.err.println("          El evento no tiene nombre ******************************");
 		}
 		try{
 			principal.driver.findElementById(Type);//Verificar el tipo del evento
+			totalBuenas += 1;
 		}catch(Exception e){
-			System.out.println("No se encuentra el tipo del evento");
+			System.err.println("          No se encuentra el tipo del evento ******************************");
+			totalMalas += 1;
 		}
 		try{
-			searchId("com.fic.foxsports:id/epg_scheduleButton"); //Buscar el boton de alertas
+			searchId("com.fic.foxsports:id/epg_scheduleButton", ""); //Buscar el boton de alertas
+			totalBuenas += 1;
 		}catch(Exception e){
-			System.out.println("No se encuentra el boton de recordatorio");
+			System.err.println("          No se encuentra el boton de recordatorio ******************************");
+			totalMalas += 1;
 		}
 	}
 	
@@ -197,7 +224,7 @@ public class Tools {
 		try{
 			principal.driver.findElementByXPath(xpath);
 			}catch(Exception e){
-				System.out.println("No has iniciado sesion");				
+				System.err.println("          No has iniciado sesion ******************************");				
 			}
 	}
 	
@@ -233,7 +260,7 @@ public class Tools {
 	}
 	
 	
-	public static void scroll(String direccion) {
+	public  void scroll(String direccion) {
 		
 		TouchAction touchAction = new TouchAction(principal.driver);
 		Dimension dimensions = principal.driver.manage().window().getSize();
@@ -249,5 +276,50 @@ public class Tools {
 			}	
 		}
 	
+	public static void pestañasIniciales(){
+
+		try {
+			//REALIZAR SCREENSHOT
+			takeScreenshot();//("Botón Omitir");
+			// TAP EN BOTON OMITIR
+			principal.driver.findElementByAndroidUIAutomator("new UiSelector().text(\"Omitir\")").click();
+		} catch (Exception e) {
+			System.out.println("NO SE ENCUENTRA EL BOTON OMITIR");
+		}
+				
+		try {
+			//REALIZAR SCREENSHOT
+			takeScreenshot();//("Permiso de Acceso a Llamadas Telefonicas");
+			// TAP EN ALERTA DE PERMISO DE LLAMADAS TELEFONICAS
+			principal.driver.findElementByAndroidUIAutomator(
+					"new UiSelector().resourceId(\"com.android.packageinstaller:id/permission_allow_button\")").click();
+		} catch (Exception e) {
+			System.out.println("NO REQUIERE PERMISOS");
+		}
+
+		try {
+			// REALIZAR SCREENSHOT
+			takeScreenshot();//("Permiso de Acceso a Calendario");
+			// TAP EN ALERTA DE PERMISO DE ACCESO A CALENDARIO
+			principal.driver.findElementByAndroidUIAutomator(
+					"new UiSelector().resourceId(\"com.android.packageinstaller:id/permission_allow_button\")").click();
+		} catch (Exception e) {
+			System.out.println("NO REQUIERE PERMISOS");
+		}
+
+		
+	}
+	
+	
+	public static void resultadoTest(){
+		totalTest =(totalBuenas + totalMalas);
+		if(totalTest == 0){
+			System.out.println("No se realizo ningun test");
+		}else{
+			porcentaje = ((totalBuenas * 100)/totalTest);
+			System.err.println("El test finalizo con un "+ porcentaje+ "% de efectividad");
+		}
+		
+		}
 	
 }
