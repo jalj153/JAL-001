@@ -53,7 +53,7 @@ public class Tools {
 					  foxapp.encontrado = false;
 				  }				
 				  if ((visible !=false)||(foxapp.encontrado !=false)) {
-					  print("Este contenido no se puede reproducir debido a la suscripcion");
+					  System.err.println("Este contenido no se puede reproducir debido a la suscripcion");
 					  waitTime(3000);
 					  space();
 					  waitTime(2000);
@@ -95,7 +95,7 @@ public class Tools {
 					  foxapp.encontrado = false;
 				  }				
 				  if ((visible !=false)||(foxapp.encontrado !=false)) {
-					  print("Este contenido no se puede reproducir debido a la suscripcion");
+					  System.err.println("Este contenido no se puede reproducir debido a la suscripcion");
 					  waitTime(3000);
 					  space();
 					  waitTime(2000);
@@ -132,14 +132,19 @@ public class Tools {
 					sumaEncontrado += 1;
 				}else if(name=="Button3") {
 					print("------------SECCION DE BUSQUEDA----------");
-					sumaEncontrado += 1;
+					sumaEncontrado += 1;				
 				}else {
 					sumaEncontrado += 1;
 					
 				}
 			}catch(Exception e) {
-				print("No se encontro"+" "+nameSpanish);
-				sumaNoEncontrado += 1;
+				System.err.println("No se encontro"+" "+nameSpanish);
+				if(name=="Btn-Close") {
+					sumaNoEncontrado+=0;
+				}else {
+					sumaNoEncontrado += 1;
+				}
+				
 			}	
 			totalResultados = sumaEncontrado + sumaNoEncontrado;
 			totalBuenas = ((100/totalResultados)*sumaEncontrado);
@@ -153,7 +158,7 @@ public class Tools {
 				foxapp.driver.findElementById(name).click();
 				print("Se encontro"+" "+nameSpanish);
 			}catch(Exception e) {
-				print("Se encontro"+" "+nameSpanish);
+				System.err.println("No se encontro"+" "+nameSpanish);
 			}			
 		}
 		

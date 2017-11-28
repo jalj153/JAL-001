@@ -6,6 +6,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.AfterMethod;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
 import javax.annotation.RegEx;
@@ -41,6 +42,7 @@ public class FoxApp {
 	public boolean encontrado = false ;
 	public int porcentaje = 0;
 	
+	
 //Before method
   @BeforeMethod
   public void beforeMethod()throws MalformedURLException {	
@@ -64,7 +66,14 @@ public class FoxApp {
 		capabilities.setCapability("name", "appium-youiengine-driver");		
 		capabilities.setCapability("noReset", "false");
 		URL appiumURL = new URL("http://127.0.0.1:4723/wd/hub");
-		driver = new AndroidDriver<AndroidElement>(appiumURL, capabilities);			
+		driver = new AndroidDriver<AndroidElement>(appiumURL, capabilities);
+
+		
+
+		tool.print("================================================");
+		tool.print("======EL TEST SE REALIZARA SIN HACER LOGIN======");
+		tool.print("================================================");
+		tool.space();
   }
   
 
@@ -82,20 +91,23 @@ public class FoxApp {
 //Execute method for do review in the section On Demand
 	  onDemand(); 
 	  
+//Execute method for do review in section TV Live
+// **********THIS SECTION also have many problems for automation, because, the names of their elements are all the same************//
+	  tvLive();	
+		 
 //Execute method for do review in the section Profile and their elements
 //*******THIS SECTION Have many problems, required some information for continue their automation*******************************//
 	 //profile();
 	  
-//Execute method for do review in section TV Live
-// **********THIS SECTION also have many problems for automation, because, the names of their elements are all the same************//
-	 //tvLive();
+
 	  
 //Final Message
 	  tool.space();
 	  tool.print("================================================");
 	  tool.print("==================TEST TERMINADO================");
 	  tool.print("================================================");
-	  tool.print("EL TEST TUVO UN EXITO DEL"+" "+tool.totalBuenas+"%");
+	  System.err.println("EL TEST TUVO UN EXITO DEL"+" "+tool.totalBuenas+"%");
+	  
   }
   
   
@@ -208,7 +220,7 @@ public class FoxApp {
 	  tool.findName("Btn-Close","Boton cerrar Bienvenido a Fox por Name");
 	  tool.waitTime(4000); 
   }
-  
+  Scanner scanner = new Scanner(System.in);
 //Verification On Demand
   public void onDemand() {
 
@@ -224,9 +236,14 @@ public class FoxApp {
 	  	  
 	  
 	  tool.waitTime(1000);
-	  tool.print("Escribiendo...");
+	  
+	  String texto;
+	  texto= ("Splash y Bubbles");
+	  //tool.print("Escribe la serie a buscar:");
+	  //texto = scanner.nextLine();
+	  tool.print("Escribiendo..."+" "+texto);	  
 	  tool.waitTime(1000);
-	  driver.findElementByName("Search-Text").sendKeys("Ready Jet");		  
+	  driver.findElementByName("Search-Text").sendKeys(texto);		  
 	  tool.waitTime(3000);
 	  
 	  tool.space();	  
