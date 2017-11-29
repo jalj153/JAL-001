@@ -29,14 +29,16 @@ public class RadioTestCases {
 	
 	//Método que muestra la programación de los siguientes días
 	public void radio_030() {
+		System.out.println("Radio_030");
 		Tools.searchId("Radio");
-		stepLive.getDate();
+		Tools.scrollDown();
 		Tools.backToMenu();
 	}
 	
 	//Reproduce una radio que esté transmitiendo en vivo.
 	public void radio_040() {
 		Tools.searchId("Radio");
+		Tools.scrollUp();
 		step.playRadio();
 		Tools.backToMenu();
 	}

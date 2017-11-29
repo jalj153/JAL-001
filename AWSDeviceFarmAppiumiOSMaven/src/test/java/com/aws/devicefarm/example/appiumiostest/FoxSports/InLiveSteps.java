@@ -26,7 +26,7 @@ public class InLiveSteps {
 			if(isVisible) {
 				source=foxSports.driver.getPageSource();
 				System.out.println("Éstas son las transmisiones para "+id);
-				Tools.scroll("abajo");
+				Tools.scroll("down");
 				source2=foxSports.driver.getPageSource();
 				isVisible=foxSports.driver.findElement(By.id(id)).isDisplayed();
 				if(source.equals(source2)) {
@@ -117,7 +117,7 @@ public class InLiveSteps {
 		while(!isPresent) {		
 				source=foxSports.driver.getPageSource();
 				System.out.println("No se encuentra "+date);
-				Tools.scroll("abajo");
+				Tools.scroll("down");
 				source2=foxSports.driver.getPageSource();
 				isPresent=foxSports.driver.findElements(By.id(date)).size()>0;
 				if(source.equals(source2)){
@@ -131,7 +131,7 @@ public class InLiveSteps {
 			System.out.println("se verá si está presente "+date);
 			while(!isVisible) {
 				System.out.println("No está visible "+date);
-				Tools.scroll("abajo");
+				Tools.scroll("down");
 				source=foxSports.driver.getPageSource();
 				//isPresent=foxSports.driver.findElements(By.id(search)).size()>0;
 				isVisible=foxSports.driver.findElement(By.id(date)).isDisplayed();
@@ -173,7 +173,7 @@ public class InLiveSteps {
 		String source;
 		while(!isPresent) {		
 				System.out.println("No se encuentra "+search);
-				Tools.scroll("abajo");
+				Tools.scroll("down");
 				source=foxSports.driver.getPageSource();
 				isPresent=foxSports.driver.findElements(By.id(search)).size()>0;
 		}
@@ -184,7 +184,7 @@ public class InLiveSteps {
 			System.out.println("se verá si está presente "+search);
 			while(!isVisible) {
 				System.out.println("No está visible "+search);
-				Tools.scroll("abajo");
+				Tools.scroll("down");
 				source=foxSports.driver.getPageSource();
 				//isPresent=foxSports.driver.findElements(By.id(search)).size()>0;
 				isVisible=foxSports.driver.findElement(By.id(search)).isDisplayed();
@@ -263,7 +263,6 @@ public class InLiveSteps {
 	}
 	
 	//Método para buscar y presionar elementos de la pantalla de la transmisión en vivo
-	
 	public void searchButton(String id) {
 		boolean verification = false;
 		Boolean isPresent = foxSports.driver.findElements(By.id(id)).size() > 0;

@@ -20,7 +20,7 @@ public class ProfileTestCases {
 		public void profile_030() {
 			step.iconProfile();
 			step.tapFavorites();
-			step.addFavorite();
+			step.addFavoriteTeam();
 			step.tapNext();
 			step.selectTeam("Barcelona");
 			step.tapFinalize();
@@ -31,7 +31,7 @@ public class ProfileTestCases {
 		public void profile_040() {
 			step.iconProfile();
 			step.tapFavorites();
-			step.addFavorite();
+			step.addFavoriteComp();
 			step.selectCompetition("Superliga Argentina de Fútbol");
 			step.tapNext();
 			step.tapFinalize();
@@ -43,6 +43,7 @@ public class ProfileTestCases {
 			step.iconProfile();
 			step.helpCenter();
 			Tools.searchId("Back");
+			Tools.backToMenu();
 		}
 		
 		//Método que presiona en "¿Qué hay de nuevo?" y ve lo que contiene
@@ -51,6 +52,7 @@ public class ProfileTestCases {
 			step.whatsNew();
 			step.returnTop();
 			Tools.searchId("Back");
+			Tools.backToMenu();
 		}
 		
 		//Método que presiona en "Politicas de Privacidad" y ve lo que contiene
@@ -59,6 +61,7 @@ public class ProfileTestCases {
 			step.privacyPolicy();
 			step.returnTop();
 			Tools.searchId("Back");
+			Tools.backToMenu();
 		}
 		
 		//Método que presiona en "Términos y condiciones" y ve lo que contiene
@@ -66,7 +69,8 @@ public class ProfileTestCases {
 			step.iconProfile();
 			step.termsAndConditions();
 			step.returnTop();
-			Tools.searchId("Back");	
+			Tools.searchId("Back");
+			Tools.backToMenu();
 		}
 	
 }

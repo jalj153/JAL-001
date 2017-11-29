@@ -41,7 +41,7 @@ public class ResultsTestCases {
 		if(isPresent) {
 			step.addFavorites();
 		}else if(!isPresent) {
-			//Tools.scroll("up");
+			Tools.scroll("up");
 			Tools.tap();
 		}
 		Tools.backToMenu();

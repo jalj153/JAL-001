@@ -8,7 +8,8 @@ import io.appium.java_client.TouchAction;
 public class ResultsSteps {
 	static FoxSports foxSports = new FoxSports();
 	static ProfileSteps stepProfile = new ProfileSteps();
-	int counter=1;
+	int counter2=1;
+	
 	//Método para hacer tap en Resultados
 	public void tapResults() {
 		Tools.searchId("Resultados");
@@ -135,10 +136,10 @@ public class ResultsSteps {
 	public void auxResultsAll() {
 		tapResults();
 		Tools.searchId("TODOS");
-		if(counter<2) {
+		if(counter2<2) {
 			scrollUp();
 		}		
 		Tools.tap();
-		counter+=1;
+		counter2+=1;
 	}
 }

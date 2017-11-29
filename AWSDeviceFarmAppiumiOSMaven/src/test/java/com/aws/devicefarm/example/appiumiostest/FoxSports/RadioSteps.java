@@ -28,7 +28,7 @@ public class RadioSteps {
 		}
 	}
 	
-	
+	//Método que verifica si hay o no transmisiones en vivo
 	public void radioLive() {
 		Boolean isPresent = foxSports.driver.findElements(By.id("EN VIVO")).size()>0;
 		

@@ -1,5 +1,7 @@
 package com.aws.devicefarm.example.appiumiostest.FoxSports;
 
+import org.openqa.selenium.By;
+
 public class ProfileSteps {
 	
 	//Método que busca y presiona "volver al top"
@@ -7,19 +9,108 @@ public class ProfileSteps {
 		Tools.specificSearch("select", "\uF106 Volver al top", 1);
 	}
 	
-	//Método oque presiona el botón "Agregar"
+	
+	//Método que presiona el botón "Agregar"
 	public void addFavorite() {
-		Tools.searchId("AGREGAR");
+		boolean verification = false;
+		Boolean isPresent = FoxSports.driver.findElements(By.id("AGREGAR")).size() > 0;
+		String source;
+		while(verification!=true) {
+			isPresent = FoxSports.driver.findElements(By.id("AGREGAR")).size() > 0;
+			if (isPresent) {
+				FoxSports.driver.findElement(By.id("AGREGAR")).click();
+				verification=true;
+			} else {				
+				System.out.println("No se ha encontrado el elemento: " + "AGREGAR");
+			}	
+		}
+	}
+	
+	//Método oque presiona el botón "Agregar" O "Agregar Competencia"
+	public void addFavoriteComp() {
+		boolean verification = false;
+		Boolean isPresent = FoxSports.driver.findElements(By.id("AGREGAR")).size() > 0;
+		String source;
+		while(verification!=true) {
+			isPresent = FoxSports.driver.findElements(By.id("AGREGAR")).size() > 0;
+			if (isPresent) {
+				FoxSports.driver.findElement(By.id("AGREGAR")).click();
+				verification=true;
+			} else {
+				if(!isPresent) {
+					System.out.println("No se ha encontrado el elemento: " + "AGREGAR");
+					Boolean isPresent2 = FoxSports.driver.findElements(By.id("AGREGAR COMPETENCIAS")).size() > 0;
+					if(isPresent2) {
+						FoxSports.driver.findElement(By.id("AGREGAR COMPETENCIAS")).click();
+						break;
+					}
+					
+				}
+				
+			}	
+		}
+	}
+	
+	//Método que presiona el botón "Agregar" o "Agregar Equipo"
+	public void addFavoriteTeam() {
+		boolean verification = false;
+		Boolean isPresent = FoxSports.driver.findElements(By.id("AGREGAR")).size() > 0;
+		String source;
+		while(verification!=true) {
+			isPresent = FoxSports.driver.findElements(By.id("AGREGAR")).size() > 0;
+			if (isPresent) {
+				FoxSports.driver.findElement(By.id("AGREGAR")).click();
+				verification=true;
+			} else {
+				if(!isPresent) {
+					System.out.println("No se ha encontrado el elemento: " + "AGREGAR");
+					Boolean isPresent2 = FoxSports.driver.findElements(By.id("AGREGAR EQUIPOS")).size() > 0;
+					if(isPresent2) {
+						FoxSports.driver.findElement(By.id("AGREGAR EQUIPOS")).click();
+						break;
+					}
+					
+				}
+			}	
+		}
 	}
 	
 	//Método que presiona el botón "Siguiente"
 	public void tapNext() {
-		Tools.searchId("Siguiente");
+		boolean verification = false;
+		Boolean isPresent = FoxSports.driver.findElements(By.id("Siguiente")).size() > 0;
+		String source;
+		while(verification!=true) {
+			isPresent = FoxSports.driver.findElements(By.id("Siguiente")).size() > 0;
+			if (isPresent) {
+				FoxSports.driver.findElement(By.id("Siguiente")).click();
+				verification=true;
+			} else {
+				break;
+			}	
+		}
+		if(verification=false) {
+			Tools.backToMenu();
+		}
 	}
 	
 	//Método que presiona el botón "Finalizar"
 	public void tapFinalize(){
-		Tools.searchId("Finalizar");
+		boolean verification = false;
+		Boolean isPresent = FoxSports.driver.findElements(By.id("Finalizar")).size() > 0;
+		String source;
+		while(verification!=true) {
+			isPresent = FoxSports.driver.findElements(By.id("Finalizar")).size() > 0;
+			if (isPresent) {
+				FoxSports.driver.findElement(By.id("Finalizar")).click();
+				verification=true;
+			} else {
+				break;
+			}	
+		}
+		if(verification=false) {
+			Tools.backToMenu();
+		}
 	}
 	
 	//Método que busca y presiona el botón del profile

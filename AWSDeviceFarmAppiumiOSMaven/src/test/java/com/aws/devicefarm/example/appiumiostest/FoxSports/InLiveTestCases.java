@@ -12,7 +12,9 @@ public class InLiveTestCases {
 	static InLiveSteps step = new InLiveSteps();
 	static Tools tools = new Tools();
 	
-	public void inLive() {
+	
+	//Método que verifica los canales en vivo que hay
+	public void inLive_010() {
 		Tools.searchId("En Vivo");
 		Tools.waitTime(3000);
 		try {
@@ -21,6 +23,7 @@ public class InLiveTestCases {
 	
 	}
 	
+	//Método que muestra las transmisiones en vivo de más tarde
 	public void inLive_020() {
 		Tools.searchId("En Vivo");
 		//Tools.specificSearch("seleccionar", "MÁS TARDE", 1);
@@ -29,6 +32,8 @@ public class InLiveTestCases {
 			step.checkLives("MÁS TARDE");
 		}catch(Exception e) {System.out.println("No hay transmisiones "+" "+"MÁS TARDE");}
 	}
+	
+	//Método que muestra las transmisiones en vivo de mañana
 	public void inLive_030() {
 		Tools.searchId("En Vivo");
 		//Tools.specificSearch("ninguna", "Mañana", 1);
@@ -38,23 +43,30 @@ public class InLiveTestCases {
 		}catch(Exception e) {System.out.println(" ");}
 	}
 	
+	//Método que muestra las transmisiones en vivo de los próximos días.
 	public void inLive_040() {
 		Tools.searchId("En Vivo");
-		step.getDate();
+		//step.getDate();
+		Tools.scrollDown();
 	}
+	
+	//Método que reproduce un canal en vivo 
 	public void inLive_050() {
 		Tools.searchId("En Vivo");
 		Tools.searchId("EN VIVO");
 		Tools.backToMenu();
 	}
+	
+	//Método que reproduce un show en vivo
 	public void inLive_060() {
 		Tools.searchId("En Vivo");
 		//Tools.specificSearch("seleccionar", "SHOW", 1);
 		step.searchShowLive("SHOW");
 		Tools.backToMenu();
 		Tools.waitTime(5000);
-		
 	}
+	
+	//Método que Pone el video en fullscreen, (No presiona en "Más eventos en vivo")
 	public void inLive_070() {
 		Tools.searchId("En Vivo");
 		Tools.searchId("EN VIVO");
@@ -67,6 +79,7 @@ public class InLiveTestCases {
 		Tools.waitTime(10000);	
 	}
 	
+	//Reproduce un evento programado que no va por un canal
 	public void inLive_080() {
 		Tools.searchId("En Vivo");
 		step.searchLiveNoCanal();
@@ -74,7 +87,7 @@ public class InLiveTestCases {
 		Tools.waitTime(3000);
 	}
 	
-	
+	//Reproduce un evento programado que va por un canal
 	public void inLive_090() {
 		Tools.searchId("En Vivo");
 		//step.searchLiveInCanal(1);

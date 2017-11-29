@@ -472,6 +472,28 @@ public class Tools {
 		
 	}
 	
+	///////////////////////Método que hace scroll arriba hasta que llega al tope
+	public static void scrollUp() {
+		String source=null;
+		String source2=null;
+		
+		do {
+			source=FoxSports.driver.getPageSource();
+			scroll("up");
+			source2 = FoxSports.driver.getPageSource();
+		}while(source==source2);
+	}
 	
 	
+	///////////////////////Método que muestra las transmisiones de los próximos días
+	public static void scrollDown() {
+		String source=null;
+		String source2=null;
+			
+		do {
+			source = FoxSports.driver.getPageSource();
+			Tools.scroll("down");
+			source2 = FoxSports.driver.getPageSource();
+		}while(source==source2);
+	}
 }

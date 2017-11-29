@@ -24,7 +24,8 @@ public class FoxSports {
 	static CompetitionsTestCases competitions = new CompetitionsTestCases();
 	public static IOSDriver<IOSElement> driver;
 	static Tools tools = new Tools();
-
+	int foxTimeOut=7;
+	
 	@BeforeMethod(alwaysRun=true)
   public void beforeMethod() throws MalformedURLException{
 		
@@ -54,23 +55,23 @@ public class FoxSports {
 	  
 	  ///////////Login
 	  
-	  //login.login_020();
+	  login.login_020();
 	 
 	  ///////////Profile
-	  
-	  //profile.profile_010();
-	  //profile.profile_020();
-	  //profile.profile_030();
-	  //profile.profile_040();
-	  //profile.profile_050();
-	  //profile.profile_060();
-	  //profile.profile_070();
-	  /*profile.profile_080();*/
-	  
+	  /*
+	  profile.profile_010();
+	  profile.profile_020();
+	  profile.profile_030();
+	  profile.profile_040();
+	  profile.profile_050();
+	  profile.profile_060();
+	  profile.profile_070();
+	  profile.profile_080();
+	  */
 	  
 	  //////////Competitions
-	  
-	  /*competitions.competitions_010();
+	  /*
+	  competitions.competitions_010();
 	  competitions.competitions_020();
 	  competitions.competitions_030();
 	  competitions.competitions_040();
@@ -85,40 +86,52 @@ public class FoxSports {
 	  competitions.competitions_130();
 	  competitions.competitions_140();
 	  competitions.competitions_150();
-	  competitions.competitions_160();*/
-	  //live.inLive_070();
-	  
+	  competitions.competitions_160();
+	  */
 	  ///////////////News
-	  
-	  /*news.news_010();
-	  news.news_020();*/
-	  
+	  /*
+	  news.news_010();
+	  news.news_020();
+	  */
 	  ///////////////Radio
-	  
-	  //radio.radio_010();
-	  //radio.radio_020();
-	  //radio.radio_030();
-	  //radio.radio_040();
-	  
+	   /*
+	  radio.radio_010();
+	  radio.radio_020();
+	  radio.radio_030();
+	  radio.radio_040();
+	  */
 	  //////////Results
-	  
-	//  results.results_010();
-	  //results.results_020();
-	  /*results.results_030();
+	  /*
+	  results.results_010();
+	  results.results_020();
+	  results.results_030();
 	  results.results_040();
 	  results.results_050();
 	  results.results_060();
 	  results.results_070();
-	  results.results_080();*/
-	  //results.results_090();
-	  //results.results_100();
-	  //results.results_110();
-	 /* results.results_120();
+	  results.results_080();
+	  results.results_090();
+	  results.results_100();
+	  results.results_110();
+	  results.results_120();
 	  results.resultss_130();
 	  results.results_140();
 	  results.results_150();
-	  results.results_160();*/
+	  results.results_160();
+	  */
+	  //////////In Live
+	  
+	  live.inLive_010();
+	  live.inLive_020();
+	  live.inLive_030();
+	  live.inLive_040();
+	  live.inLive_050();
+	  live.inLive_060();
+	  live.inLive_070();
+	  live.inLive_080();
+	  live.inLive_090();
   }
+
   
   @AfterMethod
   public void afterMethod() {
