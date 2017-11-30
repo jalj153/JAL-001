@@ -245,12 +245,11 @@ public class Tools {
 		return value;
 	}
 	
-	public static void takeScreenshot(){
+	public static void takeScreenshot(String name){
 		destDir = "screenshots";
 		File scrFile = ((TakesScreenshot)principal.driver).getScreenshotAs(OutputType.FILE);
-		dateFormat = new SimpleDateFormat("dd-MMM-yyyy__hh_mm_ssaa");
 		new File(destDir).mkdirs();
-		String destFile = dateFormat.format(new Date()) + ".png";
+		String destFile = name+ ".png";
 		try {
 			   FileUtils.copyFile(scrFile, new File(destDir + "/" + destFile));
 			  } catch (IOException e) {
@@ -279,30 +278,31 @@ public class Tools {
 	public static void pestañasIniciales(){
 
 		try {
-			//REALIZAR SCREENSHOT
-			takeScreenshot();//("Botón Omitir");
 			// TAP EN BOTON OMITIR
 			principal.driver.findElementByAndroidUIAutomator("new UiSelector().text(\"Omitir\")").click();
+			//REALIZAR SCREENSHOT
+			takeScreenshot("Botón Omitir");//();
 		} catch (Exception e) {
 			System.out.println("NO SE ENCUENTRA EL BOTON OMITIR");
 		}
 				
 		try {
-			//REALIZAR SCREENSHOT
-			takeScreenshot();//("Permiso de Acceso a Llamadas Telefonicas");
 			// TAP EN ALERTA DE PERMISO DE LLAMADAS TELEFONICAS
 			principal.driver.findElementByAndroidUIAutomator(
 					"new UiSelector().resourceId(\"com.android.packageinstaller:id/permission_allow_button\")").click();
+			//REALIZAR SCREENSHOT
+			takeScreenshot("Permiso de Acceso a Llamadas Telefonicas");//();
 		} catch (Exception e) {
 			System.out.println("NO REQUIERE PERMISOS");
 		}
 
 		try {
-			// REALIZAR SCREENSHOT
-			takeScreenshot();//("Permiso de Acceso a Calendario");
+			
 			// TAP EN ALERTA DE PERMISO DE ACCESO A CALENDARIO
 			principal.driver.findElementByAndroidUIAutomator(
 					"new UiSelector().resourceId(\"com.android.packageinstaller:id/permission_allow_button\")").click();
+			// REALIZAR SCREENSHOT
+						takeScreenshot("Permiso de Acceso a Calendario");//();
 		} catch (Exception e) {
 			System.out.println("NO REQUIERE PERMISOS");
 		}
@@ -317,6 +317,11 @@ public class Tools {
 			System.out.println("No se realizo ningun test");
 		}else{
 			porcentaje = ((totalBuenas * 100)/totalTest);
+			//System.out.println("||||    ||||    ||||    |  |    ||      ||||     ||     |||     ||||");
+			//System.out.println("|  |    |       |       |  |    ||       ||     |  |    |  |    |  |");
+			//System.out.println("||||    |||     ||||    |  |    ||       ||     ||||    |  |    |  |");	
+			//System.out.println("| |     |          |    |  |    ||       ||     |  |    |  |    |  |");
+			//System.out.println("|  |    ||||    ||||    ||||    ||||     ||     |  |    |||     ||||");
 			System.err.println("El test finalizo con un "+ porcentaje+ "% de efectividad");
 		}
 		

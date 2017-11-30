@@ -59,8 +59,7 @@ public class InLiveSteps {
 			aux+=2;
 			fecha = String.valueOf("0"+aux+" "+ aux1);
 		}else if(aux == 30 || aux == 31){
-			aux=28;
-			fecha =String.valueOf(aux+" "+ aux1);
+			fecha =String.valueOf("MAÑANA");
 		}else{
 			aux+=2;
 			fecha = String.valueOf(aux+" "+ aux1);

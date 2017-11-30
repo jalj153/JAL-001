@@ -2,20 +2,20 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="432433" started-at="2017-11-28T21:47:51Z" finished-at="2017-11-28T21:55:03Z">
+  <suite name="Default suite" duration-ms="2453699" started-at="2017-11-30T21:08:00Z" finished-at="2017-11-30T21:48:53Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="432433" started-at="2017-11-28T21:47:51Z" finished-at="2017-11-28T21:55:03Z">
+    <test name="Default test" duration-ms="2453699" started-at="2017-11-30T21:08:00Z" finished-at="2017-11-30T21:48:53Z">
       <class name="com.aws.devicefarm.example.appiumandroidtest.FoxSports.FoxSports">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.aws.devicefarm.example.appiumandroidtest.FoxSports.FoxSports@13805618]" name="setUp" is-config="true" duration-ms="18901" started-at="2017-11-28T15:47:51Z" finished-at="2017-11-28T15:48:10Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.aws.devicefarm.example.appiumandroidtest.FoxSports.FoxSports@13805618]" name="setUp" is-config="true" duration-ms="20750" started-at="2017-11-30T15:08:00Z" finished-at="2017-11-30T15:08:20Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="Iniciar()[pri:0, instance:com.aws.devicefarm.example.appiumandroidtest.FoxSports.FoxSports@13805618]" name="Iniciar" duration-ms="410235" started-at="2017-11-28T15:48:10Z" finished-at="2017-11-28T15:55:00Z">
+        <test-method status="PASS" signature="Iniciar()[pri:0, instance:com.aws.devicefarm.example.appiumandroidtest.FoxSports.FoxSports@13805618]" name="Iniciar" duration-ms="2429923" started-at="2017-11-30T15:08:20Z" finished-at="2017-11-30T15:48:50Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Iniciar -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.aws.devicefarm.example.appiumandroidtest.FoxSports.FoxSports@13805618]" name="tearDown" is-config="true" duration-ms="3279" started-at="2017-11-28T15:55:00Z" finished-at="2017-11-28T15:55:03Z">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.aws.devicefarm.example.appiumandroidtest.FoxSports.FoxSports@13805618]" name="tearDown" is-config="true" duration-ms="2983" started-at="2017-11-30T15:48:50Z" finished-at="2017-11-30T15:48:53Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
