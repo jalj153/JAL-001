@@ -59,6 +59,7 @@ public class ResultsSteps {
 	public void searchCompetition(String comp) {
 		Boolean isPresent = FoxSports.driver.findElements(By.id(comp)).size()>0;
 		String source;
+		String source2;
 		
 		while(!isPresent) {
 			System.out.println("No se encuentra presente");
@@ -78,6 +79,13 @@ public class ResultsSteps {
 					System.out.println("Sí está visible");
 					break;
 				}
+				source2 = foxSports.driver.getPageSource();
+				if(source.equals(source2)) {
+					System.err.println("No hay una competencia con ese nombre");
+					Tools.failTotal+=1;
+					break;
+				}
+				
 			}
 			if(isVisible) {
 				Tools.searchId(comp);

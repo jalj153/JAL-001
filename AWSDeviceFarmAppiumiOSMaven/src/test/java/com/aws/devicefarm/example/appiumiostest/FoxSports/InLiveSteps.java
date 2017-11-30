@@ -22,6 +22,10 @@ public class InLiveSteps {
 		Boolean isVisible=foxSports.driver.findElement(By.id(id)).isDisplayed();
 		String source=null;
 		String source2=null;
+		if(!isVisible) {
+			Tools.failTotal+=1;
+			System.err.println("No se ha encontrado");
+		}
 		while(isVisible) {
 			if(isVisible) {
 				source=foxSports.driver.getPageSource();
@@ -125,7 +129,6 @@ public class InLiveSteps {
 				}
 		}
 		if(isPresent) {
-
 			System.out.println("Sí se encuentra "+date);
 			Boolean isVisible=foxSports.driver.findElement(By.id(date)).isDisplayed();
 			System.out.println("se verá si está presente "+date);
@@ -138,6 +141,11 @@ public class InLiveSteps {
 				if(isVisible){
 					break;
 				}
+				source2 = foxSports.driver.getPageSource();
+				if(source.equals(source2)) {
+					System.err.println("No se ha encontrado");
+					Tools.failTotal+=1;
+				}
 			}
 		}
 	}
@@ -146,7 +154,10 @@ public class InLiveSteps {
 	public void searchShowLive(String show) {
 		Boolean isPresent=foxSports.driver.findElements(By.name(show)).size()>0;
 		String source;
-		
+		if(!isPresent) {
+			System.err.println("No se ha encontrado algún show en vivo");
+			Tools.failTotal+=1;
+		}
 		while(isPresent) {			
 			if(isPresent) {
 			
@@ -193,6 +204,7 @@ public class InLiveSteps {
 				}
 			}
 			if(isVisible){
+				Tools.successTotal+=1;
 				System.out.println("Se está presionando "+search);
 				System.out.println("Sí hay transmisiones para"+" "+search);
 			}

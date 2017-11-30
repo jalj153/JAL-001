@@ -34,7 +34,7 @@ public class FoxSports {
 		capabilities.setCapability("platformName", "iOS");
 		capabilities.setCapability("deviceName", "iPhone 6");
 		capabilities.setCapability("platformVersion", "10.3");
-		capabilities.setCapability("app", "/Users/imac/Desktop/UI Test/Aplicaciones/FOXSports.app");
+		capabilities.setCapability("app", "/Users/imac/Desktop/UI Test/Aplicaciones/FOXSportss.app");
 		capabilities.setCapability("noReset", "false");
 		capabilities.setCapability("deviceOrientation", "portrait");
 		capabilities.setCapability("appiumVersion", "1.7.1");
@@ -42,7 +42,7 @@ public class FoxSports {
 
 		URL appiumURL = new URL("http://127.0.0.1:4723/wd/hub");
 		driver = new IOSDriver<IOSElement>(appiumURL, capabilities);
-		//driver.manage().timeouts().implicitlyWait(foxTimeOut, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(foxTimeOut, TimeUnit.SECONDS);
 	  
   }
   
@@ -58,9 +58,9 @@ public class FoxSports {
 	  login.login_020();
 	 
 	  ///////////Profile
-	  /*
-	  profile.profile_010();
-	  profile.profile_020();
+	  
+	 // profile.profile_010();
+	  /*profile.profile_020();
 	  profile.profile_030();
 	  profile.profile_040();
 	  profile.profile_050();
@@ -120,7 +120,7 @@ public class FoxSports {
 	  results.results_160();
 	  */
 	  //////////In Live
-	  
+	  /*
 	  live.inLive_010();
 	  live.inLive_020();
 	  live.inLive_030();
@@ -130,6 +130,10 @@ public class FoxSports {
 	  live.inLive_070();
 	  live.inLive_080();
 	  live.inLive_090();
+  	  */
+	  
+	  tools.controlFails();
+	  
   }
 
   

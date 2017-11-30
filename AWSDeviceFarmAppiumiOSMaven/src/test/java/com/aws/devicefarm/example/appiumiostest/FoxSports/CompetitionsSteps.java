@@ -228,6 +228,8 @@ public class CompetitionsSteps {
 			source2=foxSports.driver.getPlatformName();
 			isPresent=foxSports.driver.findElements(By.name("Fútbol Europa")).size()>0;
 			if(source.equals(source2)) {
+				System.err.println("No se ha encontrado la categoría deseada");
+				Tools.failTotal+=1;
 				break;
 			}
 		}

@@ -52,7 +52,8 @@ public class NewsSteps {
 		Boolean isPresent=foxSports.driver.findElements(By.id("No hay noticias disponibles en este momento.")).size()>0;
 		
 		if(isPresent) {
-			System.out.println("No hay noticias disponibles en este momento.");
+			System.err.println("No hay noticias disponibles en este momento.");
+			Tools.failTotal+=1;
 		}else {
 			System.out.println("Sí hay noticias disponibles");
 			Tools.waitTime(1000);
@@ -61,6 +62,7 @@ public class NewsSteps {
 					+ "/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther"
 					+ "/XCUIElementTypeScrollView/XCUIElementTypeOther/XCUIElementTypeCollectionView"
 					+ "/XCUIElementTypeCell[1]")).click();
+			Tools.successTotal+=1;
 			Tools.waitTime(10000);
 			
 		}

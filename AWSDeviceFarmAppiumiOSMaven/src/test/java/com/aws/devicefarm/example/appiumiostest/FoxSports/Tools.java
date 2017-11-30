@@ -7,19 +7,23 @@ import io.appium.java_client.TouchAction;
 
 public class Tools {
 	static FoxSports foxSports = new FoxSports();
+	static int failTotal=0;
+	static int successTotal=0;
+	static int total=0;
+	static int percentage=0;
 	///////////////////////Método que calcula el tiempo para que se efectue una acción
 	public static void waitTime(int time) {
 		try {
 			Thread.sleep(time);
 		} catch (InterruptedException e) {
-			System.out.println("Timeout");
+			System.err.println("Timeout");
 		}
 	}
 	
 	
 	////////////////////////Metodo para la busqueda de elementos y para poder seleccionarlo(Busca por ID)
 	public static void searchId(String id) {
-		boolean verification = false;
+		/*boolean verification = false;
 		Boolean isPresent = foxSports.driver.findElements(By.id(id)).size() > 0;
 		String source;
 		while(verification!=true) {
@@ -31,13 +35,20 @@ public class Tools {
 				System.out.println("No se ha encontrado el elemento: " + id);
 				waitTime(1000);
 			}	
+		}*/
+		try {
+			foxSports.driver.findElement(By.id(id)).click();
+			successTotal+=1;
+		}catch(Exception e) {
+			System.err.println("No se encontró: "+ id);
+			failTotal+=1;
 		}
 	}
 	
 	
 	///////////////////////Metodo para la busqueda de elementos y para poder seleccionarlo(Busca por Xpath)
 	public static void searchPath(String path) {
-		boolean verification=false;
+		/*boolean verification=false;
 		while(verification!=true) {
 			Boolean isPresent=foxSports.driver.findElements(By.xpath(path)).size()>0;
 			if(isPresent) {
@@ -47,13 +58,20 @@ public class Tools {
 				System.out.println("No se encontro el elemento: "+ path);
 				waitTime(1000);
 			}	
-		}	
+		}*/
+		try {
+			foxSports.driver.findElement(By.xpath(path)).click();	
+			successTotal+=1;
+		}catch(Exception e) {
+			System.err.println("No se encontró el elemento");
+			failTotal+=1;
+		}
 	}
 	
 	
 	//////////////////Metodo para la busqueda de elementos y para poder seleccionarlo(Busca por Name)
 	public static void searchName(String name) {
-		boolean verification=false;
+		/*boolean verification=false;
 		while(verification!=true) {
 			Boolean isPresent=foxSports.driver.findElements(By.name(name)).size()>0;
 			if(isPresent) {
@@ -64,7 +82,15 @@ public class Tools {
 				System.out.println("No se encontro el elemento: "+ name);
 				waitTime(1000);
 			}	
-		}	
+		}*/
+		try {
+			foxSports.driver.findElementByName(name).click();
+			successTotal+=1;
+		}catch(Exception e) {
+			System.err.println("No se encontró: "+ name);
+			failTotal+=1;
+		}
+		
 	}
 	
 	//Método que busca la tecla "back" para retroceder cuando se termina la instrucción
@@ -123,20 +149,20 @@ public class Tools {
 			try {
 				foxSports.driver.findElement(By.id(aux)).click();			
 			}catch(Exception e) {
-				System.out.println("No se encontró");
+				System.err.println("No se encontró");
 				waitTime(1000);
 			}
 			//searchId(aux2);
 			try {
 				foxSports.driver.findElement(By.id(aux2)).click();
 			}catch(Exception e) {
-				System.out.println("No se encontró");
+				System.err.println("No se encontró");
 				waitTime(1000);
 			}
 			try {
 				foxSports.driver.findElement(By.id(aux3));
 			}catch(Exception e) {
-				System.out.println("No se encontró");
+				System.err.println("No se encontró");
 				waitTime(1000);
 			}
 			source1=foxSports.driver.getPageSource();
@@ -149,8 +175,10 @@ public class Tools {
 	public static void sendText(String path, String text) {
 		try {
 			foxSports.driver.findElement(By.xpath(path)).sendKeys(text);
+			successTotal+=1;
 		}catch(Exception e) {
-			System.out.println("No se pudo mandar texto a "+ path);
+			System.err.println("No se pudo mandar texto a "+ path);
+			failTotal+=1;
 		}
 	}
 	
@@ -280,7 +308,7 @@ public class Tools {
 						gesture(action, id, selection);
 					}
 				} else {
-					System.out.println("No se ha encontrado el elemento: " + id);
+					System.err.println("No se ha encontrado el elemento: " + id);
 				}
 			}
 			break;
@@ -340,7 +368,7 @@ public class Tools {
 						gesture(action, id, selection);
 					}
 				} else {
-					System.out.println("No se ha encontrado el elemento: " + id);
+					System.err.println("No se ha encontrado el elemento: " + id);
 				}
 			}
 			break;
@@ -400,7 +428,7 @@ public class Tools {
 						gesture(action, id, selection);
 					}
 				} else {
-					System.out.println("No se ha encontrado el elemento: " + id);
+					System.err.println("No se ha encontrado el elemento: " + id);
 				}
 			}
 			break;
@@ -496,4 +524,17 @@ public class Tools {
 			source2 = FoxSports.driver.getPageSource();
 		}while(source==source2);
 	}
+	
+	///////////////////////Método que hace el cálculo de porcentaje de eficiencia de los casoss reproducidos
+	public static void controlFails() {
+		total=successTotal+failTotal;
+		if(total==0) {
+			System.out.println("No se corrió ningún test");
+		}else {
+			percentage=(successTotal+100)/total;
+			System.out.println("El porcentaje de efectividad fue: "+percentage);
+		}
+		
+	}
+	
 }

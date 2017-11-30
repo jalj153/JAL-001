@@ -14,6 +14,10 @@ public class RadioSteps {
 		int contador = 0;
 		List<IOSElement> playBtns = foxSports.driver.findElements(By.name("playBtn"));
 		Boolean isPresent = playBtns.size() > 0;
+		if(!isPresent) {
+			System.err.println("No se ha encontrado ninguno");
+			Tools.failTotal+=1;
+		}
 		if (isPresent) {
 			for (IOSElement elem : playBtns) {
 				elem = playBtns.get(contador);
@@ -23,6 +27,7 @@ public class RadioSteps {
 				Tools.waitTime(10000);
 				if (elem == playBtns.get(playBtns.size() - 1)) {
 					elem.click();
+					Tools.successTotal+=1;
 				}
 			}
 		}
@@ -36,8 +41,10 @@ public class RadioSteps {
 			Boolean isVisible = foxSports.driver.findElement(By.id("EN VIVO")).isDisplayed();
 			if(isVisible) {
 				System.out.println("Sí hay transmisiones en vivo");
+				Tools.successTotal+=1;
 			}else {
 				System.out.println("No hay transmisiones en vivo");
+				Tools.failTotal+=1;
 			}
 		}
 		
