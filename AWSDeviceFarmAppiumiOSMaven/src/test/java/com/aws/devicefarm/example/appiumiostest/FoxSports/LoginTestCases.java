@@ -6,8 +6,10 @@ public class LoginTestCases {
 	static FoxSports foxSports = new FoxSports();
 	static LoginSteps step= new LoginSteps();
 
-	//Método para hacer "login" con un usuario invitado
+	//Method to "login" with a guest user
     public void login_020(){
+    		Tools.takeSpace();
+    		System.out.println("----------Login_020----------");
     		step.tapIconProfile();
     		step.tapEnter();
     		step.tapGuests();
@@ -17,6 +19,6 @@ public class LoginTestCases {
     		step.tapCheck();
     		step.tapLogin();
     		Tools.waitTime(10000);
-    		Tools.backToMenu();
+    		//Tools.backToMenu();
     }
 }

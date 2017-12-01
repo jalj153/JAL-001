@@ -34,7 +34,7 @@ public class FoxSports {
 		capabilities.setCapability("platformName", "iOS");
 		capabilities.setCapability("deviceName", "iPhone 6");
 		capabilities.setCapability("platformVersion", "10.3");
-		capabilities.setCapability("app", "/Users/imac/Desktop/UI Test/Aplicaciones/FOXSportss.app");
+		capabilities.setCapability("app", "/Users/imac/Desktop/UI Test/Aplicaciones/FOXSports.app");
 		capabilities.setCapability("noReset", "false");
 		capabilities.setCapability("deviceOrientation", "portrait");
 		capabilities.setCapability("appiumVersion", "1.7.1");

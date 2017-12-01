@@ -1,5 +1,9 @@
 package com.aws.devicefarm.example.appiumiostest.FoxSports;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.util.Properties;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 
@@ -11,7 +15,9 @@ public class Tools {
 	static int successTotal=0;
 	static int total=0;
 	static int percentage=0;
-	///////////////////////Método que calcula el tiempo para que se efectue una acción
+	
+	
+	///////////////////////Method that calculates the time for an action to be performed
 	public static void waitTime(int time) {
 		try {
 			Thread.sleep(time);
@@ -21,7 +27,7 @@ public class Tools {
 	}
 	
 	
-	////////////////////////Metodo para la busqueda de elementos y para poder seleccionarlo(Busca por ID)
+	////////////////////////Method for the search of elements and to be able to select it (Search by ID)
 	public static void searchId(String id) {
 		/*boolean verification = false;
 		Boolean isPresent = foxSports.driver.findElements(By.id(id)).size() > 0;
@@ -46,7 +52,7 @@ public class Tools {
 	}
 	
 	
-	///////////////////////Metodo para la busqueda de elementos y para poder seleccionarlo(Busca por Xpath)
+	///////////////////////Method to search for elements and to select it (Search by Xpath)
 	public static void searchPath(String path) {
 		/*boolean verification=false;
 		while(verification!=true) {
@@ -69,7 +75,7 @@ public class Tools {
 	}
 	
 	
-	//////////////////Metodo para la busqueda de elementos y para poder seleccionarlo(Busca por Name)
+	//////////////////Method for the search of elements and to be able to select it (Search by Name)
 	public static void searchName(String name) {
 		/*boolean verification=false;
 		while(verification!=true) {
@@ -134,7 +140,8 @@ public class Tools {
 		}	
 	}*/
 	
-	///////////////////////////Método que funciona para estar buscando el botón "Back" para cuando termine cada testCase
+	
+	///////////////////////////Method that works to be looking for the "Back" button for when you finish each testCase
 	public static void backToMenu() {
 		//Boolean isVisible=foxSports.driver.findElement(By.xpath("//XCUIElementTypeApplication[@name=\"FOX Sports\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeTabBar")).isDisplayed();
 		Boolean isPresent2 = foxSports.driver.findElements(By.xpath("//XCUIElementTypeApplication[@name=\"FOX Sports\"]/XCUIElementTypeWindow[1]/XCUIElementTypeOther/XCUIElementTypeTabBar")).size() > 0;
@@ -171,7 +178,7 @@ public class Tools {
 	}
 	
 	
-	////////////////////////Método para enviar un texto y escribir en el textBox que se encuentre
+	////////////////////////
 	public static void sendText(String path, String text) {
 		try {
 			foxSports.driver.findElement(By.xpath(path)).sendKeys(text);
@@ -181,6 +188,7 @@ public class Tools {
 			failTotal+=1;
 		}
 	}
+	
 	
 	////////////////////////Método para verificar la hora el nombre y tipo
 	public void findHourNameType(String hour, String name, String type) {
@@ -209,6 +217,7 @@ public class Tools {
 			System.out.println("No se encuentra el botón de recordatorio");
 		}
 	}
+	
 	
 	//////////////////////////////Método para hacer que el scroll baje y suba, se utiliza para verificar el contenido.
 	public static void scrollChecker() {
@@ -483,10 +492,7 @@ public class Tools {
 		
 		
 	}
-	
-	
-	
-	
+		
 	
 	///////////////////////Método para hacer un tap en medio de la pantalla se utiliza para seleccionar elementos que el inspector no reconoce
 	public static void tap() {
@@ -499,6 +505,7 @@ public class Tools {
 		System.out.println("Se hizo tap");
 		
 	}
+	
 	
 	///////////////////////Método que hace scroll arriba hasta que llega al tope
 	public static void scrollUp() {
@@ -525,6 +532,7 @@ public class Tools {
 		}while(source==source2);
 	}
 	
+	
 	///////////////////////Método que hace el cálculo de porcentaje de eficiencia de los casoss reproducidos
 	public static void controlFails() {
 		total=successTotal+failTotal;
@@ -532,8 +540,36 @@ public class Tools {
 			System.out.println("No se corrió ningún test");
 		}else {
 			percentage=(successTotal+100)/total;
-			System.out.println("El porcentaje de efectividad fue: "+percentage);
+			System.out.println(" ");
+			System.out.println("*****************El porcentaje de efectividad fue: "+percentage+"%"+" "+"***************************");
 		}
+		
+	}
+	
+	
+	///////////////////////Método para leer archivos de texto de configuración
+	public static String readProperty(String property) {
+		Properties prop;
+		String value = null;
+		try {
+			prop = new Properties();
+			prop.load(new FileInputStream(new File("config.properties")));
+			value = prop.getProperty(property);
+			if (value == null || value.isEmpty()) {
+				throw new Exception("Value not set or empty");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return value;
+	}
+	
+	public static void takeSpace() {
+		System.out.println("__________________________________________________________________________________");
+		System.out.println(" ");
+		System.out.println(" ");
+		System.out.println(" ");
+		System.out.println(" ");
 		
 	}
 	

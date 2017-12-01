@@ -8,7 +8,7 @@ import io.appium.java_client.TouchAction;
 public class NewsSteps {
 	static FoxSports foxSports = new FoxSports();
 	
-	//Método que busca competencias y verifica si tiene noticias
+	//Method that looks for competitions and verifies if you have news
 	public void searchCompetitions() {
 		int contador=0;
 		int contador2 = 0;	
@@ -29,7 +29,7 @@ public class NewsSteps {
 		Tools.searchId("Filtrar");	
 	}
 	
-	//Método de scroll para seleccionar en el "Picker Wheel"  
+	//Scroll method to select in the "Picker Wheel"
 	public static void scrollNews(String direction) {
 		TouchAction touchAction = new TouchAction(foxSports.driver);
 		Dimension dimensions = foxSports.driver.manage().window().getSize();
@@ -47,7 +47,7 @@ public class NewsSteps {
 		}		
 	}
 	
-	//Método que busca si hay noticias disponibles en ese momento
+	//Method that searches if there is news available at that moment
 	public void searchNews(){
 		Boolean isPresent=foxSports.driver.findElements(By.id("No hay noticias disponibles en este momento.")).size()>0;
 		

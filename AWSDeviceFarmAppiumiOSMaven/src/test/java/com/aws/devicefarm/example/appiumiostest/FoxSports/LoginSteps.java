@@ -2,37 +2,37 @@ package com.aws.devicefarm.example.appiumiostest.FoxSports;
 
 public class LoginSteps {
 	
-	//Método que hace tap en el botón de "Icon Profile"
+	//Method that you tap on the "Icon Profile" button
 	public void tapIconProfile() {
 		Tools.searchId("icon profile");
 	}
 	
-	//Método para hacer tap en ingresar
+	//Method to tap on enter
 	public void tapEnter() {
 		Tools.searchId("INGRESAR");
 	}
 	
-	//Método que hace tap en invitados
+	//Method that tap on guests
 	public void tapGuests() {
 		Tools.searchPath("//XCUIElementTypeStaticText[@name=\"INVITADOS\"]");
 	}
 	
-	//Método que manda el texto del e-mail
+	//Method that sends the text of the e-mail
 	public void email(String email) {
 		Tools.sendText("//XCUIElementTypeOther[@name=\"article\"]/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther[1]/XCUIElementTypeOther[2]/XCUIElementTypeTextField", email);
 	}
 	
-	//Método que envía el texto del password
+	//Method that sends the password text
 	public void password(String password) {
 		Tools.sendText("//XCUIElementTypeOther[@name=\"article\"]/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther[2]/XCUIElementTypeOther[2]/XCUIElementTypeSecureTextField", password);
 	}
 	
-	//Método que hace tap en el "CheckBox" de terminos y condiciones
+	//Method that does tap on the "CheckBox" of terms and conditions
 	public void tapCheck() {
 		Tools.searchPath("//XCUIElementTypeOther[@name=\"article\"]/XCUIElementTypeOther[2]/XCUIElementTypeOther/XCUIElementTypeOther[3]/XCUIElementTypeSwitch");
 	}
 	
-	//Método que hace tap en login para ya iniciar la sesión.
+	//Method that makes tap in login to start the session.
 	public void tapLogin() {
 		Tools.searchId("Login");
 	}

@@ -9,7 +9,7 @@ import io.appium.java_client.ios.IOSElement;
 public class RadioSteps {
 	static FoxSports foxSports = new FoxSports();
 	
-	//Método para seleccionar una radio en vivo
+	//Method to select a live radio
 	public void playRadio() {
 		int contador = 0;
 		List<IOSElement> playBtns = foxSports.driver.findElements(By.name("playBtn"));
@@ -33,7 +33,7 @@ public class RadioSteps {
 		}
 	}
 	
-	//Método que verifica si hay o no transmisiones en vivo
+	//Method that verifies whether or not there are live broadcasts
 	public void radioLive() {
 		Boolean isPresent = foxSports.driver.findElements(By.id("EN VIVO")).size()>0;
 		

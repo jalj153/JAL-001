@@ -10,22 +10,22 @@ public class ResultsSteps {
 	static ProfileSteps stepProfile = new ProfileSteps();
 	int counter2=1;
 	
-	//Método para hacer tap en Resultados
+	//Method to tap in Results
 	public void tapResults() {
 		Tools.searchId("Resultados");
 	}
 	
-	//Método para seleccionar Todas las Competencias para agregarlas a favoritos
+	//Method to select All Competitions to add them to favorites
 	public void allCompetences() {
 		Tools.specificSearch("select", "(//XCUIElementTypeButton[@name=\"VER TODAS LAS COMPETENCIAS\"])[2]", 2);
 	}
 	
-	//Método para hacer tap en resúmen
+	//Method to make a summary tap
 	public void tapSummary() {
 		Tools.searchId(("RESUMEN"));
 	}
 	
-	//Método para hacer tap en una línea de tiempo
+	//Method to tap on a timeline
 	public void tapTimeLine() {
 		Tools.searchId("LÍNEA DE TIEMPO");	
 	}
@@ -35,27 +35,27 @@ public class ResultsSteps {
 		Tools.searchId("ESTADÍSTICAS");
 	}
 	
-	//Método para hacer tap en alineaciones
+	//Method to tap in alignments
 	public void tapAlignments() {
 		Tools.searchId("ALINEACIONES");
 	}
 	
-	//Método para hacer tap en Historial
+	//Method to tap in History
 	public void tapBackground() {
 		Tools.searchId("HISTORIAL");
 	}
 	
-	//Método para hacer tap en clasificación
+	//Method for tap classification
 	public void tapClasification() {
 		Tools.searchId("CLASIFICACIÓN");
 	}
 	
-	//Método para hacer tap en Favoritos
+	//Method to tap in Favorites
 	public void tapFavorite() {
 		Tools.searchId("FAVORITOS");
 	}
 	
-	//Método que busca una competencia
+	//Method that seeks a competition
 	public void searchCompetition(String comp) {
 		Boolean isPresent = FoxSports.driver.findElements(By.id(comp)).size()>0;
 		String source;
@@ -94,7 +94,7 @@ public class ResultsSteps {
 		
 	}
 	
-	//Método que agrega favoritos si es necesario.
+	//Method that adds bookmarks if necessary.
 	public void addFavorites() {
 		int counter = 1;
 		stepProfile.addFavorite();
@@ -113,7 +113,7 @@ public class ResultsSteps {
 		counter+=1;
 	}
 
-	//Método que hace scroll hacia arriba
+	//Scrolling method
 	public void scrollUp() {
 		TouchAction touchAction = new TouchAction(foxSports.driver);
 		Dimension dimensions = foxSports.driver.manage().window().getSize();
@@ -127,7 +127,7 @@ public class ResultsSteps {
 
 	}
 	
-	//Método que ingresa a favoritos. 
+	//Method that enters favorites.
 	public void auxResultsFavorites() {
 		tapResults();
 		tapFavorite();
@@ -140,7 +140,7 @@ public class ResultsSteps {
 		}
 	}
 	
-	//Método que ingresa a todos
+	//Method that enters all.
 	public void auxResultsAll() {
 		tapResults();
 		Tools.searchId("TODOS");

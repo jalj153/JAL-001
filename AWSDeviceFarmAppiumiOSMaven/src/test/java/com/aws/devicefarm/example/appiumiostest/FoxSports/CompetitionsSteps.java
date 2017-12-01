@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 public class CompetitionsSteps {
 	static FoxSports foxSports = new FoxSports();
 	
-	//Método para verificar las competencias que están disponibles
+	//Method to verify the competencies that are available
 	public void verifyCompetitions1() {
 		String source=null;
 		String source2=null;
@@ -21,7 +21,7 @@ public class CompetitionsSteps {
 		
 	}
 	
-	//Método para regresar luego de verificar las competencias disponibles
+	//Method to return after verifying the available competences
 	public void verifyCompetitions2() {
 		String source=null;
 		String source2=null;
@@ -37,11 +37,11 @@ public class CompetitionsSteps {
 		
 	}
 	
-	//Método que presiona el textBox de competencias para así buscar la competencias deseada
+	//Method that presses the textBox of competitions to look for the desired competences
 	public void searchCompetition(String team) {
 		Tools.waitTime(2000);
 		//foxSports.driver.findElement(By.id("Buscar Competencia")).sendKeys(team);
-	//	Tools.searchId("Clear text");
+		//Tools.searchId("Clear text");
 		try {
 			//foxSports.driver.findElement(By.xpath("//XCUIElementTypeSearchField[@name=\\\"Buscar Competencia\\\"]")).click();
 			foxSports.driver.findElement(By.id("Clear text")).click();
@@ -52,7 +52,7 @@ public class CompetitionsSteps {
 		Tools.waitTime(4000);
 	}
 	
-	//Método que verifica cada una de las tabs de una competencia.
+	//Method that verifies each of the tabs of a competition.
 	public void verifyTabsCompetition() {
 		Boolean isPresent=foxSports.driver.findElements(By.id("No hay contenido disponible en este momento.")).size()>0;
 		String source;
@@ -122,7 +122,7 @@ public class CompetitionsSteps {
 		Tools.searchId("Competencias");
 	}
 	
-	//Método que verifica cada una de las tabs de un resultado.
+	//Method that verifies each of the tabs of a result.
 	public void verifyTabsResult() {
 		Boolean isPresent=foxSports.driver.findElements(By.id("No hay contenido disponible en este momento.")).size()>0;
 		try {
@@ -217,7 +217,7 @@ public class CompetitionsSteps {
 	
 	
 	
-	//Método que busca una categoría como por ejemplo "Fútbol Europa" y al encontrarlo, selecciona una competencia de esa categorñia
+	//Method that looks for a category like for example "Soccer Europe" and when finding it, it selects a competition of that category
 	public void searchCategory() {
 		Boolean isPresent=foxSports.driver.findElements(By.name("Fútbol Europa")).size()>0;
 		String source;
@@ -256,32 +256,33 @@ public class CompetitionsSteps {
 		}
 		
 	}
-	//Método que hace tap en resultados
+	
+	//Method that tap results
 	public void tapResults() {
 		Tools.searchId("RESULTADOS");
 	}
 	
-	//Método que hace tap en noticias
+	//Method that tap on news
 	public void tapNews() {
 		Tools.searchId("NOTICIAS");
 	}
 	
-	//Método que hace tap en posisiones
+	//Method that tap in positions
 	public void tapPosition() {
 		Tools.searchId("POSICIONES");
 	}
 	
-	//Método que hace tap en equipos
+	//Method that makes tap on equipment
 	public void tapTeam() {
 		Tools.searchId("EQUIPOS");
 	}
 	
-	//Método que hace tap en estadísticas
+	//Method that makes tap in statistics
 	public void tapStats() {
 		Tools.searchId("ESTADÍSTICAS");
 	}
 	
-	//Método que busca un equipo en el apartado de "Equipos" y verifica que las tabs estén bien.
+	//Method that a team looks for in the "Equipment" section and verifies that the tabs are correct.
 	public void verifyTabsTeam() {
 		Boolean isPresent=foxSports.driver.findElements(By.id("No hay contenido disponible en este momento.")).size()>0;
 		

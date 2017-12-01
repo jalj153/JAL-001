@@ -4,13 +4,13 @@ import org.openqa.selenium.By;
 
 public class ProfileSteps {
 	
-	//Método que busca y presiona "volver al top"
+	//Method that seeks and presses "return to the top"
 	public void returnTop() {
 		Tools.specificSearch("select", "\uF106 Volver al top", 1);
 	}
 	
 	
-	//Método que presiona el botón "Agregar"
+	//Method that press the "Add" button
 	public void addFavorite() {
 		boolean verification = false;
 		Boolean isPresent = FoxSports.driver.findElements(By.id("AGREGAR")).size() > 0;
@@ -26,7 +26,7 @@ public class ProfileSteps {
 		}
 	}
 	
-	//Método oque presiona el botón "Agregar" O "Agregar Competencia"
+	//Method by pressing the "Add" or "Add Competition" button.
 	public void addFavoriteComp() {
 		boolean verification = false;
 		Boolean isPresent = FoxSports.driver.findElements(By.id("AGREGAR")).size() > 0;
@@ -51,7 +51,7 @@ public class ProfileSteps {
 		}
 	}
 	
-	//Método que presiona el botón "Agregar" o "Agregar Equipo"
+	//Method that press the "Add" or "Add Team" button.
 	public void addFavoriteTeam() {
 		boolean verification = false;
 		Boolean isPresent = FoxSports.driver.findElements(By.id("AGREGAR")).size() > 0;
@@ -75,7 +75,7 @@ public class ProfileSteps {
 		}
 	}
 	
-	//Método que presiona el botón "Siguiente"
+	//Method that press the "Next" button.
 	public void tapNext() {
 		boolean verification = false;
 		Boolean isPresent = FoxSports.driver.findElements(By.id("Siguiente")).size() > 0;
@@ -94,7 +94,7 @@ public class ProfileSteps {
 		}
 	}
 	
-	//Método que presiona el botón "Finalizar"
+	//Method that press the "Finish" button
 	public void tapFinalize(){
 		boolean verification = false;
 		Boolean isPresent = FoxSports.driver.findElements(By.id("Finalizar")).size() > 0;
@@ -113,22 +113,22 @@ public class ProfileSteps {
 		}
 	}
 	
-	//Método que busca y presiona el botón del profile
+	//Method that looks for and presses the profile button
 	public void iconProfile() {
 		Tools.searchId("icon profile");
 	}
 	
-	//Método que toma el parámetro de la competición, la busca y la presiona
+	//Method that takes the parameter of the competition, looks for it and presses it
 	public void selectCompetition(String competition) {
 		Tools.specificSearch("select", competition, 1);
 	}
 	
-	//Método que toma el parámetro del equipo, lo busca y lo toma
+	//Method that takes the parameter of the equipment, looks for it and takes it
 	public void selectTeam(String team) {
 		Tools.specificSearch("select", team, 1);
 	}
 	
-	//Método que hace tap en "Favoritos"
+	//Method that you tap on "Favorites"
 	public void tapFavorites() {
 		Tools.searchId("Favoritos");
 	}
@@ -139,17 +139,17 @@ public class ProfileSteps {
 		Tools.waitTime(3000);
 	}
 	
-	//Método que busca "¿Qué hay de nuevo?"
+	//Method that seeks "What's new?"
 	public void whatsNew() {
 		Tools.searchId("¿Qué hay de nuevo?");
 	}
 	
-	//Método que busca las "Políticas de Privacidad"
+	//Method that seeks the "Privacy Policies"
 	public void privacyPolicy() {
 		Tools.searchId("Política de Privacidad");
 	}
 	
-	//Método que busca los términos y condiciones
+	//Method that searches the terms and conditions
 	public void termsAndConditions() {
 		Tools.searchId("Términos y Condiciones");
 	}

@@ -15,7 +15,7 @@ public class InLiveSteps {
 	
 	static FoxSports foxSports = new FoxSports();
 	
-	//Método que verifica las transmisiones que hay en vivo, más tarde o mañana 
+	//Method that verifies the transmissions that are live, later or tomorrow 
 	public void checkLives(String id) {
 		//Boolean isPresent=foxSports.driver.findElements(By.id(id)).size()>0;
 		//try {
@@ -40,7 +40,7 @@ public class InLiveSteps {
 		 }	
 	}
 	
-	//Método que busca las transmisiones que estarán disponibles las fechas siguientes, calcula la fecha y verifica las trasmisiones que hay
+	//Method that looks for the transmissions that will be available the following dates, calculates the date and verifies the transmissions that there are
 	public void getDate() {
 		String day;
 		String month;
@@ -113,7 +113,7 @@ public class InLiveSteps {
 	
 	
 	
-	//Método que busca las fechas que manda el método "GetDate" por medio del parámetro que recibe
+	//Method that searches for the dates that the "GetDate" method sends by means of the parameter that it receives
 	public void searchDay(String date) {
 		Boolean isPresent=foxSports.driver.findElements(By.id(date)).size()>0;
 		String source;
@@ -150,7 +150,7 @@ public class InLiveSteps {
 		}
 	}
 	
-	//Método que sirve para buscar algún show en vivo
+	//Method used to find a live show
 	public void searchShowLive(String show) {
 		Boolean isPresent=foxSports.driver.findElements(By.name(show)).size()>0;
 		String source;
@@ -178,7 +178,7 @@ public class InLiveSteps {
 		}	
 	}
 	
-	//Método para hacer la búsqueda de transmisiones
+	//Method to search for transmissions
 	public void searchLives(String search) {
 		Boolean isPresent=foxSports.driver.findElements(By.id(search)).size()>0;
 		String source;
@@ -212,7 +212,7 @@ public class InLiveSteps {
 		}
 	}
 	
-	//Método para hacer tap en una transmisión
+	//Method to tap on a transmission
 	public void tapLive() {
 		TouchAction touchAction = new TouchAction(foxSports.driver);
 		Dimension dimensions = foxSports.driver.manage().window().getSize();
@@ -222,7 +222,7 @@ public class InLiveSteps {
 		touchAction.press(pointX, startPointY).release().perform();
 	}
 
-	//Método para buscar y seleccionar una transmisión que sea por medio de un canal
+	//Method to search and select a transmission that is through a channel
 	public void searchLiveInCanal(int selection) {
 		String aux;
 		int hourConvert;
@@ -254,7 +254,7 @@ public class InLiveSteps {
 		}
 	}
 	
-	//Método que busca y selecciona una transmisión que no sea por medio de un canal
+	//Method that searches and selects a transmission other than through a channel
 	public void searchLiveNoCanal() {
 		int hourConvert;
 		String hour;
@@ -274,7 +274,7 @@ public class InLiveSteps {
 		
 	}
 	
-	//Método para buscar y presionar elementos de la pantalla de la transmisión en vivo
+	//Method to search and press elements of the live broadcast screen
 	public void searchButton(String id) {
 		boolean verification = false;
 		Boolean isPresent = foxSports.driver.findElements(By.id(id)).size() > 0;
