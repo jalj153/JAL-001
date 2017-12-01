@@ -7,7 +7,7 @@ public class ResultsTestCases {
 	
 	
 	public void Results_010(){//Ver resultados de una competencia
-		System.out.println("--resultados_010-- Voy a verificar los resultados");
+		System.out.println("--resultados_010-- Voy a verificar los resultados de una competencia.");
 		resultSteps.findResults();
 		tools.takeScreenshot("Seccion Resultados");
 		resultSteps.searchResults();

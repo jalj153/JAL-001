@@ -317,11 +317,11 @@ public class Tools {
 			System.out.println("No se realizo ningun test");
 		}else{
 			porcentaje = ((totalBuenas * 100)/totalTest);
-			//System.out.println("||||    ||||    ||||    |  |    ||      ||||     ||     |||     ||||");
-			//System.out.println("|  |    |       |       |  |    ||       ||     |  |    |  |    |  |");
-			//System.out.println("||||    |||     ||||    |  |    ||       ||     ||||    |  |    |  |");	
-			//System.out.println("| |     |          |    |  |    ||       ||     |  |    |  |    |  |");
-			//System.out.println("|  |    ||||    ||||    ||||    ||||     ||     |  |    |||     ||||");
+			System.out.println("||||    ||||    ||||    |  |    ||      ||||     ||     |||     ||||");
+			System.out.println("|  |    |       |       |  |    ||       ||     |  |    |  |    |  |");
+			System.out.println("||||    |||     ||||    |  |    ||       ||     ||||    |  |    |  |");	
+			System.out.println("| |     |          |    |  |    ||       ||     |  |    |  |    |  |");
+			System.out.println("|  |    ||||    ||||    ||||    ||||     ||     |  |    |||     ||||");
 			System.err.println("El test finalizo con un "+ porcentaje+ "% de efectividad");
 		}
 		

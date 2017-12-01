@@ -6,7 +6,7 @@ LoginSteps loginSteps = new LoginSteps();
 
 //Iniciar sesion
 public void login_020(){
-	System.out.println("--login_020-- Ingresare un usuario");
+	System.out.println("--login_020-- Ingresare con usuario Invitado");
 	loginSteps.tapPerfil(" login_020");
 	tools.takeScreenshot("Inicio login");
 	loginSteps.tapBtnLogin(" login_020"); //Tap boton login

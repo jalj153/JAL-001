@@ -79,8 +79,8 @@ public class InLiveTestCases {
 		inLiveSteps.validarReproduccion();
 		inLiveSteps.tapVideo(" enVivo_070");//tap  en el video
 		inLiveSteps.tapFullScreen(); //tap en full screen
-		tools.takeScreenshot("Full screen");
 		inLiveSteps.tapMoreEventsInLive();//Tap en mas eventos en vivo
+		tools.takeScreenshot("Full screen");
 		inLiveSteps.searchAllEventsInLive();//Buscar todos los eventos en vivo
 		Tools.backToMenu(1);
 		

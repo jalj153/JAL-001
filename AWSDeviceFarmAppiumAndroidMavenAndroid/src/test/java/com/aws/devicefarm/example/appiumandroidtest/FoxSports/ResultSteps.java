@@ -23,6 +23,7 @@ public class ResultSteps {
 	}
 	public void searchResults(){
 		tools.searchText("Resultados");
+		tools.findAndReport("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.RelativeLayout/android.widget.RelativeLayout/android.view.View/android.support.v4.view.ViewPager", "No hay resultados");
 	}
 	public void tapResult(String location){
 		tools.searchText("Resultados");
