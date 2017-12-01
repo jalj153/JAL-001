@@ -52,7 +52,7 @@ public class FoxApp {
 //capabilities.setCapability("deviceName", "BSL7N15B12001322");	
 		capabilities.setCapability("deviceName", "BHG7N16302031342");	
 //capabilities.setCapability("youiEngineAppAddress", "10.157.234.113");
-		capabilities.setCapability("youiEngineAppAddress", "10.157.234.100");
+		capabilities.setCapability("youiEngineAppAddress", "10.157.234.149");
 		
 //***********************************APK'S UBICATION********************************************//
 		capabilities.setCapability("app", "C:\\Users\\Test01\\Desktop\\Archivos de Automatizacion\\APK\\fox-debug.apk");
@@ -71,7 +71,7 @@ public class FoxApp {
 		
 
 		tool.print("================================================");
-		tool.print("======EL TEST SE REALIZARA SIN HACER LOGIN======");
+		tool.print("======TEST WILL START WITHOUT LOGIN======");
 		tool.print("================================================");
 		tool.space();
   }
@@ -97,18 +97,17 @@ public class FoxApp {
 		 
 //Execute method for do review in the section Profile and their elements
 //*******THIS SECTION Have many problems, required some information for continue their automation*******************************//
-	 //profile();
-	  
-
-	  
+	 //profile();	  
 //Final Message
 	  tool.space();
 	  tool.print("================================================");
-	  tool.print("==================TEST TERMINADO================");
+	  tool.print("=================TEST FINISHED=================");
 	  tool.print("================================================");
-	  System.err.println("EL TEST TUVO UN EXITO DEL"+" "+tool.totalBuenas+"%");
+	  System.err.println("THE TEST HAD A"+" "+tool.totalRight+"%"+" "+"OF SUCCESSFULLY");
 	  
   }
+  
+
   
   
 
@@ -116,7 +115,7 @@ public class FoxApp {
   @AfterMethod
   public void afterMethod() {
 	  Tools tool = new Tools();
-	  tool.waitTime(15000);
+	  tool.waitTime(000);
 	  driver.quit();	
   } 
   
@@ -138,9 +137,9 @@ public class FoxApp {
 			 FoxApp.driver.findElementByAndroidUIAutomator(
 				 "new UiScrollable(new UiSelector().className(\""+scrollable+"\"))"
 				 + ".scrollIntoView(new UiSelector().text(\""+objetoDeBusqueda+"\"));").click();;
-				 tool.print("Encontre el objeto"+" "+objetoDeBusqueda);
+				 tool.print("I found the object"+" "+objetoDeBusqueda);
 		 }catch (Exception e){
-			 tool.print("No se encontro: "+" "+ objetoDeBusqueda);
+			 tool.print("I not found: "+" "+ objetoDeBusqueda);
 		 }
   }
   
@@ -153,13 +152,13 @@ public class FoxApp {
 			"new UiScrollable(new UiSelector().resourceId(\""+scrollable+"\"))"
 			+ ".scrollIntoView(new UiSelector().text(\""+ObjetoDeBusqueda+"\"));");
 		}catch (Exception e){
-			tool.print("No se encontro: "+" "+ ObjetoDeBusqueda);
+			tool.print("I not found: "+" "+ ObjetoDeBusqueda);
 		}
   }
   
 			
 //Scroll that i decide their direction (down or up)
-  public static void scrollDireccion(String direccion) {
+  public static void scrollDirection(String direccion) {
 
 	  TouchAction touchAction = new TouchAction(foxapp.driver);
 	  Dimension dimensions = foxapp.driver.manage().window().getSize();
@@ -167,11 +166,11 @@ public class FoxApp {
 	  int startPointY = (dimensions.getHeight() / 2);
 	  int endPointY;
 
-		if (direccion.equals("abajo")) {
+		if (direccion.equals("down")) {
 			endPointY = (int) (dimensions.getHeight() * -0.5);
 			touchAction.press(pointX, startPointY).moveTo(0, -400).release().perform();
 			tool.waitTime(700);
-		} else if (direccion.equals("arriba")) {
+		} else if (direccion.equals("up")) {
 			endPointY = (int) (dimensions.getHeight() * 0.5);
 			touchAction.press(pointX, startPointY).moveTo(0, 400).release().perform();
 			tool.waitTime(700);
@@ -179,23 +178,16 @@ public class FoxApp {
   }
 				  
 //Scroll down
-  public void scrollConocidoAbajo() {
+  public void scrollDown() {
 	  Tools tool = new Tools();
 	  for (int i=0;i<8;i++) {
-		  scrollDireccion("abajo");		  
+		  scrollDirection("down");		  
 	  }
 	  
   }
   
 //Scroll who search an element by name (Doesn't function yet)  
-  public void scrollBuscando() {
-	  boolean visto = false;
-	do {
-		   visto = driver.findElementByName("View More").isDisplayed();
-		  scrollDireccion("abajo");
-		  tool.print("Es"+" "+visto);
-	  }while(visto != true);
-  }
+
   
   
 //*****************************************PRINCIPAL METHODS*******************************************//
@@ -238,9 +230,10 @@ public class FoxApp {
 	  tool.waitTime(1000);
 	  
 	  String texto;
+//Serie's name	  
 	  texto= ("Splash y Bubbles");
-	  //tool.print("Escribe la serie a buscar:");
-	  //texto = scanner.nextLine();
+//tool.print("Escribe la serie a buscar:");	  
+//texto = scanner.nextLine();
 	  tool.print("Escribiendo..."+" "+texto);	  
 	  tool.waitTime(1000);
 	  driver.findElementByName("Search-Text").sendKeys(texto);		  
@@ -271,7 +264,7 @@ public class FoxApp {
 	  tool.space();	 
 	  tool.waitTime(2000);
 	  tool.print("Haciendo Scroll hacia abajo...");
-	  scrollConocidoAbajo();	  
+	  scrollDown();	  
 	  tool.waitTime(3000);
 	  
 	  

@@ -6,10 +6,10 @@ import io.appium.java_client.TouchAction;
 
 public class Tools {
 	FoxApp foxapp = new FoxApp();
-	public static int totalResultados =0;
-	public static int sumaEncontrado = 0;
-	public static int sumaNoEncontrado = 0;
-	public static int totalBuenas=0;
+	public static int totalResults =0;
+	public static int sumFound = 0;
+	public static int sumNotFound= 0;
+	public static int totalRight=0;
 	
 //Method for let space in the console while writing 
 	 	public void space() {
@@ -43,8 +43,7 @@ public class Tools {
 			if((visible2!=false)) {
 				print("ES UNA SERIE");
 				 space();			     
-				 findName("Select-Btn","Episodio ");
-				  //driver.findElementByName("Placeholder-TryButton").click();
+				 findName("Select-Btn","Episodio ");		
 				  try {					  
 					  waitTime(2000);
 				      visible = foxapp.driver.findElementByName("Placeholder-TryButton").isDisplayed();				    
@@ -56,9 +55,7 @@ public class Tools {
 					  System.err.println("Este contenido no se puede reproducir debido a la suscripcion");
 					  waitTime(3000);
 					  space();
-					  waitTime(2000);
-					  /*foxapp.driver.findElementByName("Btn-Back-Hero-Container").click();
-					  print("Encontre boton atras"); */
+					  waitTime(2000);	
 					  findName("Btn-Back-Hero-Container","Boton atras");
 					  
 				  }else {
@@ -80,10 +77,7 @@ public class Tools {
 					  findName("Btn-Back-Hero-Container","Boton atras");
 					  waitTime(2000);
 					  findName("Btn-Back-Hero-Container","Boton atras");
-					/*  foxapp.driver.findElementByName("Btn-Back-Hero-Container").click();
-					  waitTime(2000);
-					  foxapp.driver.findElementByName("Btn-Back-Hero-Container").click();
-					  print("Encontre boton atras");	*/				  
+									  
 				  }				
 			}else {
 				print("ES UNA PELICULA");
@@ -98,9 +92,7 @@ public class Tools {
 					  System.err.println("Este contenido no se puede reproducir debido a la suscripcion");
 					  waitTime(3000);
 					  space();
-					  waitTime(2000);
-					  /*foxapp.driver.findElementByName("Btn-Back-Hero-Container").click();
-					  print("Encontre boton atras"); */
+					  waitTime(2000);					  
 					  findName("Btn-Back-Hero-Container","Boton atras");
 					  
 				  }else {
@@ -122,32 +114,32 @@ public class Tools {
 				print("Se encontro"+" "+nameSpanish);
 				if(name=="Button0") {
 					print("-----------SECCION PERFIL----------");
-					sumaEncontrado += 1;
+					sumFound += 1;
 					
 				}else if(name=="Button1") {
 					print("------------SECCION ON DEMAND----------");
-					sumaEncontrado += 1;
+					sumFound  += 1;
 				}else if(name=="Button2") {
 					print("------------SECCION TV EN VIVO----------");
-					sumaEncontrado += 1;
+					sumFound  += 1;
 				}else if(name=="Button3") {
 					print("------------SECCION DE BUSQUEDA----------");
-					sumaEncontrado += 1;				
+					sumFound  += 1;				
 				}else {
-					sumaEncontrado += 1;
+					sumFound  += 1;
 					
 				}
 			}catch(Exception e) {
 				System.err.println("No se encontro"+" "+nameSpanish);
 				if(name=="Btn-Close") {
-					sumaNoEncontrado+=0;
+					sumNotFound+=0;
 				}else {
-					sumaNoEncontrado += 1;
+					sumNotFound+= 1;
 				}
 				
 			}	
-			totalResultados = sumaEncontrado + sumaNoEncontrado;
-			totalBuenas = ((100/totalResultados)*sumaEncontrado);
+			totalResults = sumFound+ sumNotFound;
+			totalRight = ((100/totalResults)*sumFound);
 			
 		}
 		
