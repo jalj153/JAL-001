@@ -1,9 +1,5 @@
 package com.aws.devicefarm.example.appiumandroidtest.FoxSports;
 
-import org.openqa.selenium.Dimension;
-import org.openqa.selenium.Point;
-import org.openqa.selenium.interactions.internal.Coordinates;
-
 public class CompetitionsSteps {
 	FoxSports principal = new FoxSports();
 	Tools tools = new Tools();
@@ -63,7 +59,7 @@ public class CompetitionsSteps {
 	public void searchAlignments(){
 		tools.searchText("Alineaciones");
 	}
-	public void searchRecord(){
+	public void searchHistory(){
 		tools.searchText("Historial");
 	}
 	public void searchClassification(){
@@ -120,7 +116,6 @@ public class CompetitionsSteps {
 		}catch(Exception e){
 			tools.totalMalas +=1;
 		}
-		//tools.searchId("", location);
 		
 	}
 	
