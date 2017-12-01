@@ -13,7 +13,7 @@ public class NewsTestCases {
 		
 		Tools.takeScreenshot("Seccion noticias");
 		
-		newsSteps.tapPicker(" noticia_010");//Tap en el picker
+		newsSteps.tapPicker(" error ocurred in the method 'tapPicker' that is present in noticia_010");//Tap en el picker
 		
 		Tools.waitTime(1000);
 		
@@ -33,7 +33,7 @@ public class NewsTestCases {
 		
 		Tools.takeScreenshot("Seccion noticias");
 		
-		newsSteps.tapPicker(" noticia_020");//Tap en el picker
+		newsSteps.tapPicker(" error ocurred in the method 'tapPicker' that is present in noticia_020");//Tap en el picker
 		
 		competencia = "La Liga";
 		
@@ -41,7 +41,7 @@ public class NewsTestCases {
 		
 		Tools.takeScreenshot("Buscar competencia");
 		
-		newsSteps.tapNewsOfLeague(" noticia_020");
+		newsSteps.tapNewsOfLeague(" error ocurred in the method 'tapNewsOfLeague' that is present in noticia_020");
 		
 		Tools.waitTime(7000);
 		

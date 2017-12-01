@@ -45,7 +45,7 @@ public class ResultsTestCases {
 		
 		Tools.takeScreenshot("Seccion Resultados");
 		
-		resultSteps.tapResult(" Results_030");
+		resultSteps.tapResult(" error ocurred in the method 'tapResult' that is present in Results_030");
 		
 		resultSteps.searchSumary();//Buscar resumen
 		
@@ -63,7 +63,7 @@ public class ResultsTestCases {
 		
 		Tools.takeScreenshot("Seccion Resultados");
 		
-		resultSteps.tapResult(" Results_040");
+		resultSteps.tapResult(" error ocurred in the method 'tapResult' that is present in Results_040");
 		
 		resultSteps.searchTimeLine();//Buscar linea de tiempo
 		
@@ -81,7 +81,7 @@ public class ResultsTestCases {
 		
 		Tools.takeScreenshot("Seccion Resultados");
 		
-		resultSteps.tapResult(" Results_050");
+		resultSteps.tapResult(" error ocurred in the method 'tapResult' that is present in Results_050");
 		
 		resultSteps.searchTimeLine();
 		
@@ -100,7 +100,7 @@ public class ResultsTestCases {
 		
 		Tools.takeScreenshot("Seccion Resultados");
 		
-		resultSteps.tapResult(" Results_060");
+		resultSteps.tapResult(" error ocurred in the method 'tapResult' that is present in Results_060");
 		
 		resultSteps.searchTimeLine();
 		
@@ -121,7 +121,7 @@ public class ResultsTestCases {
 		
 		Tools.takeScreenshot("Seccion Resultados");
 		
-		resultSteps.tapResult(" Results_070");
+		resultSteps.tapResult(" error ocurred in the method 'tapResult' that is present in Results_070");
 		
 		resultSteps.searchTimeLine();
 		
@@ -144,7 +144,7 @@ public class ResultsTestCases {
 		
 		Tools.takeScreenshot("Seccion Resultados");
 		
-		resultSteps.tapResult(" Results_080");
+		resultSteps.tapResult(" error ocurred in the method 'tapResult' that is present in Results_080");
 		
 		resultSteps.searchTimeLine();
 		
@@ -201,7 +201,7 @@ public class ResultsTestCases {
 		
 		Tools.takeScreenshot("Seccion Resultados");
 		
-		resultSteps.tapResult(" Results_110");
+		resultSteps.tapResult(" error ocurred in the method 'tapResult' that is present in Results_110");
 		
 		resultSteps.searchSumary();//Buscar resumen
 		
@@ -220,7 +220,7 @@ public class ResultsTestCases {
 		
 		Tools.takeScreenshot("Seccion Resultados");
 		
-		resultSteps.tapResult(" Results_120");
+		resultSteps.tapResult(" error ocurred in the method 'tapResult' that is present in Results_120");
 		
 		resultSteps.searchTimeLine();//Buscar linea de tiempo
 		
@@ -239,7 +239,7 @@ public class ResultsTestCases {
 		
 		Tools.takeScreenshot("Seccion Resultados");
 		
-		resultSteps.tapResult(" Results_130");
+		resultSteps.tapResult(" error ocurred in the method 'tapResult' that is present in Results_130");
 		
 		resultSteps.searchTimeLine();
 		
@@ -260,7 +260,7 @@ public class ResultsTestCases {
 		
 		Tools.takeScreenshot("Seccion Resultados");
 		
-		resultSteps.tapResult(" Results_140");
+		resultSteps.tapResult(" error ocurred in the method 'tapResult' that is present in Results_140");
 		
 		resultSteps.searchTimeLine();
 		
@@ -283,7 +283,7 @@ public class ResultsTestCases {
 		
 		Tools.takeScreenshot("Seccion Resultados");
 		
-		resultSteps.tapResult(" Results_150");
+		resultSteps.tapResult(" error ocurred in the method 'tapResult' that is present in Results_150");
 		
 		resultSteps.searchTimeLine();
 		
@@ -306,9 +306,9 @@ public class ResultsTestCases {
 	
 		resultSteps.findResult();
 		
-		tools.takeScreenshot("Seccion Resultados");
+		Tools.takeScreenshot("Seccion Resultados");
 		
-		resultSteps.tapResult(" Results_160");
+		resultSteps.tapResult(" error ocurred in the method 'tapResult' that is present in Results_160");
 		
 		resultSteps.searchTimeLine();
 		
@@ -326,10 +326,5 @@ public class ResultsTestCases {
 			Tools.backToMenu(2);
 		}
 	}
-	
-	
-	
-	
-
 	
 }

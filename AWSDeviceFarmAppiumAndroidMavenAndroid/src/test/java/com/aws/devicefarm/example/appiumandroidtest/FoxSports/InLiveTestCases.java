@@ -74,7 +74,7 @@ public class InLiveTestCases {
 		
 		inLiveSteps.lookForLiveItems();
 		
-		inLiveSteps.playInLive(" enVivo_050");
+		inLiveSteps.playInLive(" error ocurred in the method 'playInLive' that is present in enVivo_050");
 		
 		Tools.waitTime(15000);
 		
@@ -111,13 +111,13 @@ public class InLiveTestCases {
 		
 		inLiveSteps.lookForLiveItems();
 		
-		inLiveSteps.playInLive(" enVivo_070");
+		inLiveSteps.playInLive(" error ocurred in the method 'playInLive' that is present in enVivo_070");
 		
 		Tools.waitTime(30000);
 		
 		inLiveSteps.validarReproduccion();
 		
-		inLiveSteps.tapVideo(" enVivo_070");//tap  en el video
+		inLiveSteps.tapVideo(" error ocurred in the method 'tapVideo' that is present in enVivo_070");//tap  en el video
 		
 		inLiveSteps.tapFullScreen(); //tap en full screen
 		

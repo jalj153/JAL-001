@@ -6,27 +6,28 @@ Tools tools = new Tools();
 	
 
 	
-	public void Radio_010(){ //Mostrar radios en vivo
+	public void Radio_010(){ //Show the radios that are in transmitting Live
+
 		System.out.println("--Radio_010-- Voy a verificar si hay radios en vivo");
-		
+		//Tap in to radio section
 		radioSteps.tapRadio();
-		
+		//take screenshot
 		Tools.takeScreenshot("Seccion Radio");
-		
+		//search radios in live
 		radioSteps.searchRadiosInLive();
-		
 	}
 	
 	
-	public void Radio_020(){//Mostrar programacion para manana
+	public void Radio_020(){//Show Live Broadcast Schedule of "Tomorrow"
+
 		System.out.println("--Radio_020-- Voy a verificar si hay transmision de radio para manana");
-	
+		//Tap in to radio section
 		radioSteps.tapRadio();
-		
+		//take screenshot
 		Tools.takeScreenshot("Seccion Radio");
-		
+		//Search radio for tomorrow
 		radioSteps.searchRadioTomorrow();
-		
+		//take screenshot
 		Tools.takeScreenshot("Programacion radio para mañana");
 	}
 	

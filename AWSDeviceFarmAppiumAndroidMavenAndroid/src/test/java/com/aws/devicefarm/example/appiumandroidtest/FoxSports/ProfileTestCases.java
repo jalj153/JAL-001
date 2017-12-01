@@ -7,7 +7,7 @@ public class ProfileTestCases {
 	public void miPerfil_010(){ //buscar los elementos
 		System.out.println("--miPerfil_010-- Estoy verificando que esten tus datos y otros elementos en Mi Perfil");
 		
-		profileSteps.goToProfile(" miPerfil_010");//Tap en mi perfil
+		profileSteps.goToProfile(" error ocurred in the method 'goToProfile' that is present in miPerfil_010");//Tap en mi perfil
 		
 		Tools.takeScreenshot("Seccion perfil");
 		
@@ -21,7 +21,7 @@ public class ProfileTestCases {
 		
 		profileSteps.searchHelpCenter(); //buscar centro de ayuda
 		
-		profileSteps.tapLegals(" miPerfil_010");//Tap en legales
+		profileSteps.tapLegals(" error ocurred in the method 'tapLegals' that is present in miPerfil_010");//Tap en legales
 		
 		Tools.takeScreenshot("Legales");
 		
@@ -37,7 +37,7 @@ public class ProfileTestCases {
 	public void miPerfil_020(){//entrar en favoritos
 		System.out.println("--miPerfil_020-- Voy a entrar en favoritos para ver si hay o no equipos favoritos.");
 		
-		profileSteps.goToProfile(" miPerfil_010");//Tap en perfil
+		profileSteps.goToProfile(" error ocurred in the method 'goToProfile' that is present in miPerfil_010");//Tap en perfil
 		
 		Tools.takeScreenshot("Seccion perfil");
 		
@@ -60,13 +60,13 @@ public class ProfileTestCases {
 		
 		profileSteps.tapFavorites();
 		
-		profileSteps.addFavoritesTeams(" miPerfil_030");
+		profileSteps.addFavoritesTeams(" error ocurred in the method 'addFavoritesTeams' that is present in miPerfil_030");
 		
-		profileSteps.adCompetition(" miPerfil_030");//Tap en una competicion
+		profileSteps.adCompetition(" error ocurred in the method 'adCompetition' that is present in miPerfil_030");//Tap en una competicion
 		
 		Tools.takeScreenshot("Seleccionar una competencia");
 		
-		profileSteps.tapTeam(" miPerfil_030"); //TAp en  un equipo
+		profileSteps.tapTeam(" error ocurred in the method 'tapTeam' that is present in miPerfil_030"); //TAp en  un equipo
 		
 		Tools.takeScreenshot("Agregar un equipo a favoritos");
 		
@@ -77,17 +77,17 @@ public class ProfileTestCases {
 	public void miPerfil_040(){//favoritos y agregar una competencia
 		System.out.println("--miPerfil_040-- Voy a agregar una competencia...");
 		
-		profileSteps.goToProfile(" miPerfil_040");//Tap perfil
+		profileSteps.goToProfile(" error ocurred in the method 'goToProfile' that is present in miPerfil_040");//Tap perfil
 		
 		Tools.takeScreenshot("Seccion perfil");
 		
 		profileSteps.tapFavorites();//Tap Favoritos
 		
-		profileSteps.addFavorites(" miPerfil_040");
+		profileSteps.addFavorites(" error ocurred in the method 'addFavorites' that is present in miPerfil_040");
 		
 		profileSteps.tapCompetition();//Tap en competencias
 		
-		profileSteps.addCompetition(" miPerfil_040");//Agregar competencia
+		profileSteps.addCompetition(" error ocurred in the method 'addCompetition' that is present in miPerfil_040");//Agregar competencia
 		
 		Tools.takeScreenshot("Agregar competencia a favoritos");
 		
@@ -98,11 +98,11 @@ public class ProfileTestCases {
 	public void miPerfil_050(){//ver centro de ayuda
 		System.out.println("--miPerfil_050-- Voy a ir a centro de ayuda...");
 	
-		profileSteps.goToProfile(" miPerfil_050");
+		profileSteps.goToProfile(" error ocurred in the method 'goToProfile' that is present in miPerfil_050");
 		
 		Tools.takeScreenshot("Seccion perfil");
 		
-		profileSteps.tapHelpCenter(" miPerfil_050");
+		profileSteps.tapHelpCenter(" error ocurred in the method 'tapHelpCenter' that is present in miPerfil_050");
 		
 		Tools.waitTime(7000);
 		
@@ -112,13 +112,13 @@ public class ProfileTestCases {
 	public void miPerfil_060(){//ver legales
 		System.out.println("--miPerfil_060-- Voy a ir al apartado Que hay de Nuevo");
 	
-		profileSteps.goToProfile(" miPerfil_060");
+		profileSteps.goToProfile(" error ocurred in the method 'goToProfile' that is present in miPerfil_060");
 		
 		Tools.takeScreenshot("Seccion perfil");
 		
-		profileSteps.tapLegals(" miPerfil_060");
+		profileSteps.tapLegals(" error ocurred in the method 'tapLegals' that is present in miPerfil_060");
 		
-		profileSteps.tapWathsNews(" miPerfil_060");// tap en que hay de nuevo
+		profileSteps.tapWathsNews(" error ocurred in the method 'tapWathsNews' that is present in miPerfil_060");// tap en que hay de nuevo
 		
 		Tools.waitTime(7000);
 		
@@ -129,11 +129,11 @@ public class ProfileTestCases {
 	public void miPerfil_070(){//Ver politica de privacidad
 		System.out.println("--miPerfil_070-- Voy a ir al apartado de Politica de privacidad..");
 		
-		profileSteps.goToProfile(" miPerfil_070");
+		profileSteps.goToProfile(" error ocurred in the method 'goToProfile' that is present in miPerfil_070");
 	
 		Tools.takeScreenshot("Seccion perfil");
 		
-		profileSteps.tapLegals(" miPerfil_070");
+		profileSteps.tapLegals(" error ocurred in the method 'tapLegals' that is present in miPerfil_070");
 		
 		profileSteps.tapPrivacyPolicy();
 		
@@ -147,11 +147,11 @@ public class ProfileTestCases {
 	public void miPerfil_080(){//Ver terminos y condiciones
 		System.out.println("--miPerfil_080-- Voy a ver los terminos y condiciones");
 		
-		profileSteps.goToProfile(" miPerfil_080");
+		profileSteps.goToProfile(" error ocurred in the method 'goToProfile' that is present in miPerfil_080");
 	
 		Tools.takeScreenshot("Seccion perfil");
 		
-		profileSteps.tapLegals(" miPerfil_080");
+		profileSteps.tapLegals(" error ocurred in the method 'tapLegals' that is present in miPerfil_080");
 		
 		profileSteps.tapTermsAndConditions();
 		
