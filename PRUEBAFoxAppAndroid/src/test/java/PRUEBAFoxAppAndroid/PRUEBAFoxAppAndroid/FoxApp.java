@@ -71,7 +71,7 @@ public class FoxApp {
 		
 
 		tool.print("================================================");
-		tool.print("======TEST WILL START WITHOUT LOGIN======");
+		tool.print("========TEST WILL START WITHOUT LOGIN===========");
 		tool.print("================================================");
 		tool.space();
   }
@@ -146,7 +146,6 @@ public class FoxApp {
 			
 //Scroll with resourceId
   public void scrollWithResourceId(String scrollable, String ObjetoDeBusqueda){
-
 	  	try{
 	  		FoxApp.driver.findElementByAndroidUIAutomator(
 			"new UiScrollable(new UiSelector().resourceId(\""+scrollable+"\"))"
