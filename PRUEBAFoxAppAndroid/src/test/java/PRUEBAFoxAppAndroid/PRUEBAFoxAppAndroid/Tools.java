@@ -4,7 +4,13 @@ import org.openqa.selenium.Dimension;
 
 import io.appium.java_client.TouchAction;
 
+/**
+ * <p>Class that contain methods that may serve in other class, are general methods</p>
+ * @author Jair Quiñonez
+ * @version 1.0
+ */
 public class Tools {
+	
 //Instantiation of the principal class
 	FoxApp foxapp = new FoxApp();
 	
