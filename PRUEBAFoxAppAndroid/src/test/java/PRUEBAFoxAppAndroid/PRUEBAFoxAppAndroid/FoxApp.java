@@ -36,6 +36,7 @@ import io.appium.java_client.remote.MobilePlatform;
 
 
 public class FoxApp {
+	
 //Instantiations
 	public static AndroidDriver<AndroidElement> driver;		
 	private static FoxApp foxapp = new FoxApp();
@@ -77,7 +78,6 @@ public class FoxApp {
   
   
 
-  
 //**************************************************Principal execution*******************************************************
   @Test
   public void Test() {	  
