@@ -52,7 +52,6 @@ import io.appium.java_client.remote.MobilePlatform;
 		RadioTestCases radioTestCases = new RadioTestCases();
 		CompetitionsTestCases competitionTestCases = new CompetitionsTestCases();
 		Tools.pestañasIniciales();//Este es para las ventanas emergentes que salen al inicio de la aplicacion
-	
 		Tools.takeScreenshot("Inicio de la aplicacion");//Screenshot
 		login.login_020(); //Iniciar sesión con usuario Invitado											
 		enVivo.enVivo_010(); //Mostrar los canales que se encuentran en transmitiendo En Vivo

@@ -7,7 +7,6 @@ Tools tools = new Tools();
 
 	
 	public void Radio_010(){ //Show the radios that are in transmitting Live
-
 		System.out.println("--Radio_010-- Voy a verificar si hay radios en vivo");
 		//Tap in to radio section
 		radioSteps.tapRadio();
@@ -19,7 +18,6 @@ Tools tools = new Tools();
 	
 	
 	public void Radio_020(){//Show Live Broadcast Schedule of "Tomorrow"
-
 		System.out.println("--Radio_020-- Voy a verificar si hay transmision de radio para manana");
 		//Tap in to radio section
 		radioSteps.tapRadio();
@@ -34,30 +32,27 @@ Tools tools = new Tools();
 	
 	public void Radio_030(){//Buscar programacion para proximos dias
 		System.out.println("--Radio_030-- Voy a buscar programacion para los proximos dias");
-	
+		//tap in to radio section
 		radioSteps.tapRadio();
-		
+		//take screenshot
 		Tools.takeScreenshot("Seccion Radio");
-		
+		//search radio for next days
 		radioSteps.searchRadioForNextDays();
-		
+		//take screenshot
 		Tools.takeScreenshot("Programacion de radio proximos dias");
 	}
 	
 	public void Radio_040(){//Play a una radio
 		System.out.println("--Radio_040-- Voy a reproducir una radio");
-	
+		//tap in to radio section
 		radioSteps.tapRadio();	
-		
+		//take screenshot
 		Tools.takeScreenshot("Seccion Radio");
-		
+		//tap in live radio
 		radioSteps.tapInLiveRadio();
-		
+		//take screenshot
 		Tools.takeScreenshot("Play radio");
-		
+		//tap in play button
 		radioSteps.playRadio();	
-		
-		
 	}
-	
 }

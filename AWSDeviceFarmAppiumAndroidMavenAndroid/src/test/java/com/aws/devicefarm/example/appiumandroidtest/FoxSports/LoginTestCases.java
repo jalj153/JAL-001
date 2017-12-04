@@ -12,7 +12,7 @@ public void login_020(){//Log in with Guest user
 		//take screenshot
 		Tools.takeScreenshot("Inicio login");
 		//Tap in button login
-		loginSteps.tapBtnLogin(" error ocurred in the method 'tapBtnLogin' that is present in login_020"); //Tap boton login
+		loginSteps.tapBtnLogin(" error ocurred in the method 'tapBtnLogin' that is present in login_020"); 
 		//Wait Time (6 seconds)
 		Tools.waitTime(6000);
 		//Tap in guests

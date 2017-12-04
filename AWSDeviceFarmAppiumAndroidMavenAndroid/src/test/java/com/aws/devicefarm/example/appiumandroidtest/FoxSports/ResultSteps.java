@@ -62,7 +62,7 @@ public class ResultSteps {
 	public void searchAlignments(){
 		tools.searchText("Alineaciones");
 	}
-	public void searchRecord(){//Buscar historial
+	public void searchHistory(){//Buscar historial
 		tools.searchText("Historial");
 	}
 	public void searchClassification(){
