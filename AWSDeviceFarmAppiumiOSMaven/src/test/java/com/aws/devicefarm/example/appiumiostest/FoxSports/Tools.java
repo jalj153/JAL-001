@@ -178,7 +178,7 @@ public class Tools {
 	}
 	
 	
-	////////////////////////
+	////////////////////////Method to receive and send text
 	public static void sendText(String path, String text) {
 		try {
 			foxSports.driver.findElement(By.xpath(path)).sendKeys(text);
@@ -190,7 +190,7 @@ public class Tools {
 	}
 	
 	
-	////////////////////////Método para verificar la hora el nombre y tipo
+	////////////////////////Method to verify the time the name and type
 	public void findHourNameType(String hour, String name, String type) {
 		try {
 			searchId(hour);
@@ -219,7 +219,7 @@ public class Tools {
 	}
 	
 	
-	//////////////////////////////Método para hacer que el scroll baje y suba, se utiliza para verificar el contenido.
+	//////////////////////////////Method to make scroll scroll down and up, used to verify content.
 	public static void scrollChecker() {
 		int counter=0;
 		int counter2 =0;		
@@ -234,7 +234,7 @@ public class Tools {
 	}
 	
 	
-	/////////////////////////// Metodo para hacer el movimiento scroll
+	///////////////////////////Method to make the scroll movement
 	public static void scroll(String direction) {
 		TouchAction touchAction = new TouchAction(foxSports.driver);
 		Dimension dimensions = foxSports.driver.manage().window().getSize();
@@ -252,8 +252,8 @@ public class Tools {
 	}
 	
 	
-	////////////////////////////Búsqueda específica busca en la página el id, el xpath o name según el número que se le indique
-	//Esta búsqueda específica busca va verificando y haciendo scroll hasta encontrar el elemento o asímismo no encontrarlo
+	////////////////////////////Specific search searches the page for the id, the xpath or name according to the number indicated
+	//This specific search looks for verifying and scrolling until finding the element or also not finding it
 	//1====ID
 	//2====Xpath
 	//3====Name
@@ -448,7 +448,7 @@ public class Tools {
 	}
 	
 	
-	//////////////////Gesto que decide seleccionar/eliminar el elemento, este también busca por xpath, name o id
+	//////////////////Gesture that decides to select / delete the element, it also searches for xpath, name or id
 	public static void gesture(String action, String id, int decision) {
 		TouchAction touchAction = new TouchAction(foxSports.driver);
 		Dimension dimensions = foxSports.driver.manage().window().getSize();
@@ -494,7 +494,7 @@ public class Tools {
 	}
 		
 	
-	///////////////////////Método para hacer un tap en medio de la pantalla se utiliza para seleccionar elementos que el inspector no reconoce
+	///////////////////////Method to make a tap in the middle of the screen is used to select items that the inspector does not recognize
 	public static void tap() {
 		TouchAction touchAction = new TouchAction(foxSports.driver);
 		Dimension dimensions = foxSports.driver.manage().window().getSize();
@@ -507,7 +507,7 @@ public class Tools {
 	}
 	
 	
-	///////////////////////Método que hace scroll arriba hasta que llega al tope
+	///////////////////////Method that scrolls up until it reaches the top
 	public static void scrollUp() {
 		String source=null;
 		String source2=null;
@@ -520,7 +520,7 @@ public class Tools {
 	}
 	
 	
-	///////////////////////Método que muestra las transmisiones de los próximos días
+	///////////////////////Method that shows the transmissions of the next days
 	public static void scrollDown() {
 		String source=null;
 		String source2=null;
@@ -533,7 +533,7 @@ public class Tools {
 	}
 	
 	
-	///////////////////////Método que hace el cálculo de porcentaje de eficiencia de los casoss reproducidos
+	///////////////////////Method that makes the percentage efficiency calculation of the reproduced cases
 	public static void controlFails() {
 		total=successTotal+failTotal;
 		if(total==0) {
@@ -547,7 +547,7 @@ public class Tools {
 	}
 	
 	
-	///////////////////////Método para leer archivos de texto de configuración
+	///////////////////////Method to read configuration text files
 	public static String readProperty(String property) {
 		Properties prop;
 		String value = null;
@@ -564,6 +564,7 @@ public class Tools {
 		return value;
 	}
 	
+	///////////////////////Method that takes spaces in each of the tests
 	public static void takeSpace() {
 		System.out.println("__________________________________________________________________________________");
 		System.out.println(" ");
