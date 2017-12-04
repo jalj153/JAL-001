@@ -5,7 +5,10 @@ import org.openqa.selenium.Dimension;
 import io.appium.java_client.TouchAction;
 
 public class Tools {
+//Instantiation of the principal class
 	FoxApp foxapp = new FoxApp();
+	
+//Global Variables
 	public static int totalResults =0;
 	public static int sumFound = 0;
 	public static int sumNotFound= 0;
@@ -27,12 +30,12 @@ public class Tools {
 			}
 		}
 		
-//Search content			
+//Search content if is Serie or Movie and if is possible play it or not		
 		public void searchContent(){
-
 			boolean visible2 = false;
 			boolean visible=false;
 			boolean content=false;
+			
 			try {				 
 				 waitTime(2000);
 			     visible2 = foxapp.driver.findElementByName("Select-Btn").isDisplayed();			     
@@ -61,18 +64,23 @@ public class Tools {
 				  }else {
 					  space();
 					  System.out.println("Esperando por anuncio");		
+//*****************This action also find back button but just function of this way when the video is played
 					  foxapp.driver.findElementByName("Activity-Indicator-Container").click();
 					  foxapp.driver.findElementByName("Activity-Indicator-Container").click();
-					  foxapp.driver.findElementByName("Activity-Indicator-Container").click();				
+					  foxapp.driver.findElementByName("Activity-Indicator-Container").click();		
+//**********************************************************************************************************
+					  
 					  waitTime(50000);					  
 					  print("Terminó anuncio");  
 					  
 					  space();
+//*****************This action also find back button but just function of this way when the video is played
 					  foxapp.driver.findElementByName("Activity-Indicator-Container").click();
 					  waitTime(2000);
 					  foxapp.driver.findElementByName("Activity-Indicator-Container").click();
 					  waitTime(2000);
 					  foxapp.driver.findElementByName("Activity-Indicator-Container").click();
+//**********************************************************************************************************
 					  waitTime(2000);
 					  findName("Btn-Back-Hero-Container","Boton atras");
 					  waitTime(2000);
@@ -104,8 +112,8 @@ public class Tools {
 			}			 
 		}
 
-//******************FINDERS**********************//
-//Find by Name
+//*****************************************************FINDERS*******************************************************//
+//Find by Name and this method write what section is
 		public void findName(String name, String nameSpanish) {
 			print("___________________________________________________________________________________________");
 			print("Buscando"+" "+nameSpanish);			
@@ -126,8 +134,7 @@ public class Tools {
 					print("------------SECCION DE BUSQUEDA----------");
 					sumFound  += 1;				
 				}else {
-					sumFound  += 1;
-					
+					sumFound  += 1;					
 				}
 			}catch(Exception e) {
 				System.err.println("No se encontro"+" "+nameSpanish);
@@ -135,9 +142,9 @@ public class Tools {
 					sumNotFound+=0;
 				}else {
 					sumNotFound+= 1;
-				}
-				
+				}				
 			}	
+//Write what the total of tests that are alright
 			totalResults = sumFound+ sumNotFound;
 			totalRight = ((100/totalResults)*sumFound);
 			
@@ -156,7 +163,7 @@ public class Tools {
 		
 
 		
-//Method for write in Console
+//Method for write in Console, for not use "System.out.print"
 		public static void print(String print) {
 			System.out.println(print);
 		}

@@ -66,10 +66,8 @@ public class FoxApp {
 		capabilities.setCapability("name", "appium-youiengine-driver");		
 		capabilities.setCapability("noReset", "false");
 		URL appiumURL = new URL("http://127.0.0.1:4723/wd/hub");
-		driver = new AndroidDriver<AndroidElement>(appiumURL, capabilities);
-
-		
-
+		driver = new AndroidDriver<AndroidElement>(appiumURL, capabilities);		
+//Start Message
 		tool.print("================================================");
 		tool.print("========TEST WILL START WITHOUT LOGIN===========");
 		tool.print("================================================");
@@ -78,7 +76,7 @@ public class FoxApp {
   
 
   
-//Principal execution  	
+//**************************************************Principal execution*******************************************************
   @Test
   public void Test() {	  
 	  Tools tool = new Tools();	  
@@ -92,22 +90,20 @@ public class FoxApp {
 	  onDemand(); 
 	  
 //Execute method for do review in section TV Live
-// **********THIS SECTION also have many problems for automation, because, the names of their elements are all the same************//
+// **********THIS SECTION have many problems for automation, because, the names of their elements are all the same************//
 	  tvLive();	
 		 
 //Execute method for do review in the section Profile and their elements
-//*******THIS SECTION Have many problems, required some information for continue their automation*******************************//
-	 //profile();	  
+//*******THIS SECTION also Have many problems, required some information for continue their automation*******************************//
+	 //profile();	 
+	  
 //Final Message
 	  tool.space();
 	  tool.print("================================================");
 	  tool.print("=================TEST FINISHED=================");
 	  tool.print("================================================");
-	  System.err.println("THE TEST HAD A"+" "+tool.totalRight+"%"+" "+"OF SUCCESSFULLY");
-	  
+	  System.err.println("THE TEST HAD A"+" "+tool.totalRight+"%"+" "+"OF SUCCESSFULLY");	  
   }
-  
-
   
   
 
@@ -117,10 +113,10 @@ public class FoxApp {
 	  Tools tool = new Tools();
 	  tool.waitTime(000);
 	  driver.quit();	
-  } 
+  }
   
 	 
-//********************************METHODS*****************************// 
+//**********************************************METHODS***********************************************************// 
   
 //Method for do tap in the center of the screen  
   public static void centerTap() {
@@ -129,67 +125,40 @@ public class FoxApp {
 		 int pointX = (dimensions.getWidth() / 2);
 		 int startPointY = (dimensions.getHeight() / 2);
 		 touchAction.press(pointX, startPointY).release().perform();		 
-	 } 	 
-  
-//Scroll with className
-  public void scroll(String scrollable, String objetoDeBusqueda){
-		 try{
-			 FoxApp.driver.findElementByAndroidUIAutomator(
-				 "new UiScrollable(new UiSelector().className(\""+scrollable+"\"))"
-				 + ".scrollIntoView(new UiSelector().text(\""+objetoDeBusqueda+"\"));").click();;
-				 tool.print("I found the object"+" "+objetoDeBusqueda);
-		 }catch (Exception e){
-			 tool.print("I not found: "+" "+ objetoDeBusqueda);
-		 }
-  }
-  
-			
-//Scroll with resourceId
-  public void scrollWithResourceId(String scrollable, String ObjetoDeBusqueda){
-	  	try{
-	  		FoxApp.driver.findElementByAndroidUIAutomator(
-			"new UiScrollable(new UiSelector().resourceId(\""+scrollable+"\"))"
-			+ ".scrollIntoView(new UiSelector().text(\""+ObjetoDeBusqueda+"\"));");
-		}catch (Exception e){
-			tool.print("I not found: "+" "+ ObjetoDeBusqueda);
-		}
-  }
-  
+  } 	   
 			
 //Scroll that i decide their direction (down or up)
-  public static void scrollDirection(String direccion) {
-
+  public static void scrollDirection(String direction) {
 	  TouchAction touchAction = new TouchAction(foxapp.driver);
 	  Dimension dimensions = foxapp.driver.manage().window().getSize();
 	  int pointX = (dimensions.getWidth() / 2);
 	  int startPointY = (dimensions.getHeight() / 2);
 	  int endPointY;
 
-		if (direccion.equals("down")) {
+		if (direction.equals("down")) {
 			endPointY = (int) (dimensions.getHeight() * -0.5);
 			touchAction.press(pointX, startPointY).moveTo(0, -400).release().perform();
 			tool.waitTime(700);
-		} else if (direccion.equals("up")) {
+		} else if (direction.equals("up")) {
 			endPointY = (int) (dimensions.getHeight() * 0.5);
 			touchAction.press(pointX, startPointY).moveTo(0, 400).release().perform();
 			tool.waitTime(700);
 		}
   }
 				  
-//Scroll down
+//Scroll that do an amount of scrolls down
   public void scrollDown() {
 	  Tools tool = new Tools();
 	  for (int i=0;i<8;i++) {
 		  scrollDirection("down");		  
-	  }
-	  
+	  }	  
   }
   
-//Scroll who search an element by name (Doesn't function yet)  
+
 
   
   
-//*****************************************PRINCIPAL METHODS*******************************************//
+//*****************************************************PRINCIPAL METHODS**************************************************//
   
 //Method for get out login
   public void start() {	  
@@ -211,8 +180,11 @@ public class FoxApp {
 	  tool.findName("Btn-Close","Boton cerrar Bienvenido a Fox por Name");
 	  tool.waitTime(4000); 
   }
+// Instantiation for read input 
   Scanner scanner = new Scanner(System.in);
-//Verification On Demand
+  
+  
+//Do review in On Demand section
   public void onDemand() {
 
 	  // Find series
@@ -341,8 +313,7 @@ public class FoxApp {
 		waitTime(120000);
 	 */
   
-//Method for search any object for Text
-  //((AndroidDriver)driver).findElementByAndroidUIAutomator("new UiSelector().text(\""+Omitir+"\")").click();
+
 
 
 }
