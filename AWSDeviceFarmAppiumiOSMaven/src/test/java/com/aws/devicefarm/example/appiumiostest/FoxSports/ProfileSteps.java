@@ -21,7 +21,7 @@ public class ProfileSteps {
 				FoxSports.driver.findElement(By.id("AGREGAR")).click();
 				verification=true;
 			} else {				
-				System.out.println("No se ha encontrado el elemento: " + "AGREGAR");
+				System.out.println("Element not found: " + "AGREGAR");
 			}	
 		}
 	}

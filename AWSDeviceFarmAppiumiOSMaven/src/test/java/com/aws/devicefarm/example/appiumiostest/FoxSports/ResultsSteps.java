@@ -62,7 +62,7 @@ public class ResultsSteps {
 		String source2;
 		
 		while(!isPresent) {
-			System.out.println("No se encuentra presente");
+			System.out.println("It is not present");
 			Tools.scroll("up");
 			source = foxSports.driver.getPageSource();
 			isPresent = foxSports.driver.findElements(By.id(comp)).size()>0; 
@@ -70,18 +70,18 @@ public class ResultsSteps {
 		if(isPresent) {
 			System.out.println("Si está presente");
 			Boolean isVisible = foxSports.driver.findElement(By.id(comp)).isDisplayed();
-			System.out.println("se verificará si está visible");
+			System.out.println("It will be verified if it is visible");
 			while(!isVisible) {
 				Tools.scroll("up");
 				source = foxSports.driver.getPageSource();
 				isVisible =  foxSports.driver.findElement(By.id(comp)).isDisplayed();
 				if(isVisible) {
-					System.out.println("Sí está visible");
+					System.out.println("It is visible");
 					break;
 				}
 				source2 = foxSports.driver.getPageSource();
 				if(source.equals(source2)) {
-					System.err.println("No hay una competencia con ese nombre");
+					System.err.println("There is no competition with that name");
 					Tools.failTotal+=1;
 					break;
 				}

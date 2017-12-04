@@ -29,7 +29,7 @@ public class ResultsTestCases {
 				Tools.backToMenu();
 			}	
 		}else if(!isPresent) {
-			System.out.println("Ya hay favoritos agregados");
+			System.out.println("There are already added favorites");
 		}
 		
 	}

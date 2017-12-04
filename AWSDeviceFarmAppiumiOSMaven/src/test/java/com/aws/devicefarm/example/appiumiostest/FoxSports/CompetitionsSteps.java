@@ -9,7 +9,7 @@ public class CompetitionsSteps {
 	public void verifyCompetitions1() {
 		String source=null;
 		String source2=null;
-		System.out.println("Estas son las competencias disponibles");
+		System.out.println("These are the available competences");
 		do {
 			source=foxSports.driver.getPageSource();
 			Tools.scroll("down");
@@ -25,7 +25,7 @@ public class CompetitionsSteps {
 	public void verifyCompetitions2() {
 		String source=null;
 		String source2=null;
-		System.out.println("Estas son las competencias disponibles");
+		System.out.println("These are the available competences");
 		do {
 			source=foxSports.driver.getPageSource();
 			Tools.scroll("up");
@@ -64,7 +64,7 @@ public class CompetitionsSteps {
 			if(isPresent) {
 				Boolean isVisible=foxSports.driver.findElement(By.id("No hay contenido disponible en este momento.")).isDisplayed();
 				if(isVisible) {
-					System.out.println("No hay contenido disponible en este momento.");
+					System.out.println("There is no content available at this time.");
 				}	
 			}
 		}catch(Exception e) {
@@ -77,17 +77,17 @@ public class CompetitionsSteps {
 				System.out.println("No hay contenido disponible en este momento.");
 			}
 		}catch(Exception e) {
-			System.out.println("No hay transmisiones en vivo de esta liga");
+			System.out.println("There are no live broadcasts of this league.");
 		}
 		try {
 			foxSports.driver.findElement(By.id("NOTICIAS")).click();
 			isPresent=foxSports.driver.findElements(By.id("No hay noticias disponibles en este momento.")).size()>0;
 			if(isPresent) {
-					System.out.println("No hay contenido disponible en este momento.");
+					System.out.println("There is no content available at this time.");
 
 			}
 		}catch(Exception e) {
-			System.out.println("No hay noticias");
+			System.out.println("No news.");
 		}
 		try {
 			//Tools.searchId("POSICIONES");
@@ -313,7 +313,7 @@ public class CompetitionsSteps {
 				System.out.println("No hay contenido disponible en este momento.");
 			}
 		}catch(Exception e) {
-			System.out.println("No hay noticias");
+			System.out.println("No news");
 		}
 		
 		

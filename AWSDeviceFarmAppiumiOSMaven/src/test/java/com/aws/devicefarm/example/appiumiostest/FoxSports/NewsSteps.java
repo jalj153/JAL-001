@@ -52,10 +52,10 @@ public class NewsSteps {
 		Boolean isPresent=foxSports.driver.findElements(By.id("No hay noticias disponibles en este momento.")).size()>0;
 		
 		if(isPresent) {
-			System.err.println("No hay noticias disponibles en este momento.");
+			System.err.println("No news available at this time.");
 			Tools.failTotal+=1;
 		}else {
-			System.out.println("Sí hay noticias disponibles");
+			System.out.println("Yes there are news available");
 			Tools.waitTime(1000);
 			foxSports.driver.findElement(By.xpath("//XCUIElementTypeApplication[@name=\"FOX Sports\"]/XCUIElementTypeWindow[1]"
 					+ "/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther/XCUIElementTypeOther"

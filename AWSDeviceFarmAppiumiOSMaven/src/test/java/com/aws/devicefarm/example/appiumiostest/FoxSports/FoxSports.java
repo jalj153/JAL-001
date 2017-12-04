@@ -14,6 +14,10 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
+	/**
+	 *@author Hendrik Hurtarte
+	 */
+
 public class FoxSports {
 	static LoginTestCases login = new LoginTestCases();
 	static ProfileTestCases profile = new ProfileTestCases();

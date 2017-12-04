@@ -29,7 +29,7 @@ public class InLiveSteps {
 		while(isVisible) {
 			if(isVisible) {
 				source=foxSports.driver.getPageSource();
-				System.out.println("Éstas son las transmisiones para "+id);
+				System.out.println("These are the transmissions for "+id);
 				Tools.scroll("down");
 				source2=foxSports.driver.getPageSource();
 				isVisible=foxSports.driver.findElement(By.id(id)).isDisplayed();
@@ -120,7 +120,7 @@ public class InLiveSteps {
 		String source2;
 		while(!isPresent) {		
 				source=foxSports.driver.getPageSource();
-				System.out.println("No se encuentra "+date);
+				System.out.println("Is not found "+date);
 				Tools.scroll("down");
 				source2=foxSports.driver.getPageSource();
 				isPresent=foxSports.driver.findElements(By.id(date)).size()>0;
@@ -129,11 +129,11 @@ public class InLiveSteps {
 				}
 		}
 		if(isPresent) {
-			System.out.println("Sí se encuentra "+date);
+			System.out.println("Yes it is "+date);
 			Boolean isVisible=foxSports.driver.findElement(By.id(date)).isDisplayed();
-			System.out.println("se verá si está presente "+date);
+			System.out.println("It will be seen if it is present... "+date);
 			while(!isVisible) {
-				System.out.println("No está visible "+date);
+				System.out.println("It is not visible "+date);
 				Tools.scroll("down");
 				source=foxSports.driver.getPageSource();
 				//isPresent=foxSports.driver.findElements(By.id(search)).size()>0;
@@ -143,7 +143,7 @@ public class InLiveSteps {
 				}
 				source2 = foxSports.driver.getPageSource();
 				if(source.equals(source2)) {
-					System.err.println("No se ha encontrado");
+					System.err.println("It has not been found");
 					Tools.failTotal+=1;
 				}
 			}
@@ -155,18 +155,18 @@ public class InLiveSteps {
 		Boolean isPresent=foxSports.driver.findElements(By.name(show)).size()>0;
 		String source;
 		if(!isPresent) {
-			System.err.println("No se ha encontrado algún show en vivo");
+			System.err.println("No live show found");
 			Tools.failTotal+=1;
 		}
 		while(isPresent) {			
 			if(isPresent) {
 			
-				System.out.println("A presionar el show");
+				System.out.println("To press the show...");
 				Boolean isVisible2=foxSports.driver.findElement(By.name(show)).isDisplayed();
 				source=foxSports.driver.getPageSource();
 				isPresent=foxSports.driver.findElements(By.name(show)).size()>0;
 				if(isVisible2) {
-					System.out.println("Presionando show");
+					System.out.println("Pressing show...");
 					Tools.searchName(show);
 					break;
 				}
@@ -174,7 +174,7 @@ public class InLiveSteps {
 			Tools.scroll("abajo");
 			source=foxSports.driver.getPageSource();
 			isPresent=foxSports.driver.findElements(By.name(show)).size()>0;
-			System.out.println("Está el show");
+			System.out.println("There is the show");
 		}	
 	}
 	
@@ -183,18 +183,18 @@ public class InLiveSteps {
 		Boolean isPresent=foxSports.driver.findElements(By.id(search)).size()>0;
 		String source;
 		while(!isPresent) {		
-				System.out.println("No se encuentra "+search);
+				System.out.println("Is not found "+search);
 				Tools.scroll("down");
 				source=foxSports.driver.getPageSource();
 				isPresent=foxSports.driver.findElements(By.id(search)).size()>0;
 		}
 		if(isPresent) {
 
-			System.out.println("Sí se encuentra "+search);
+			System.out.println("Yes it is "+search);
 			Boolean isVisible=foxSports.driver.findElement(By.id(search)).isDisplayed();
 			System.out.println("se verá si está presente "+search);
 			while(!isVisible) {
-				System.out.println("No está visible "+search);
+				System.out.println("It is not visible "+search);
 				Tools.scroll("down");
 				source=foxSports.driver.getPageSource();
 				//isPresent=foxSports.driver.findElements(By.id(search)).size()>0;
@@ -205,8 +205,8 @@ public class InLiveSteps {
 			}
 			if(isVisible){
 				Tools.successTotal+=1;
-				System.out.println("Se está presionando "+search);
-				System.out.println("Sí hay transmisiones para"+" "+search);
+				System.out.println("You are pressing: "+search);
+				System.out.println("Yes there are transmissions for:"+" "+search);
 			}
 			
 		}
@@ -285,7 +285,7 @@ public class InLiveSteps {
 				foxSports.driver.findElement(By.id(id)).click();
 				verification=true;
 			} else {
-				System.out.println("No se ha encontrado el elemento: " + id);
+				System.out.println("Element not found: " + id);
 				Tools.waitTime(1000);
 				tapLive();
 			}	
