@@ -1,5 +1,9 @@
 package PRUEBAFoxAppAndroid.PRUEBAFoxAppAndroid;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.util.Properties;
+
 import org.openqa.selenium.Dimension;
 
 import io.appium.java_client.TouchAction;
@@ -19,6 +23,24 @@ public class Tools {
 	public static int sumFound = 0;
 	public static int sumNotFound= 0;
 	public static int totalRight=0;
+//Method that receive capabilities
+	public static String readProperty(String property) {
+		Properties prop;
+		String value = null;
+		try {
+			prop = new Properties();
+			prop.load(new FileInputStream(new File("config.properties")));
+			value = prop.getProperty(property);
+			if(value == null || value.isEmpty()) {
+				throw new Exception("Value not set or is empty");
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return value;
+	}
+	
+	
 	
 //Method for let space in the console while writing the results messages
 	 	public void space() {
