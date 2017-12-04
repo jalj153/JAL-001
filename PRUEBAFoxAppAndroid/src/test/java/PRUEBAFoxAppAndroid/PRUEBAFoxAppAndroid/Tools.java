@@ -20,14 +20,14 @@ public class Tools {
 	public static int sumNotFound= 0;
 	public static int totalRight=0;
 	
-//Method for let space in the console while writing 
+//Method for let space in the console while writing the results messages
 	 	public void space() {
 	 		for(int i=0; i<3; i++) {
 	 			print("");				
 	 		}				  		
 	 	}
 	 
-//Wait with sleepThread
+//Wait with sleepThread in milliseconds
 	 	public static void waitTime(int time) {			
 			try {
 				Thread.sleep(time);
@@ -74,8 +74,7 @@ public class Tools {
 					  foxapp.driver.findElementByName("Activity-Indicator-Container").click();
 					  foxapp.driver.findElementByName("Activity-Indicator-Container").click();
 					  foxapp.driver.findElementByName("Activity-Indicator-Container").click();		
-//**********************************************************************************************************
-					  
+//**********************************************************************************************************					  
 					  waitTime(50000);					  
 					  print("Terminó anuncio");  
 					  
@@ -107,14 +106,12 @@ public class Tools {
 					  waitTime(3000);
 					  space();
 					  waitTime(2000);					  
-					  findName("Btn-Back-Hero-Container","Boton atras");
-					  
+					  findName("Btn-Back-Hero-Container","Boton atras");					  
 				  }else {
 					  waitTime(5000);
 				  }	
 				space();
-				findName("Btn-Back-Hero-Container","Boton atras");
-				
+				findName("Btn-Back-Hero-Container","Boton atras");				
 			}			 
 		}
 
@@ -152,8 +149,7 @@ public class Tools {
 			}	
 //Write what the total of tests that are alright
 			totalResults = sumFound+ sumNotFound;
-			totalRight = ((100/totalResults)*sumFound);
-			
+			totalRight = ((100/totalResults)*sumFound);			
 		}
 		
 //Find by ID
@@ -167,7 +163,6 @@ public class Tools {
 			}			
 		}
 		
-
 		
 //Method for write in Console, for not use "System.out.print"
 		public static void print(String print) {
