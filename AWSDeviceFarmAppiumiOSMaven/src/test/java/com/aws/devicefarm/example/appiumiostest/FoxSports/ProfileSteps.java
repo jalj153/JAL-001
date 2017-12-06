@@ -38,7 +38,7 @@ public class ProfileSteps {
 				verification=true;
 			} else {
 				if(!isPresent) {
-					System.out.println("No se ha encontrado el elemento: " + "AGREGAR");
+					System.out.println("The item could not be found: " + "AGREGAR");
 					Boolean isPresent2 = FoxSports.driver.findElements(By.id("AGREGAR COMPETENCIAS")).size() > 0;
 					if(isPresent2) {
 						FoxSports.driver.findElement(By.id("AGREGAR COMPETENCIAS")).click();
@@ -63,7 +63,7 @@ public class ProfileSteps {
 				verification=true;
 			} else {
 				if(!isPresent) {
-					System.out.println("No se ha encontrado el elemento: " + "AGREGAR");
+					System.out.println("The item could not be found: " + "AGREGAR");
 					Boolean isPresent2 = FoxSports.driver.findElements(By.id("AGREGAR EQUIPOS")).size() > 0;
 					if(isPresent2) {
 						FoxSports.driver.findElement(By.id("AGREGAR EQUIPOS")).click();

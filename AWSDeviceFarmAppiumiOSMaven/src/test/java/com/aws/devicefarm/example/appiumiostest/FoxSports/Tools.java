@@ -46,7 +46,7 @@ public class Tools {
 			foxSports.driver.findElement(By.id(id)).click();
 			successTotal+=1;
 		}catch(Exception e) {
-			System.err.println("No se encontró: "+ id);
+			System.err.println("It was not found: "+ id);
 			failTotal+=1;
 		}
 	}
@@ -69,7 +69,7 @@ public class Tools {
 			foxSports.driver.findElement(By.xpath(path)).click();	
 			successTotal+=1;
 		}catch(Exception e) {
-			System.err.println("No se encontró el elemento");
+			System.err.println("It was not found: "+path);
 			failTotal+=1;
 		}
 	}
@@ -93,7 +93,7 @@ public class Tools {
 			foxSports.driver.findElementByName(name).click();
 			successTotal+=1;
 		}catch(Exception e) {
-			System.err.println("No se encontró: "+ name);
+			System.err.println("It was not found: "+ name);
 			failTotal+=1;
 		}
 		
@@ -156,20 +156,20 @@ public class Tools {
 			try {
 				foxSports.driver.findElement(By.id(aux)).click();			
 			}catch(Exception e) {
-				System.err.println("No se encontró");
+				System.err.println("It was not found: "+aux);
 				waitTime(1000);
 			}
 			//searchId(aux2);
 			try {
 				foxSports.driver.findElement(By.id(aux2)).click();
 			}catch(Exception e) {
-				System.err.println("No se encontró");
+				System.err.println("It was not found: "+aux2);
 				waitTime(1000);
 			}
 			try {
 				foxSports.driver.findElement(By.id(aux3));
 			}catch(Exception e) {
-				System.err.println("No se encontró");
+				System.err.println("It was not found: "+aux3);
 				waitTime(1000);
 			}
 			source1=foxSports.driver.getPageSource();
@@ -184,7 +184,7 @@ public class Tools {
 			foxSports.driver.findElement(By.xpath(path)).sendKeys(text);
 			successTotal+=1;
 		}catch(Exception e) {
-			System.err.println("No se pudo mandar texto a "+ path);
+			System.err.println("Could not send text to: "+ path);
 			failTotal+=1;
 		}
 	}
@@ -194,27 +194,27 @@ public class Tools {
 	public void findHourNameType(String hour, String name, String type) {
 		try {
 			searchId(hour);
-			System.out.println("Encontrado");
+			System.out.println("Yes he found: "+hour);
 		}catch(Exception e) {
-			System.out.println("No se encontró la hora");
+			System.out.println("The time was not found");
 		}
 		try {
 			searchId(name);
-			System.out.println("Encontrado");
+			System.out.println("Yes he found: "+name);
 		}catch(Exception e) {
-			System.out.println("El evento no tiene nombre");
+			System.out.println("The event has no name");
 		}
 		try{
 			searchId(type);
-			System.out.println("Encontrado");
+			System.out.println("Yes he found: "+type);
 		}catch(Exception e){
-			System.out.println("No se encuentra el tipo del evento");
+			System.out.println("The event type is not found");
 		}
 		try {
 			searchName("alarm btn");
-			System.out.println("Encontrado");
+			System.out.println("Yes he found: AlarmBTN");
 		}catch(Exception e) {
-			System.out.println("No se encuentra el botón de recordatorio");
+			System.out.println("Can not find reminder button");
 		}
 	}
 	
@@ -317,7 +317,7 @@ public class Tools {
 						gesture(action, id, selection);
 					}
 				} else {
-					System.err.println("No se ha encontrado el elemento: " + id);
+					System.err.println("The item could not be found: " + id);
 				}
 			}
 			break;
@@ -377,7 +377,7 @@ public class Tools {
 						gesture(action, id, selection);
 					}
 				} else {
-					System.err.println("No se ha encontrado el elemento: " + id);
+					System.err.println("The item could not be found: " + id);
 				}
 			}
 			break;
@@ -437,7 +437,7 @@ public class Tools {
 						gesture(action, id, selection);
 					}
 				} else {
-					System.err.println("No se ha encontrado el elemento: " + id);
+					System.err.println("The item could not be found: " + id);
 				}
 			}
 			break;
@@ -502,7 +502,7 @@ public class Tools {
 		int pointX = (dimensions.getWidth() / 2);
 		int startPointY = (dimensions.getHeight() / 2);
 		touchAction.press(pointX, startPointY).release().perform();
-		System.out.println("Se hizo tap");
+		System.out.println("It was tap");
 		
 	}
 	
@@ -537,11 +537,11 @@ public class Tools {
 	public static void controlFails() {
 		total=successTotal+failTotal;
 		if(total==0) {
-			System.out.println("No se corrió ningún test");
+			System.out.println("No tests were run");
 		}else {
 			percentage=(successTotal+100)/total;
 			System.out.println(" ");
-			System.out.println("*****************El porcentaje de efectividad fue: "+percentage+"%"+" "+"***************************");
+			System.out.println("*****************The percentage of effectiveness was: "+percentage+"%"+" "+"***************************");
 		}
 		
 	}

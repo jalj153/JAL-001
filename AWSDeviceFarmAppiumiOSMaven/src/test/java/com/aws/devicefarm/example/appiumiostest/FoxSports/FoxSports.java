@@ -63,7 +63,7 @@ public class FoxSports {
 	 
 	  ///////////Profile
 	  
-	 // profile.profile_010();
+	  profile.profile_010();
 	  /*profile.profile_020();
 	  profile.profile_030();
 	  profile.profile_040();
@@ -93,9 +93,9 @@ public class FoxSports {
 	  competitions.competitions_160();
 	  */
 	  ///////////////News
-	  /*
+	  
 	  news.news_010();
-	  news.news_020();
+	  /*news.news_020();
 	  */
 	  ///////////////Radio
 	   /*

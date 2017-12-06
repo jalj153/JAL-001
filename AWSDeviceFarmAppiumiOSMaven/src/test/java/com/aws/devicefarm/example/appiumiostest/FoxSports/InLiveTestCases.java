@@ -21,7 +21,7 @@ public class InLiveTestCases {
 		Tools.waitTime(3000);
 		try {
 			step.checkLives("EN VIVO");
-		}catch(Exception e) {System.out.println("No hay transmisiones en vivo");}
+		}catch(Exception e) {System.out.println("No live broadcasts");}
 	
 	}
 	
@@ -34,7 +34,7 @@ public class InLiveTestCases {
 		step.searchLives("MÁS TARDE");
 		try {
 			step.checkLives("MÁS TARDE");
-		}catch(Exception e) {System.out.println("No hay transmisiones "+" "+"MÁS TARDE");}
+		}catch(Exception e) {System.out.println("No live broadcasts for "+" "+"later");}
 	}
 	
 	//Method that shows the live broadcasts of tomorrow
